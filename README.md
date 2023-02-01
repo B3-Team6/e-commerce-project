@@ -1,38 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ProjetECommerce
+## Front :
+Nous avons choisi d'utiliser **ReactJS** pour le Front-End de notre site car c'est un langage que nous avons étudié en cours, et nous avons envie de l'apprendre le mieux possible. C'est aussi un choix idéal pour le développement d'un site d'ECommerce car React permet une mise à jour du contenu d'une page Web sans avoir à la recharger, ainsi gagner en fluidité et donc l'expérience du client.
+Pour le style de notre site, nous allons exploiter **TailwindCSS** qui est un Framework permettant d'implémenter facilement le CSS dans son code grâce à ses classes CSS génériques. On peut par conséquent styliser sans pour autant quitter la syntaxe HTML pour écrire les classes à partir de 0 nous-mêmes.
 
-## Getting Started
+## Back :
+En ce qui concerne le Back-End, nous avons choisi de partir sur **NodeJS**, encore une fois c'est un langage qu'on a étudié en cours et qu'on aimerait savoir utiliser.
+De plus, ce langage reste du JavaScript donc c'est en accord avec notre choix de ReactJS pour le Front.
 
-First, run the development server:
+## BDD :
+La base de données est gérée sur **XAMPP** en local. Le choix de XAMPP par dessus WAMP est que ce dernier ne supporte que le système d'exploitation Windows, alors que XAMPP prend en compte macOS, Linux et Windows. Le jour où une migration d'OS devra être effectué, on ne sera pas embêté. Le package de XAMPP est aussi 3 fois moins lourd que WAMP, ainsi que la facilité d'installation...
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Maquettes :
+L'ensemble des maquettes du site est construit sur **Figma**. C'est open-source et permet le travail collaboratif.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Gestionnaire de projet : 
+Pour le gestionnaire de projet, nous avons décidé d'utilisé **Trello** pour détailler les fonctions que notre site devra remplir (En tant que visiteur/utilisateur, je veux ...). Même raison que la précédente, c'est open-source et permet de travailler en équipe
