@@ -18,6 +18,7 @@ const Home = () => {
           <a>BURGER</a>
         </div>
       </div>
+
       <Carousel />
     </>
   );
