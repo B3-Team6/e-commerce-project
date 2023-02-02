@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faFacebookSquare,
-  faTwitterSquare,
   faInstagramSquare,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons"
@@ -23,9 +22,6 @@ const Footer = () => {
       <div className="flex flex-row-reverse gap-6">
         <a href="#">
           <FontAwesomeIcon icon={faFacebookSquare} className="w-8 h-8" />
-        </a>
-        <a href="#">
-          <FontAwesomeIcon icon={faTwitterSquare} className="w-8 h-8" />
         </a>
         <a href="#">
           <FontAwesomeIcon icon={faInstagramSquare} className="w-8 h-8" />
