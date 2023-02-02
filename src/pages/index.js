@@ -1,7 +1,7 @@
-import Head from 'next/head'
+import Carousel from "@/components/Carousel";
+import Head from "next/head";
 
-
-const Home = ()=> {
+const Home = () => {
   return (
     <>
       <Head>
@@ -10,8 +10,16 @@ const Home = ()=> {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    
+      <div className="bg-orange-100 flex justify-between p-2">
+        <div>AIRNES</div>
+        <div className="flex gap-4 ">
+          <a>LOUPE</a>
+          <a>PANIER</a>
+          <a>BURGER</a>
+        </div>
+      </div>
+      <Carousel />
     </>
-  )
-}
-export default  Home
+  );
+};
+export default Home;
