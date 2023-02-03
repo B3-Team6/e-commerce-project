@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="hidden lg:h-20 lg:absolute lg:bottom-0 lg:w-full lg:border-t-4 lg:border-gray-400 lg:flex lg:p-6 lg:justify-between lg:items-center lg:font-bold">
+    <footer className="hidden lg:h-20 lg:relative lg:bottom-0 lg:w-full lg:border-t-4 lg:border-gray-400 lg:flex lg:p-6 lg:justify-between lg:items-center lg:font-bold">
       <div className="flex flex-row gap-6">
         <Link
           href="https://en.wikipedia.org/wiki/Terms_of_service"
