@@ -1,7 +1,88 @@
-import Head from 'next/head'
+import Head from "next/head"
+import Image from "next/image"
 
+const products = [
+  {
+    id: 1,
+    name: "Canape",
+    img: (
+      <Image
+        alt="canape"
+        width={400}
+        height={400}
+        src="/images/canape.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 2,
+    name: "Lit",
+    img: (
+      <Image
+        alt="lit"
+        width={400}
+        height={400}
+        src="/images/lit.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 3,
+    name: "Table",
+    img: (
+      <Image
+        alt="table"
+        width={400}
+        height={400}
+        src="/images/table.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 4,
+    name: "Bureau",
+    img: (
+      <Image
+        alt="bureau"
+        width={400}
+        height={400}
+        src="/images/bureau.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 5,
+    name: "Chaise",
+    img: (
+      <Image
+        alt="chaise"
+        width={400}
+        height={400}
+        src="/images/chaise.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 6,
+    name: "Armoire",
+    img: (
+      <Image
+        alt="armoire"
+        width={400}
+        height={400}
+        src="/images/armoire.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+]
 
-const Home = ()=> {
+const Home = () => {
   return (
     <>
       <Head>
@@ -10,8 +91,32 @@ const Home = ()=> {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    
+
+      <div className="p-4 flex items-center flex-col">
+        <Image
+          alt="carousel"
+          width={600}
+          height={600}
+          src="/images/carousel.png"
+        />
+        <p>Découvrez nos meilleurs ventes et nos catégories de meubles</p>
+      </div>
+
+      <div className="grid grid-cols-3 gris-rows-2 gap-3 p-2 items-center  ">
+        {products.map((product) => (
+          <>
+            <div className="flex justify-center">
+              <div className="flex group items-center justify-center  w-5/6 ">
+                <div className=" hidden group-hover:flex text-2xl font-black text-black absolute z-10">
+                  {product.name}
+                </div>
+                {product.img}
+              </div>
+            </div>
+          </>
+        ))}
+      </div>
     </>
   )
 }
-export default  Home
+export default Home
