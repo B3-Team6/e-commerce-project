@@ -10,9 +10,9 @@ const NavBar = () => {
   const [isOpen, setOpen] = useState(false)
 
   return (
-    <div className="flex items-center justify-between border-b border-gray-400 py-5">
+    <div className="flex items-center justify-between border-b border-gray-400 py-5 bg-[#F6E6D1] font-semibold font-[Galdeano]">
       <a href="#">
-        <span className="text-black ml-10 font-bold text-2xl">AIRNES</span>
+        <span className="text-black ml-10 font-bold text-2xl">AIRNEIS</span>
       </a>
       <nav>
         <section className="flex flex-row">
@@ -38,7 +38,7 @@ const NavBar = () => {
               <XMarkIcon className="w-12 h-12 mr-6 cursor-pointer"></XMarkIcon>
             </div>
 
-            <ul className="flex flex-col items-center justify-between min-h-[200px] md:top-2 ">
+            <ul className="flex flex-col items-center justify-between min-h-[200px] font-[Galdeano]">
               <li className="border-b border-gray-400 my-8 uppercase">
                 <a href="#">Se connecter</a>
               </li>
@@ -55,7 +55,7 @@ const NavBar = () => {
                 <a href="#">Contact</a>
               </li>
               <li className="border-b border-gray-400 my-8  uppercase">
-                <a href="#">À propos d’ÀIRNEIS</a>
+                <a href="#">À propos d’AIRNEIS</a>
               </li>
             </ul>
           </div>
