@@ -36,7 +36,7 @@
 - Questions:
 - Idées d'améliorations:
 
-# 09/01/2022 - 22/01/2023
+# 09/01/2023 - 22/01/2023
 
 ### Contributeurs:
 
@@ -52,6 +52,54 @@
 ### Avis:
 
 #### TAM William
+
+- Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations:
+
+# 22/02/2023 - 06/02/2023
+
+### Contributeurs:
+
+- TAM William
+- CHOPLIN Edouard
+- LAGRANGE Louis
+- SABIN Marvin
+
+### Changelogs:
+
+- Migration de Trello à Jira
+- Recréation du projet à partir d'un nouveau repository propre
+- Version v0 de la page d'accueil (non complet), uniquement le front
+- Version v0 de la navbar
+- Version v0 du footer
+- Formulaire de connexion, inscription, livraison (front)
+
+### Avis:
+
+#### TAM William
+
+- Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations: Se poser une petite heure de travail sur le projet le weekend en groupe.
+
+#### LAGRANGE Louis
+
+- Positif: Le groupe a commencé à coder.
+- Négatif:
+- Questions:
+- Idées d'améliorations: J'ai entendu parler d'une extension Git permettant de linter le code lors du push vers la branche. On devrait y jeter un coup
+
+#### SABIN Marvin
+
+- Positif: Le projet est plus structuré.
+- Négatif:
+- Questions: Pour la database, on part sur PostgreSQL ou MongoDB ?
+- Idées d'améliorations: Avoir le même coding style pour tout le monde.
+
+#### CHOPLAIN Edouard
 
 - Positif:
 - Négatif:
