@@ -27,13 +27,13 @@ const Footer = () => {
         </Link>
       </div>
       <div className="flex flex-row-reverse gap-6">
-        <Link href="https://www.facebook.com/">
+        <Link href="https://www.facebook.com/" className="hover:text-gray-500">
           <FontAwesomeIcon icon={faFacebookSquare} className="w-8 h-8" />
         </Link>
-        <Link href="https://www.instagram.com/">
+        <Link href="https://www.instagram.com/" className="hover:text-gray-500">
           <FontAwesomeIcon icon={faInstagramSquare} className="w-8 h-8" />
         </Link>
-        <Link href="https://www.linkedin.com/">
+        <Link href="https://www.linkedin.com/" className="hover:text-gray-500">
           <FontAwesomeIcon icon={faLinkedin} className="w-8 h-8" />
         </Link>
       </div>
