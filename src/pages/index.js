@@ -2,7 +2,7 @@ import Carousel from "@/components/Carousel";
 import Head from "next/head";
 import Image from "next/image";
 
-const products = [
+const categories = [
   {
     id: 1,
     name: "Canape",
@@ -83,6 +83,165 @@ const products = [
   },
 ];
 
+const products = [
+  {
+    id: 1,
+    name: "Canape",
+    img: (
+      <Image
+        alt="canape"
+        width={300}
+        height={300}
+        src="/images/canape.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 2,
+    name: "Lit",
+    img: (
+      <Image
+        alt="lit"
+        width={300}
+        height={300}
+        src="/images/lit.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 3,
+    name: "Table",
+    img: (
+      <Image
+        alt="table"
+        width={300}
+        height={300}
+        src="/images/table.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 4,
+    name: "Bureau",
+    img: (
+      <Image
+        alt="bureau"
+        width={300}
+        height={300}
+        src="/images/bureau.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 5,
+    name: "Chaise",
+    img: (
+      <Image
+        alt="chaise"
+        width={300}
+        height={300}
+        src="/images/chaise.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 6,
+    name: "Armoire",
+    img: (
+        <Image
+        alt="armoire"
+        width={300}
+        height={300}
+        src="/images/armoire.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 1,
+    name: "Canape",
+    img: (
+      <Image
+        alt="canape"
+        width={300}
+        height={300}
+        src="/images/canape.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 2,
+    name: "Lit",
+    img: (
+      <Image
+        alt="lit"
+        width={300}
+        height={300}
+        src="/images/lit.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 3,
+    name: "Table",
+    img: (
+      <Image
+        alt="table"
+        width={300}
+        height={300}
+        src="/images/table.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 4,
+    name: "Bureau",
+    img: (
+      <Image
+        alt="bureau"
+        width={300}
+        height={300}
+        src="/images/bureau.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 5,
+    name: "Chaise",
+    img: (
+      <Image
+        alt="chaise"
+        width={300}
+        height={300}
+        src="/images/chaise.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+  {
+    id: 6,
+    name: "Armoire",
+    img: (
+        <Image
+        alt="armoire"
+        width={300}
+        height={300}
+        src="/images/armoire.jpg"
+        className="rounded-lg hover:opacity-50"
+      />
+    ),
+  },
+];
+
 const Home = () => {
   return (
     <>
@@ -94,15 +253,34 @@ const Home = () => {
       </Head>
 
       <Carousel />
-      <div className="p-4 flex items-center flex-col">
-        <p>Découvrez nos meilleurs ventes et nos catégories de meubles</p>
+      <div className="p-2 flex items-center justify-center font-bold text-xl font-serif bg-yellow-500">
+        <p>Découvrez nos catégories de meubles ainsi que nos meilleurs ventes</p>
       </div>
 
       <div className="grid grid-cols-3 gris-rows-2 gap-3 p-2 items-center  ">
-        {products.map((product) => (
+        {categories.map((categorie) => (
           <>
             <div className="flex justify-center">
               <div className="flex group items-center justify-center  w-5/6 ">
+                <div className=" hidden group-hover:flex text-2xl font-black text-black absolute z-10">
+                  {categorie.name}
+                </div>
+                {categorie.img}
+              </div>
+            </div>
+          </>
+        ))}
+      </div>
+
+          <div className="flex justify-center p-6 font-black text-2xl bg-yellow-500 font-serif">
+          <p>Les Highlanders du moment</p>
+          </div>
+
+      <div className="grid grid-cols-4 gris-rows-3 gap-3 p-2 items-center ">
+        {products.map((product) => (
+          <>
+            <div className="flex justify-center">
+              <div className="flex group items-center justify-center  w-3/5 ">
                 <div className=" hidden group-hover:flex text-2xl font-black text-black absolute z-10">
                   {product.name}
                 </div>
@@ -112,6 +290,7 @@ const Home = () => {
           </>
         ))}
       </div>
+
     </>
   );
 };

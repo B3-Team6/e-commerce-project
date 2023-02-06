@@ -5,7 +5,7 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 const Navbar = () => {
   return (
     <>
-      <div className="bg-orange-100 flex justify-between p-2 sticky top-0">
+      <div className="bg-orange-100 flex justify-between p-2 sticky top-0 z-20">
         <a href="#" className="font-serif font-bold text-2xl pl-2">
           AIRNES
         </a>
