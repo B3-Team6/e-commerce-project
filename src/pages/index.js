@@ -253,8 +253,8 @@ const Home = () => {
       </Head>
 
       <Carousel />
-      <div className="p-2 flex items-center justify-center font-bold text-xl font-serif bg-yellow-500">
-        <p>Découvrez nos catégories de meubles ainsi que nos meilleurs ventes</p>
+      <div className="p-2 flex items-center justify-center font-bold text-xl font-serif bg-slate-200">
+        <p>Découvrez nos catégories de meubles ainsi que nos meilleures ventes</p>
       </div>
 
       <div className="grid grid-cols-3 gris-rows-2 gap-3 p-2 items-center  ">
@@ -272,7 +272,7 @@ const Home = () => {
         ))}
       </div>
 
-          <div className="flex justify-center p-6 font-black text-2xl bg-yellow-500 font-serif">
+          <div className="flex justify-center p-2 font-black text-2xl bg-slate-200 font-serif">
           <p>Les Highlanders du moment</p>
           </div>
 

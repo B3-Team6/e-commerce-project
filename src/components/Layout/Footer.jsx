@@ -8,17 +8,17 @@ import {
 const Footer = () => {
   return (
     <>
-      <div className="border-t-2 border-t-black p-4 flex justify-between">
+      <div className="border-t-2 border-t-black p-2 flex justify-between">
         <div className="flex gap-1">
-          <a className=" hover:text-orange-100" href="#">
+          <a className=" hover:text-orange-100 hover:underline " href="#">
             CGU
           </a>
           <p>·</p>
-          <a className=" hover:text-orange-100" href="#">
+          <a className=" hover:text-orange-100 hover:underline" href="#">
             Mentions légales
           </a>
-          <p>·</p>
-          <a className=" hover:text-orange-100" href="#">
+          <p>·</p> 
+          <a className=" hover:text-orange-100 hover:underline" href="#">
             Contact
           </a>
         </div>
