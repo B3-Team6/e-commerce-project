@@ -14,4 +14,4 @@ La base de données est gérée sur **XAMPP** en local. Le choix de XAMPP par de
 L'ensemble des maquettes du site est construit sur **Figma**. C'est open-source et permet le travail collaboratif.
 
 ## Gestionnaire de projet : 
-Pour le gestionnaire de projet, nous avons décidé d'utilisé **Trello** pour détailler les fonctions que notre site devra remplir (En tant que visiteur/utilisateur, je veux ...). Même raison que la précédente, c'est open-source et permet de travailler en équipe
+Pour le gestionnaire de projet, nous avons décidé d'utilisé **Jira** pour détailler les fonctions que notre site devra remplir (En tant que visiteur/utilisateur, je veux ...). Même raison que la précédente, c'est open-source et permet de travailler en équipe
