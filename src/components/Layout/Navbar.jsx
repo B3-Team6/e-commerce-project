@@ -19,18 +19,18 @@ const Navbar = () => {
           <ShoppingCartIcon className="h-8 w-8  hover:text-white" />
           <div className="">
           <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
-          <Bars3Icon className="h-8 w-8  hover:text-white" />
+          <Bars3Icon className="h-8 w-8  hover:text-white  " />
           </button>
           {isOpen && (
-        <ul className="absolute right-0 mt-10 bg-white p-5 shadow-xl">
+        <ul className="absolute right-0 mt-2 bg-orange-100 p-8   ">
           <li className="mb-3">
-            <a href="#" className="block p-2 hover:bg-orange-100">Home</a>
+            <a href="#" className="block p-2 hover:text-white hover:bg-black  justify-center">Se connecter</a>
           </li>
           <li className="mb-3">
-            <a href="#" className="block p-2 hover:bg-gray-200">About</a>
+            <a href="#" className="block p-2  hover:text-white hover:bg-black">S'inscrire</a>
           </li>
           <li className="mb-3">
-            <a href="#" className="block p-2 hover:bg-gray-200">Contact</a>
+            <a href="#" className="block p-2 hover:text-white hover:bg-black">A propos d'AIRNEIS</a>
           </li>
         </ul>
       )}
