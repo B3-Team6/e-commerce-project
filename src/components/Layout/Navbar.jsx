@@ -14,8 +14,8 @@ const Navbar = () => {
           AIRNES
         </a>
         <div className="flex gap-4 ">
-          <MagnifyingGlassIcon className="h-8 w-8 hover:text-white" />
-          <ShoppingCartIcon className="h-8 w-8  hover:text-white" />
+          <MagnifyingGlassIcon className="h-8 w-8 hover:text-white duration-300" />
+          <ShoppingCartIcon className="h-8 w-8  hover:text-slate-500 duration-300" />
           <div className="">
             <button
               onClick={() => setIsOpen(!isOpen)}
