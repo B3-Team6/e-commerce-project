@@ -105,3 +105,23 @@
 - Négatif:
 - Questions:
 - Idées d'améliorations:
+
+# 12/02/2023 - 12/03/2023
+
+### Contributeurs:
+
+- TAM William
+
+### Changelogs:
+
+- Ajout des pages CGU et mentions légales.
+- Update des liens du footer pour la redirection vers le CGU, mentions légales et média.
+
+### Avis:
+
+#### TAM William
+
+- Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations:
