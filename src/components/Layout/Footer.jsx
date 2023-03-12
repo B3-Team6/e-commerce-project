@@ -11,18 +11,18 @@ const Footer = () => {
     <footer className="hidden lg:h-20 lg:relative lg:bottom-0 lg:w-full lg:border-t-4 lg:border-gray-400 lg:flex lg:p-6 lg:justify-between lg:items-center lg:font-bold">
       <div className="flex flex-row gap-6">
         <Link
-          href="https://en.wikipedia.org/wiki/Terms_of_service"
+          href="footerContent//tos"
           className="hover:underline"
         >
           Terms of Use
         </Link>
         <Link
-          href="https://en.wikipedia.org/wiki/Notice"
+          href="footerContent/legalNotice"
           className="hover:underline"
         >
           Legal Notice
         </Link>
-        <Link href="/contact" className="hover:underline">
+        <Link href="contact" className="hover:underline">
           Contact
         </Link>
       </div>

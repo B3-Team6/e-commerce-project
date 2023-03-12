@@ -1,19 +1,19 @@
 import Head from "next/head"
-import Footer from "@/components/Footer"
-import Tos from "@/components/Tos"
+import Footer from "@/components/Layout/Footer"
+import LegalNotice from "@/components/LegalNotice"
 
-const TosPage = () => {
+const LegalNoticePage = () => {
   return (
     <>
       <Head>
         <title>Terms of Use</title>
-        <meta name="description" content="Terms of Use page" />
+        <meta name="description" content="Legal notice page" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Tos></Tos>
+      <LegalNotice></LegalNotice>
       <Footer></Footer>
     </>
   )
 }
-export default TosPage
+export default LegalNoticePage
