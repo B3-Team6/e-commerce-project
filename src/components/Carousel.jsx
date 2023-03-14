@@ -18,7 +18,7 @@ const Carousel = () => {
 
   return (
     <div className="flex justify-center">
-      <div className=" w-1/2 overflow-hidden p-4">
+      <div className=" w-full md:w-2/3 lg:w-1/2  overflow-hidden p-4">
         {images.map((item, index) => {
           const isActive = index === currentIndex;
           return (

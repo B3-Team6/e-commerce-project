@@ -253,11 +253,11 @@ const Home = () => {
       </Head>
 
       <Carousel />
-      <div className="p-2 flex items-center justify-center font-bold text-2xl font-serif bg-slate-200">
+      <div className="p-2 text-sm text-center  font-bold md:text-lg lg:text-2xl font-serif bg-slate-200">
         <p>Découvrez nos catégories de meubles ainsi que nos meilleures ventes</p>
       </div>
 
-      <div className="grid grid-cols-3 gris-rows-2 gap-3 p-2 items-center  ">
+      <div className="grid  items-center  flex-col md:grid-cols-2 md:gris-rows-3 lg:grid-cols-3 lg:gris-rows-2 gap-3 p-2 ">
         {categories.map((categorie) => (
           <>
             <div className="flex justify-center">
@@ -290,7 +290,7 @@ const Home = () => {
           </>
         ))}
       </div>
-
+ 
     </>
   );
 };
