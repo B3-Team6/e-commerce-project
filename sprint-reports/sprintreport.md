@@ -112,10 +112,17 @@
 
 - TAM William
 
+### Sprint overview
+
+**Ticket | Auteur | Description | Score**
+
+ECA-63 | TAM William | As a VISITOR I want to ACCESS the CONTACT page | 1
+ECA-68 | TAM William | As a VISITOR I want to ACCESS THE WEBSITE'S MEDIA PAGES | 1
+ECA-73 | TAM William | As a VISITOR I want to ACCESS and READ TERMS OF USE and LEGAL NOTICE | 1
+
 ### Changelogs:
 
-- Ajout des pages CGU et mentions légales.
-- Update des liens du footer pour la redirection vers le CGU, mentions légales et média.
+William(TamWilliam) #6ddce9b => Création du footer dans le component Layout, liens fonctionnels
 
 ### Avis:
 
