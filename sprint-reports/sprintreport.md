@@ -139,7 +139,7 @@ William(TamWilliam) #6ddce9b => Création du footer dans le component Layout, li
 
 #### CHOPLAIN Edouard
 
-- Positif: Le dernier gros projet de l'année est derrière nous, on va pouvoir s'attaquer integralement au projet. On voit les bases de données en cours, on va pouvoir s'attaquer au back dans les spritns à venir
+- Positif: Le dernier gros projet de l'année est bientôt derrière nous, on va pouvoir s'attaquer integralement au projet. On va voir les bases de données en cours, on va pouvoir s'attaquer au back dans les sprints à venir
 - Négatif: des difficultés à trouver des horaires
 - Questions:
 - Idées d'améliorations: créer une réunion quotidienne pour être sur d'avancer
