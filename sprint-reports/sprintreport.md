@@ -102,7 +102,7 @@
 #### CHOPLAIN Edouard
 
 - Positif:
-- Négatif:
+- Négatif: Beaucoup de projets en parallèles , ce n'est pas évident de trouver le temps pour être sur le projet et encore moins lorsque l'on doit se réunir, car on a des horaires différentes
 - Questions:
 - Idées d'améliorations:
 
@@ -111,6 +111,7 @@
 ### Contributeurs:
 
 - TAM William
+  -CHOPLAIN Edouard
 
 ### Sprint overview
 
@@ -119,6 +120,9 @@
 ECA-63 | TAM William | As a VISITOR I want to ACCESS the CONTACT page | 1
 ECA-68 | TAM William | As a VISITOR I want to ACCESS THE WEBSITE'S MEDIA PAGES | 1
 ECA-73 | TAM William | As a VISITOR I want to ACCESS and READ TERMS OF USE and LEGAL NOTICE | 1
+ECA-31 | CHOPLAIN Edouard | As a VISITOR I want to Register an account | 1
+ECA-34 | CHOPLAIN Edouard | As a USER i waant to LOGIN | 1
+ECA-24 | CHOPLAIN Edouard | As a VISITOR I want to CHECKOUT| 1
 
 ### Changelogs:
 
@@ -132,3 +136,10 @@ William(TamWilliam) #6ddce9b => Création du footer dans le component Layout, li
 - Négatif:
 - Questions:
 - Idées d'améliorations:
+
+#### CHOPLAIN Edouard
+
+- Positif: Le dernier gros projet de l'année est derrière nous, on va pouvoir s'attaquer integralement au projet. On voit les bases de données en cours, on va pouvoir s'attaquer au back dans les spritns à venir
+- Négatif: des difficultés à trouver des horaires
+- Questions:
+- Idées d'améliorations: créer une réunion quotidienne pour être sur d'avancer
