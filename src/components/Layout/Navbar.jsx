@@ -9,13 +9,13 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-orange-100 flex justify-between p-2 sticky top-0 z-20">
+      <div className="bg-orange-100 flex justify-between p-3 sticky top-0 z-20">
         <a href="#" className="font-serif font-bold text-2xl pl-2">
           AIRNES
         </a>
         <div className="flex gap-4 ">
           <MagnifyingGlassIcon className="h-8 w-8 hover:text-white duration-300" />
-          <ShoppingCartIcon className="h-8 w-8  hover:text-slate-500 duration-300" />
+          <ShoppingCartIcon className="h-8 w-8  hover:text-white duration-300" />
           <div className="">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -33,7 +33,7 @@ const Navbar = () => {
                 <li className="mb-3">
                   <a
                     href="#"
-                    className="block p-2 hover:text-white hover:bg-black  justify-center"
+                    className="block p-2 hover:text-white hover:bg-black  justify-center duration-300"
                   >
                     Se connecter
                   </a>
@@ -41,7 +41,7 @@ const Navbar = () => {
                 <li className="mb-3">
                   <a
                     href="#"
-                    className="block p-2  hover:text-white hover:bg-black"
+                    className="block p-2  hover:text-white hover:bg-black duration-300"
                   >
                     S'inscrire
                   </a>
@@ -49,7 +49,7 @@ const Navbar = () => {
                 <li className="mb-3">
                   <a
                     href="#"
-                    className="block p-2 hover:text-white hover:bg-black"
+                    className="block p-2 hover:text-white hover:bg-black duration-300"
                   >
                     A propos d'AIRNEIS
                   </a>
