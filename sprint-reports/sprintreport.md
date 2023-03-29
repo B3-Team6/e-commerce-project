@@ -132,7 +132,7 @@ Louis,Edouard,Marvin, on attend de finir le front(responsive)pour faire les pull
 
 Louis : Je suis actuellement en train de finir le responsive de la page Accueil, Produit et Catégorie
 Edouard: je finis le responsive des pages connexion,livraison et loggin
-Marvin : Modification de la navbar
+Marvin : Modification de la navbar, creation de la page panier
 
 ### Avis:
 
