@@ -128,6 +128,12 @@ ECA-24 | CHOPLAIN Edouard | As a VISITOR I want to CHECKOUT| 1
 
 William(TamWilliam) #6ddce9b => Création du footer dans le component Layout, liens fonctionnels
 
+Louis,Edouard,Marvin, on attend de finir le front(responsive)pour faire les pull request
+
+Louis : Je suis actuellement en train de finir le responsive de la page Accueil, Produit et Catégorie
+Edouard: je finis le responsive des pages connexion,livraison et loggin
+Marvin : Modification de la navbar
+
 ### Avis:
 
 #### TAM William
