@@ -1,9 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faInstagram,
   faLinkedin,
   faFacebook,
-} from "@fortawesome/free-brands-svg-icons";
+} from "@fortawesome/free-brands-svg-icons"
 
 const Footer = () => {
   return (
@@ -17,7 +17,7 @@ const Footer = () => {
           <a className=" hover:text-orange-100 hover:underline" href="#">
             Mentions légales
           </a>
-          <p>·</p> 
+          <p>·</p>
           <a className=" hover:text-orange-100 hover:underline" href="#">
             Contact
           </a>
@@ -38,6 +38,6 @@ const Footer = () => {
         </div>
       </div>
     </>
-  );
-};
-export default Footer;
+  )
+}
+export default Footer

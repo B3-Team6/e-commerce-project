@@ -1,5 +1,5 @@
-import Layout from "@/components/Layout/Layout";
-import "@/styles/style.css";
+import Layout from "@/components/Layout/Layout"
+import "@/styles/style.css"
 
 export default function App({ Component, pageProps }) {
   return (
@@ -8,5 +8,5 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
     </>
-  );
+  )
 }

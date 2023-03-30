@@ -1,6 +1,6 @@
-import Carousel from "@/components/Carousel";
-import Head from "next/head";
-import Image from "next/image";
+import Carousel from "@/components/Carousel"
+import Head from "next/head"
+import Image from "next/image"
 
 const categories = [
   {
@@ -12,7 +12,7 @@ const categories = [
         width={400}
         height={400}
         src="/images/canape.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -25,7 +25,7 @@ const categories = [
         width={400}
         height={400}
         src="/images/lit.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -38,7 +38,7 @@ const categories = [
         width={400}
         height={400}
         src="/images/table.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -51,7 +51,7 @@ const categories = [
         width={400}
         height={400}
         src="/images/bureau.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -64,7 +64,7 @@ const categories = [
         width={400}
         height={400}
         src="/images/chaise.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -77,11 +77,11 @@ const categories = [
         width={400}
         height={400}
         src="/images/armoire.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
-];
+]
 
 const products = [
   {
@@ -93,7 +93,7 @@ const products = [
         width={300}
         height={300}
         src="/images/canape.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -106,7 +106,7 @@ const products = [
         width={300}
         height={300}
         src="/images/lit.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -119,7 +119,7 @@ const products = [
         width={300}
         height={300}
         src="/images/table.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -132,7 +132,7 @@ const products = [
         width={300}
         height={300}
         src="/images/bureau.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -145,7 +145,7 @@ const products = [
         width={300}
         height={300}
         src="/images/chaise.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -153,12 +153,12 @@ const products = [
     id: 6,
     name: "Armoire",
     img: (
-        <Image
+      <Image
         alt="armoire"
         width={300}
         height={300}
         src="/images/armoire.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -171,7 +171,7 @@ const products = [
         width={300}
         height={300}
         src="/images/canape.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -184,7 +184,7 @@ const products = [
         width={300}
         height={300}
         src="/images/lit.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -197,7 +197,7 @@ const products = [
         width={300}
         height={300}
         src="/images/table.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -210,7 +210,7 @@ const products = [
         width={300}
         height={300}
         src="/images/bureau.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -223,7 +223,7 @@ const products = [
         width={300}
         height={300}
         src="/images/chaise.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
@@ -231,16 +231,16 @@ const products = [
     id: 6,
     name: "Armoire",
     img: (
-        <Image
+      <Image
         alt="armoire"
         width={300}
         height={300}
         src="/images/armoire.jpg"
-        className="rounded-lg hover:opacity-50"
+        className="rounded-lg hover:opacity-50 duration-500"
       />
     ),
   },
-];
+]
 
 const Home = () => {
   return (
@@ -251,13 +251,15 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Carousel />
-      <div className="p-2 text-sm text-center  font-bold md:text-lg lg:text-2xl font-serif bg-slate-200">
-        <p>Découvrez nos catégories de meubles ainsi que nos meilleures ventes</p>
+
+      <div className="p-2 text-sm text-center  font-bold md:text-lg lg:text-2xl font-serif bg-orange-100 text-white">
+        <p>
+          Découvrez nos catégories de meubles ainsi que nos meilleures ventes
+        </p>
       </div>
 
-      <div className="grid  items-center  flex-col md:grid-cols-2 md:gris-rows-3 lg:grid-cols-3 lg:gris-rows-2 gap-3 p-2 ">
+      <div className="grid  items-center  flex-col md:grid-cols-2  lg:grid-cols-3  gap-3 p-2 ">
         {categories.map((categorie) => (
           <>
             <div className="flex justify-center">
@@ -272,11 +274,11 @@ const Home = () => {
         ))}
       </div>
 
-          <div className="flex justify-center p-2 font-black text-2xl bg-slate-200 font-serif">
-          <p>Les Highlanders du moment</p>
-          </div>
+      <div className="p-2 text-sm text-center  font-bold md:text-lg lg:text-2xl font-serif bg-orange-100 text-white">
+        <p>Les Highlanders du moment</p>
+      </div>
 
-      <div className="grid grid-cols-4 gris-rows-3 gap-3 p-2 items-center ">
+      <div className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-3 p-2 items-center ">
         {products.map((product) => (
           <>
             <div className="flex justify-center">
@@ -290,8 +292,7 @@ const Home = () => {
           </>
         ))}
       </div>
- 
     </>
-  );
-};
-export default Home;
+  )
+}
+export default Home
