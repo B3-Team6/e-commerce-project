@@ -50,7 +50,7 @@ const Carousel = () => {
             return (
               <div
                 key={item.id}
-                style={{ display: isActive ? "block" : "none" }}
+                style={{ display: isActive ? "block" : "none" }}            
               >
                 <Image
                   className="rounded-3xl w-screen"

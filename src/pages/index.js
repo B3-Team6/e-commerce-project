@@ -12,7 +12,7 @@ const categories = [
         width={400}
         height={400}
         src="/images/canape.jpg"
-        className="rounded-lg hover:opacity-50 duration-500"
+        className="rounded-lg hover:opacity-50 duration-500 hover:rotate-1"
       />
     ),
   },
@@ -25,7 +25,7 @@ const categories = [
         width={400}
         height={400}
         src="/images/lit.jpg"
-        className="rounded-lg hover:opacity-50 duration-500"
+        className="rounded-lg hover:opacity-50 duration-500 hover:rotate-1"
       />
     ),
   },
@@ -38,7 +38,7 @@ const categories = [
         width={400}
         height={400}
         src="/images/table.jpg"
-        className="rounded-lg hover:opacity-50 duration-500"
+        className="rounded-lg hover:opacity-50 duration-500 hover:rotate-1"
       />
     ),
   },
@@ -51,7 +51,7 @@ const categories = [
         width={400}
         height={400}
         src="/images/bureau.jpg"
-        className="rounded-lg hover:opacity-50 duration-500"
+        className="rounded-lg hover:opacity-50 duration-500 hover:rotate-1"
       />
     ),
   },
@@ -64,7 +64,7 @@ const categories = [
         width={400}
         height={400}
         src="/images/chaise.jpg"
-        className="rounded-lg hover:opacity-50 duration-500"
+        className="rounded-lg hover:opacity-50 duration-500 hover:rotate-1"
       />
     ),
   },
@@ -77,7 +77,7 @@ const categories = [
         width={400}
         height={400}
         src="/images/armoire.jpg"
-        className="rounded-lg hover:opacity-50 duration-500"
+        className="rounded-lg hover:opacity-50 duration-500 hover:rotate-1"
       />
     ),
   },
@@ -251,6 +251,7 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Carousel />
 
       <div className="p-2 text-sm text-center  font-bold md:text-lg lg:text-2xl font-serif bg-orange-100 text-white">
