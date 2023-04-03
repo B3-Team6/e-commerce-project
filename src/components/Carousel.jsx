@@ -43,6 +43,7 @@ const Carousel = () => {
           >
             <ArrowRightIcon className="h-8 w-8 text-black font-extrabold" />
           </button>
+
           {images.map((item, index) => {
             const isActive = index === currentIndex
 
@@ -55,9 +56,24 @@ const Carousel = () => {
                   className="rounded-3xl w-screen"
                   src={item.src}
                   alt={item.id}
-                  width="500"
-                  height="500"
+                  width="5000"
+                  height="5000"
                 />
+
+                {/* Boutton */}
+                <div className=" flex justify-center">
+                  {images.map((item, index) => (
+                    <div key={item.id} className="mx-2">
+                      <button
+                        className={`w-3 h-3 rounded-full ${
+                          index === currentIndex ? "bg-black" : "bg-gray-300"
+                        }`}
+                        onClick={() => setCurrentIndex(index)}
+                      />
+                    </div>
+                  ))}
+                </div>
+                
               </div>
             )
           })}
