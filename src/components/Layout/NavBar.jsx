@@ -59,22 +59,22 @@ const NavBar = () => {
 
             <ul className="flex flex-col items-center justify-between min-h-[200px] font-[Galdeano]">
               <li className="border-b border-gray-400 my-8 uppercase">
-                <a href="#">Se connecter</a>
+                <a href="#">Sign in</a>
               </li>
               <li className="border-b border-gray-400 my-8  uppercase">
-                <a href="#">S’inscrire</a>
+                <a href="#">Sign up</a>
               </li>
               <li className="border-b border-gray-400 my-8  uppercase">
-                <a href="#">CGU</a>
+                <a href="#">Legal Notice</a>
               </li>
               <li className="border-b border-gray-400 my-8   uppercase">
-                <a href="#">Mentions légales</a>
+                <a href="#">Terms sof use</a>
               </li>
               <li className="border-b border-gray-400 my-8   uppercase">
                 <a href="#">Contact</a>
               </li>
               <li className="border-b border-gray-400 my-8  uppercase">
-                <a href="#">À propos d’AIRNEIS</a>
+                <a href="#">About AIRNEIS</a>
               </li>
             </ul>
           </div>
