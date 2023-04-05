@@ -123,6 +123,8 @@ ECA-73 | TAM William | As a VISITOR I want to ACCESS and READ TERMS OF USE and L
 ECA-31 | CHOPLAIN Edouard | As a VISITOR I want to Register an account | 1
 ECA-34 | CHOPLAIN Edouard | As a USER i waant to LOGIN | 1
 ECA-24 | CHOPLAIN Edouard | As a VISITOR I want to CHECKOUT| 1
+ECA-25 | SABIN Marvin | As a VISITOR I want to see my CART CONTENTS | 1
+ECA-23 | SABIN Marvin | As a VISITOR I want to DELETE CONTENTS FROM THE CART | 1
 
 ### Changelogs:
 
@@ -132,7 +134,7 @@ Louis,Edouard,Marvin, on attend de finir le front(responsive)pour faire les pull
 
 Louis : Je suis actuellement en train de finir le responsive de la page Accueil, Produit et Catégorie
 Edouard: je finis le responsive des pages connexion,livraison et loggin
-Marvin : Modification de la navbar, creation de la page panier
+Marvin : Modification de la navbar, Création de la page panier
 
 ### Avis:
 
@@ -149,3 +151,10 @@ Marvin : Modification de la navbar, creation de la page panier
 - Négatif: des difficultés à trouver des horaires
 - Questions:
 - Idées d'améliorations: créer une réunion quotidienne pour être sur d'avancer
+
+#### SABIN Marvin
+
+- Positif: Avencement du projet malgré le retard, Re-organisation du projet pour ma part
+- Négatif: dificultés au niveau du temps avec les examens, dm et exos(écoles) et pour ma part, au niveau de mon entreprie.
+- Questions: Les Questions seront posés en privé sur Discord.
+- Idées d'améliorations: Organisation personnelle, une meilleur gestions du temps pour ma part.
