@@ -9,14 +9,6 @@ import { useState } from "react"
 const NavBar = () => {
   const [isOpen, setOpen] = useState(false)
 
-  const cartItems = [
-    { name: "Ordinateur portable", quantity: 10 },
-    { name: "Casque sans fil", quantity: 1 },
-    { name: "Souris de jeu", quantity: 3 },
-  ]
-
-  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0)
-
   return (
     <div className="flex items-center justify-between border-b border-gray-400 p-3 bg-[#F6E6D1] font-semibold font-[Galdeano]">
       <a href="#">
@@ -34,12 +26,7 @@ const NavBar = () => {
               className="group -mr-2 relative flex items-center justify-center p-2 rounded-md text-black hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
             >
               <ShoppingCartIcon className="w-10 h-8 mr-6" aria-hidden="true" />
-              <span className="sr-only">Panier</span>
-              {totalItems > 0 && (
-                <span className="absolute mr-8 top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-black rounded-full">
-                  {totalItems}
-                </span>
-              )}
+              <span className="sr-only">Cart</span>
             </button>
           </div>
 
@@ -68,7 +55,7 @@ const NavBar = () => {
                 <a href="#">Legal Notice</a>
               </li>
               <li className="border-b border-gray-400 my-8   uppercase">
-                <a href="#">Terms sof use</a>
+                <a href="#">Terms of use</a>
               </li>
               <li className="border-b border-gray-400 my-8   uppercase">
                 <a href="#">Contact</a>
