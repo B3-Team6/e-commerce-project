@@ -111,7 +111,8 @@
 ### Contributeurs:
 
 - TAM William
-  -CHOPLAIN Edouard
+- CHOPLAIN Edouard
+- SABIN Marvin
 
 ### Sprint overview
 
