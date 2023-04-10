@@ -166,7 +166,7 @@ Marvin : Modification de la navbar, Création de la page panier
 
 - TAM William
 - SABIN Marvin
-  -CHOPLAIN Edouard
+- CHOPLAIN Edouard
 
 ### Sprint overview
 
