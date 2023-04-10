@@ -166,6 +166,7 @@ Marvin : Modification de la navbar, Création de la page panier
 
 - TAM William
 - SABIN Marvin
+  -CHOPLAIN Edouard
 
 ### Sprint overview
 
@@ -175,6 +176,9 @@ ECA-75 | TAM William | Update the README.md | 1
 ECA-45 | TAM William | As a VISITOR I want to CONTACT THE ADMINISTRATORS | 1
 ECA-66 | SABIN Marvin | Create a DATABASE | 1
 ECA-80 | SABIN Marvin | Revisit CDM | 2
+ECA-31 | CHOPLAIN Edouard | As a VISITOR I want to Register an account | 1
+ECA-34 | CHOPLAIN Edouard | As a USER i waant to LOGIN | 1
+ECA-24 | CHOPLAIN Edouard | As a VISITOR I want to CHECKOUT| 1
 
 ### Changelogs:
 
@@ -183,6 +187,7 @@ William(TamWilliam) => Mis à jour du README.md en attente de validation de la p
 Marvin(TayZain) => Mis à jour de la Navbar en attente de validation de la part des autres
 Marvin(TayZain) => Amélioration du design de la page "Cart"
 Marvin(TayZain) => Création du back-end
+Edouard=> Responsive finie, vérification avec louis à faire pour vérifier que tout est en ordre avant de complètement cloturer cette partie du front
 
 ### Avis:
 
@@ -199,3 +204,11 @@ Marvin(TayZain) => Création du back-end
 - Négatif:
 - Questions:
 - Idées d'améliorations: On doit bosser un peu plus pour rattraper le retard.
+
+#### CHOPLAIN Edouard
+
+- Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations: Je n'ai pu être connecté que très rarement du à des problèmes secondaires,
+  j'ai manqué de réactivité sur plusieurs points => créer des alarmes afin de plus prendre connaissance de ce que font les autres et pas que ce que je fais moi
