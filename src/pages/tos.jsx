@@ -1,5 +1,4 @@
 import Head from "next/head"
-import Footer from "@/components/Layout/Footer"
 import Tos from "@/components/Tos"
 
 const TosPage = () => {
@@ -12,7 +11,6 @@ const TosPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Tos></Tos>
-      <Footer></Footer>
     </>
   )
 }

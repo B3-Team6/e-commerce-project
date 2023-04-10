@@ -1,5 +1,4 @@
 import Head from "next/head"
-import Footer from "@/components/Layout/Footer"
 import LegalNotice from "@/components/LegalNotice"
 
 const LegalNoticePage = () => {
@@ -12,7 +11,6 @@ const LegalNoticePage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <LegalNotice></LegalNotice>
-      <Footer></Footer>
     </>
   )
 }
