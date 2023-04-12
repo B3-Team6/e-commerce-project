@@ -212,3 +212,10 @@ Edouard=> Responsive finie, vérification avec louis à faire pour vérifier que
 - Questions:
 - Idées d'améliorations: Je n'ai pu être connecté que très rarement du à des problèmes secondaires,
   j'ai manqué de réactivité sur plusieurs points => créer des alarmes afin de plus prendre connaissance de ce que font les autres et pas que ce que je fais moi
+  
+  #### LAGRANGE Louis
+
+- Positif: J'ai quasiment terminé le front de la plupart des pages
+- Négatif: Gros manque de cohésion de groupe
+- Questions:
+- Idées d'améliorations: Etre plus à l'écoute les uns des autres
