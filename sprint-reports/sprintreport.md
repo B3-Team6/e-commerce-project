@@ -183,7 +183,7 @@ ECA-24 | CHOPLAIN Edouard | As a VISITOR I want to CHECKOUT| 1
 ### Changelogs:
 
 William(TamWilliam) => Front de la page "Contact" terminé, pas de PR car le back-end à finir
-William(TamWilliam) => Mis à jour du README.md en attente de validation de la part des autres
+William(TamWilliam) #fccf5e3 => Mis à jour du README.md en attente de validation de la part des autres
 Marvin(TayZain) => Mis à jour de la Navbar en attente de validation de la part des autres
 Marvin(TayZain) => Amélioration du design de la page "Cart"
 Marvin(TayZain) => Création du back-end
@@ -212,7 +212,7 @@ Edouard=> Responsive finie, vérification avec louis à faire pour vérifier que
 - Questions:
 - Idées d'améliorations: Je n'ai pu être connecté que très rarement du à des problèmes secondaires,
   j'ai manqué de réactivité sur plusieurs points => créer des alarmes afin de plus prendre connaissance de ce que font les autres et pas que ce que je fais moi
-  
+
   #### LAGRANGE Louis
 
 - Positif: J'ai quasiment terminé le front de la plupart des pages
