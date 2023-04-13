@@ -102,6 +102,61 @@
 #### CHOPLAIN Edouard
 
 - Positif:
+- Négatif: Beaucoup de projets en parallèles , ce n'est pas évident de trouver le temps pour être sur le projet et encore moins lorsque l'on doit se réunir, car on a des horaires différentes
+- Questions:
+- Idées d'améliorations:
+
+# 12/02/2023 - 12/03/2023
+
+### Contributeurs:
+
+- TAM William
+- CHOPLAIN Edouard
+- SABIN Marvin
+
+### Sprint overview
+
+**Ticket | Auteur | Description | Score**
+
+ECA-63 | TAM William | As a VISITOR I want to ACCESS the CONTACT page | 1
+ECA-68 | TAM William | As a VISITOR I want to ACCESS THE WEBSITE'S MEDIA PAGES | 1
+ECA-73 | TAM William | As a VISITOR I want to ACCESS and READ TERMS OF USE and LEGAL NOTICE | 1
+ECA-31 | CHOPLAIN Edouard | As a VISITOR I want to Register an account | 1
+ECA-34 | CHOPLAIN Edouard | As a USER i waant to LOGIN | 1
+ECA-24 | CHOPLAIN Edouard | As a VISITOR I want to CHECKOUT| 1
+ECA-25 | SABIN Marvin | As a VISITOR I want to see my CART CONTENTS | 1
+ECA-23 | SABIN Marvin | As a VISITOR I want to DELETE CONTENTS FROM THE CART | 1
+
+### Changelogs:
+
+William(TamWilliam) #6ddce9b => Création du footer dans le component Layout, liens fonctionnels
+William(TamWilliam) #f1e71b2 => Création des pages de conditions d'utilisations et mentions légales
+
+Louis,Edouard,Marvin, on attend de finir le front(responsive)pour faire les pull request
+
+Louis : Je suis actuellement en train de finir le responsive de la page Accueil, Produit et Catégorie
+Edouard: je finis le responsive des pages connexion,livraison et loggin
+Marvin : Modification de la navbar, Création de la page panier
+
+### Avis:
+
+#### TAM William
+
+- Positif:
 - Négatif:
 - Questions:
 - Idées d'améliorations:
+
+#### CHOPLAIN Edouard
+
+- Positif: Le dernier gros projet de l'année est bientôt derrière nous, on va pouvoir s'attaquer integralement au projet. On va voir les bases de données en cours, on va pouvoir s'attaquer au back dans les sprints à venir
+- Négatif: des difficultés à trouver des horaires
+- Questions:
+- Idées d'améliorations: créer une réunion quotidienne pour être sur d'avancer
+
+#### SABIN Marvin
+
+- Positif: Avencement du projet malgré le retard, Re-organisation du projet pour ma part
+- Négatif: dificultés au niveau du temps avec les examens, dm et exos(écoles) et pour ma part, au niveau de mon entreprie.
+- Questions: Les Questions seront posés en privé sur Discord.
+- Idées d'améliorations: Organisation personnelle, une meilleur gestions du temps pour ma part.
