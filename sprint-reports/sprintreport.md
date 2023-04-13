@@ -130,6 +130,7 @@ ECA-23 | SABIN Marvin | As a VISITOR I want to DELETE CONTENTS FROM THE CART | 1
 ### Changelogs:
 
 William(TamWilliam) #6ddce9b => Création du footer dans le component Layout, liens fonctionnels
+William(TamWilliam) #f1e71b2 => Création des pages de conditions d'utilisations et mentions légales
 
 Louis,Edouard,Marvin, on attend de finir le front(responsive)pour faire les pull request
 
