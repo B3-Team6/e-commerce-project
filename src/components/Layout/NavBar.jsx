@@ -4,44 +4,38 @@ import {
   ShoppingCartIcon,
   Bars3Icon,
 } from "@heroicons/react/24/outline"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 const NavBar = () => {
   const [isOpen, setOpen] = useState(false)
 
-  useEffect(() => {
-    isOpen
-      ? (document.body.style.position = "fixed")
-      : (document.body.style.position = "initial")
-  })
-
   return (
     <div className="flex items-center justify-between border-b border-gray-400 p-3 bg-[#F6E6D1] font-semibold font-[Galdeano]">
       <a href="#">
-        <span className="text-black lg:ml-10 font-bold text-2xl">AIRNEIS</span>
+        <span className="text-black ml-10 font-bold text-2xl">AIRNEIS</span>
       </a>
       <nav>
-        <section className="flex gap-3 flex-row">
+        <section className="flex flex-row">
           <button className="cursor-pointer hover:text-gray-500">
-            <MagnifyingGlassIcon className="lg:w-10 h-8 lg:mr-6" />
+            <MagnifyingGlassIcon className="w-10 h-8 mr-6"></MagnifyingGlassIcon>
           </button>
 
           <div className="relative">
-            <button className="group relative flex items-center justify-center p-2 rounded-md text-black hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400">
-              <ShoppingCartIcon
-                className="w-10 h-8 lg:mr-6"
-                aria-hidden="true"
-              />
+            <button
+              type="button"
+              className="group -mr-2 relative flex items-center justify-center p-2 rounded-md text-black hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+            >
+              <ShoppingCartIcon className="w-10 h-8 mr-6" aria-hidden="true" />
               <span className="sr-only">Cart</span>
             </button>
           </div>
+
           <div
-            className="space-y-2 lg:pr-10 mt-2 cursor-pointer"
+            className="space-y-2 pr-10 mt-2 cursor-pointer"
             onClick={() => setOpen((prev) => !prev)}
           >
             <Bars3Icon className="w-10 h-8 cursor-pointer hover:text-gray-500"></Bars3Icon>
           </div>
-
           <div className={isOpen ? "showNav" : "hideNav"}>
             <div
               className="absolute top-0 right-0 px-8 py-8"

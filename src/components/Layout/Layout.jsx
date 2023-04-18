@@ -1,10 +1,10 @@
-import Footer from "./Footer"
-import Navbar from "./Navbar"
+import NavBar from "@/components/Layout/NavBar"
+import Footer from "@/components/Layout/Footer"
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Navbar />
+      <NavBar />
       {children}
       <Footer />
     </>
