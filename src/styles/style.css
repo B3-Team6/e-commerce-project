@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /*Navbar*/
 .hideNav {
   display: none;
@@ -10,7 +9,7 @@
 
 .showNav {
   display: block;
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100vh;
   top: 0;
