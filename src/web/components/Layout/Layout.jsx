@@ -25,9 +25,16 @@ const Layout = (props) => {
     state: { session },
   } = useAppContext()
 
+  const HandleSignOut = () => {
+    signOut()
+    window.location.href = "/"
+
+    return HandleSignOut
+  }
+
   return (
     <>
-      <div className="flex items-center justify-between border-b border-gray-400 bg-[#F6E6D1] p-3 font-[Galdeano] font-semibold">
+      <div className="flex items-center justify-between border-b border-gray-400 bg-[#F6E6D1] p-3 font-[Mulish] font-semibold">
         <Link href={routes.home()}>
           <span className="text-2xl font-bold text-black lg:ml-10">
             AIRNEIS
@@ -45,7 +52,6 @@ const Layout = (props) => {
                   className="h-8 w-10 lg:mr-6"
                   aria-hidden="true"
                 />
-                <span className="sr-only">Cart</span>
               </button>
             </div>
             <div
@@ -86,7 +92,7 @@ const Layout = (props) => {
                     </li>
                     <button
                       className="my-8 border-b border-gray-400 uppercase"
-                      onClick={signOut}
+                      onClick={HandleSignOut}
                     >
                       Sign out
                     </button>
