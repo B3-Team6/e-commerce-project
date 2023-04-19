@@ -2,11 +2,15 @@ import Layout from "@/components/Layout/Layout"
 import "@/styles/style.css"
 
 export default function App({ Component, pageProps }) {
-  return (
+  const renderLayout =
+    Component.getLayout ||
+    function (page) {
+      return <Layout>{page}</Layout>
+    }
+
+  return renderLayout(
     <>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <Component {...pageProps} />
     </>
   )
 }
