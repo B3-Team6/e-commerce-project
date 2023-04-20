@@ -16,7 +16,7 @@ const NavBar = () => {
   })
 
   return (
-    <div className="flex items-center justify-between border-b border-gray-400 p-3 bg-[#F6E6D1] font-semibold font-[Galdeano]">
+    <div className="flex items-center justify-between border-b border-gray-400 p-3 bg-[#F6E6D1] font-semibold font-[Galdeano] sticky top-0 z-20">
       <a href="#">
         <span className="text-black lg:ml-10 font-bold text-2xl">AIRNEIS</span>
       </a>
