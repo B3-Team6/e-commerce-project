@@ -16,7 +16,7 @@ const NavBarAdmin = () => {
         <div className="font-black text-3xl flex items-center font-serif hover:cursor-pointer">
           <Link href={"/"}>AIRNEIS</Link>
         </div>
-        <div className="flex gap-4 font-serif">
+        <div className="flex gap-4">
           <span className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300">
             <HomeIcon className="h-8 " />
             Home
