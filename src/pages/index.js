@@ -1,6 +1,7 @@
 import Carousel from "@/components/Carousel"
 import Head from "next/head"
 import Image from "next/image"
+import Link from "next/link"
 
 const categories = [
   {
@@ -268,7 +269,7 @@ const Home = () => {
                 <div className=" hidden group-hover:flex text-2xl font-black text-black absolute z-10">
                   {categorie.name}
                 </div>
-                {categorie.img}
+                <Link href={"category"}>{categorie.img}</Link>
               </div>
             </div>
           </>
