@@ -114,13 +114,25 @@ const NavBar = () => {
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">Legal Notice</a>
+                      <Link
+                        href={routes.legalNotice()}
+                        onClick={() => setOpen(false)}
+                      >
+                        Legal Notice
+                      </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
-                      <a href="#">Terms of use</a>
+                      <Link href={routes.tos()} onClick={() => setOpen(false)}>
+                        Terms of Use
+                      </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
-                      <a href="#">Contact</a>
+                      <Link
+                        href={routes.contact()}
+                        onClick={() => setOpen(false)}
+                      >
+                        Contact
+                      </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
                       <a href="#">About AIRNEIS</a>
