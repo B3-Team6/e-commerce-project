@@ -738,4 +738,5 @@ const TosPage = () => {
     </>
   )
 }
+TosPage.isPublicPage = true
 export default TosPage

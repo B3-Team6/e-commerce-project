@@ -112,4 +112,5 @@ const LegalNoticePage = () => {
     </>
   )
 }
+LegalNoticePage.isPublicPage = true
 export default LegalNoticePage
