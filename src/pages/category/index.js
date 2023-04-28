@@ -40,7 +40,7 @@ const products = [
         width={300}
         height={300}
         src="/images/table.jpg"
-        className="rounded-lg hover:opacity-50 duration-300"
+        className="rounded-lg duration-300 hover:opacity-50"
       />
     ),
   },
@@ -54,7 +54,7 @@ const products = [
         width={300}
         height={300}
         src="/images/bureau.jpg"
-        className="rounded-lg hover:opacity-50 duration-300"
+        className="rounded-lg duration-300 hover:opacity-50"
       />
     ),
   },
@@ -68,7 +68,7 @@ const products = [
         width={300}
         height={300}
         src="/images/canape.jpg"
-        className="rounded-lg hover:opacity-50 duration-300"
+        className="rounded-lg duration-300 hover:opacity-50"
       />
     ),
   },
@@ -82,7 +82,7 @@ const products = [
         width={300}
         height={300}
         src="/images/lit.jpg"
-        className="rounded-lg hover:opacity-50 duration-300"
+        className="rounded-lg duration-300 hover:opacity-50"
       />
     ),
   },
@@ -96,7 +96,7 @@ const products = [
         width={300}
         height={300}
         src="/images/table.jpg"
-        className="rounded-lg hover:opacity-50 duration-300"
+        className="rounded-lg duration-300 hover:opacity-50"
       />
     ),
   },
@@ -110,7 +110,7 @@ const products = [
         width={300}
         height={300}
         src="/images/bureau.jpg"
-        className="rounded-lg hover:opacity-50 duration-300"
+        className="rounded-lg duration-300 hover:opacity-50"
       />
     ),
   },
@@ -127,30 +127,30 @@ const Home = () => {
       </Head>
 
       <div className="flex  justify-center ">
-        <div className="flex group items-center justify-center ">
+        <div className="group flex items-center justify-center ">
           <Image
             alt="canape"
             width={550}
             height={550}
             src="/images/canape.jpg"
-            className="rounded-3xl   w-full p-4 "
+            className="w-full   rounded-3xl p-4 "
           />
           <div className="absolute text-3xl font-black">Canapé</div>
         </div>
       </div>
-      <div className="p-2 flex justify-center font-bold text-2xl font-serif bg-orange-100 text-white">
+      <div className="flex justify-center bg-orange-100 p-2 font-serif text-2xl font-bold text-white">
         <p>
           Voici notre collection de canapés, cliquez sur un produit pour voir sa
           description
         </p>
       </div>
 
-      <div className="grid grid-cols-4 gris-rows-3 gap-3 p-4 items-center">
+      <div className="gris-rows-3 grid grid-cols-4 items-center gap-3 p-4">
         {products.map((product) => (
           <>
-            <div className="flex items-center flex-col ">
-              <div className="flex  items-center w-4/5">{product.img}</div>
-              <div className="flex items-center justify-between w-72">
+            <div className="flex flex-col items-center ">
+              <div className="flex  w-4/5 items-center">{product.img}</div>
+              <div className="flex w-72 items-center justify-between">
                 <a>{product.name}</a>
                 &nbsp;
                 <a>{product.price}</a>
@@ -162,4 +162,5 @@ const Home = () => {
     </>
   )
 }
+Home.isPublicPage = true
 export default Home

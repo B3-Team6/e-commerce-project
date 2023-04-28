@@ -269,7 +269,7 @@ const Home = () => {
                 <div className=" absolute z-10 hidden text-2xl font-black text-black group-hover:flex">
                   {categorie.name}
                 </div>
-                <Link href={"category"}>{categorie.img}</Link>
+                <Link href={`/category/${categorie.id}`}>{categorie.img}</Link>
               </div>
             </div>
           </>
