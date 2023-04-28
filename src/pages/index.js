@@ -1,6 +1,5 @@
-import Layout from "@/web/components/Layout/Layout"
 import Head from "next/head"
-import Carousel from "@/components/Carousel"
+import Carousel from "@/web/components/Carousel"
 import Image from "next/image"
 
 const categories = [
@@ -252,7 +251,6 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout></Layout>
       <Carousel />
 
       <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-white md:text-lg lg:text-2xl">
