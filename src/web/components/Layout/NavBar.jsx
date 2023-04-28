@@ -98,10 +98,20 @@ const NavBar = () => {
                 ) : (
                   <>
                     <li className="my-8 border-b border-gray-400 uppercase">
-                      <Link href={routes.signIn()}>Sign In</Link>
+                      <Link
+                        href={routes.signIn()}
+                        onClick={() => setOpen(false)}
+                      >
+                        Sign In
+                      </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400 uppercase">
-                      <Link href={routes.signUp()}>Sign Up</Link>
+                      <Link
+                        href={routes.signUp()}
+                        onClick={() => setOpen(false)}
+                      >
+                        Sign Up
+                      </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
                       <a href="#">Legal Notice</a>
