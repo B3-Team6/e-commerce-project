@@ -152,10 +152,13 @@ const Home = (props) => {
           <div className="absolute text-3xl font-black">{result.name}</div>
         </div>
       </div>
-      <div className="flex justify-center bg-orange-100 p-2 font-serif text-2xl font-bold text-white">
+      <div className="flex justify-center border-2 border-red-500">
+        {result.description}
+      </div>
+      <div className="flex justify-center p-2 font-serif text-2xl font-bold text-black">
         <p>
-          Voici notre collection de canapés, cliquez sur un produit pour voir sa
-          description
+          Voici notre collection de {result.name}, cliquez sur un produit pour
+          voir sa description
         </p>
       </div>
 
