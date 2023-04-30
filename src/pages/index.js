@@ -1,5 +1,5 @@
 import Head from "next/head"
-import Carousel from "@/components/Carousel"
+import Carousel from "@/web/components/Carousel"
 import Image from "next/image"
 import Link from "next/link"
 

@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import routes from "@/web/routes.js"
 import {
   faFacebookSquare,
   faInstagramSquare,
@@ -10,13 +11,13 @@ const Footer = () => {
   return (
     <footer className="hidden lg:relative lg:bottom-0 lg:flex lg:h-20 lg:w-full lg:items-center lg:justify-between lg:border-t-4 lg:border-gray-400 lg:p-6 lg:font-bold">
       <div className="flex flex-row gap-6">
-        <Link href="tos" className="hover:underline">
+        <Link href={routes.tos()} className="hover:underline">
           Terms of Use
         </Link>
-        <Link href="legalNotice" className="hover:underline">
+        <Link href={routes.legalNotice()} className="hover:underline">
           Legal Notice
         </Link>
-        <Link href="contact" className="hover:underline">
+        <Link href={routes.contact()} className="hover:underline">
           Contact
         </Link>
       </div>
