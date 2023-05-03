@@ -30,6 +30,10 @@ const NavBar = () => {
     return HandleSignOut
   }
 
+  const handleClose = () => {
+    setOpen(false)
+  }
+
   return (
     <>
       <div className="flex items-center justify-between border-b border-gray-400 bg-[#F6E6D1] p-3 font-[Mulish] font-semibold">
@@ -79,13 +83,19 @@ const NavBar = () => {
                       <a href="#">My Orders</a>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">Legal Notice</a>
+                      <Link href={routes.legalNotice()} onClick={handleClose}>
+                        Legal Notice
+                      </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
-                      <a href="#">Terms of use</a>
+                      <Link href={routes.tos()} onClick={handleClose}>
+                        Terms of Use
+                      </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
-                      <a href="#">Contact</a>
+                      <Link href={routes.contact()} onClick={handleClose}>
+                        Contact
+                      </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
                       <a href="#">About AIRNEIS</a>
@@ -100,39 +110,27 @@ const NavBar = () => {
                 ) : (
                   <>
                     <li className="my-8 border-b border-gray-400 uppercase">
-                      <Link
-                        href={routes.signIn()}
-                        onClick={() => setOpen(false)}
-                      >
+                      <Link href={routes.signIn()} onClick={handleClose}>
                         Sign In
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400 uppercase">
-                      <Link
-                        href={routes.signUp()}
-                        onClick={() => setOpen(false)}
-                      >
+                      <Link href={routes.signUp()} onClick={handleClose}>
                         Sign Up
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <Link
-                        href={routes.legalNotice()}
-                        onClick={() => setOpen(false)}
-                      >
+                      <Link href={routes.legalNotice()} onClick={handleClose}>
                         Legal Notice
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
-                      <Link href={routes.tos()} onClick={() => setOpen(false)}>
+                      <Link href={routes.tos()} onClick={handleClose}>
                         Terms of Use
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
-                      <Link
-                        href={routes.contact()}
-                        onClick={() => setOpen(false)}
-                      >
+                      <Link href={routes.contact()} onClick={handleClose}>
                         Contact
                       </Link>
                     </li>
