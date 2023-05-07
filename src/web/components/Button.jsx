@@ -9,14 +9,16 @@ const Button = (props) => {
   const { className, variant = "primary", ...otherProps } = props
 
   return (
-    <button
-      className={clsx(
-        "rounded-lg px-4 py-2 text-lg font-medium disabled:bg-slate-400 disabled:text-slate-700",
-        variants[variant],
-        className
-      )}
-      {...otherProps}
-    />
+    <div className="flex justify-center">
+      <button
+        className={clsx(
+          "rounded-lg px-24 py-2 text-lg font-medium disabled:bg-slate-400 disabled:text-slate-700",
+          variants[variant],
+          className
+        )}
+        {...otherProps}
+      />
+    </div>
   )
 }
 

@@ -39,26 +39,35 @@ const ContactUsPage = () => {
   )
 
   return (
-    <Form
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-      error={error}
-    >
-      <FormField
-        name="email"
-        placeholder="Enter your e-mail"
-        label="E-mail"
-        type="email"
-      />
-      <FormField
-        name="body"
-        placeholder="Enter your message"
-        label="Body"
-        type="body"
-      />
-      <SubmitButton>Submit</SubmitButton>
-    </Form>
+    <>
+      <div className="flex min-h-screen flex-col mx-16">
+        <div className="flex justify-center text-xl font-bold my-20 lg:text-4xl">
+          Contact us
+        </div>
+        <div>
+          <Form
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+            error={error}
+          >
+            <FormField
+              name="email"
+              placeholder="Enter your e-mail"
+              label="E-mail"
+              type="email"
+            />
+            <FormField
+              name="body"
+              placeholder="Enter your message"
+              label="Message"
+              type="body"
+            />
+            <SubmitButton>Submit</SubmitButton>
+          </Form>
+        </div>
+      </div>
+    </>
   )
 }
 
