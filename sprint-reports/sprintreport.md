@@ -220,3 +220,30 @@ Edouard=> Responsive finie, vérification avec louis à faire pour vérifier que
 - Négatif: Gros manque de cohésion de groupe
 - Questions:
 - Idées d'améliorations: Etre plus à l'écoute les uns des autres
+
+# 10/04/2023 - 07/05/2023
+
+### Contributeurs:
+
+- TAM William
+
+### Sprint overview
+
+**Ticket | Auteur | Description | Score**
+
+ECA-106 | TAM William | Footer is stuck under the navbar | 1
+
+### Changelogs:
+
+William(TamWilliam) => Back de la page Contact est presque terminé, le front a été modifié
+William(TamWilliam) #112edc3 => Les pages ToS et LegalNotice sont terminés et accessible par la navbar et le footer
+William(TamWilliam) #29d9e6f => Fix du bug du footer qui n'était pas bien placé, ainsi que les liens après le merge de l'api sur le main
+
+### Avis:
+
+#### TAM William
+
+- Positif:
+- Négatif: Je n'ai malheuresement pas pu terminer ma page contact à temps, alors qu'il est a 95% finit
+- Questions:
+- Idées d'améliorations:
