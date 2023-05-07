@@ -1,26 +1,25 @@
-import { createValidator, emailValidator, bodyValidator } from "@/validators.js"
+import { createValidator, emailValidator, messageValidator } from "@/validators.js"
 import Form from "@/web/components/Form.jsx"
 import FormField from "@/web/components/FormField.jsx"
 import SubmitButton from "@/web/components/SubmitButton.jsx"
 import useAppContext from "@/web/hooks/useAppContext.jsx"
-import { useRouter } from "next/router.js"
 import { useCallback, useState } from "react"
 
 const initialValues = {
   email: "",
-  body: "",
+  message: "",
 }
 const validationSchema = createValidator({
   email: emailValidator.required(),
-  body: bodyValidator.required(),
+  message: messageValidator.required(),
 })
 
 const ContactUsPage = () => {
-  const router = useRouter()
   const {
     actions: { contactUs },
   } = useAppContext()
   const [error, setError] = useState(null)
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const handleSubmit = useCallback(
     async (values) => {
       setError(null)
@@ -33,9 +32,9 @@ const ContactUsPage = () => {
         return
       }
 
-      router.push("/")
+      setIsSubmitted(true)
     },
-    [contactUs, router]
+    [contactUs]
   )
 
   return (
@@ -58,12 +57,17 @@ const ContactUsPage = () => {
               type="email"
             />
             <FormField
-              name="body"
+              name="message"
               placeholder="Enter your message"
               label="Message"
-              type="body"
+              type="message"
             />
             <SubmitButton>Submit</SubmitButton>
+            {isSubmitted && (
+              <div className="mt-4 text-green-500">
+                Successfully sent the message!
+              </div>
+            )}
           </Form>
         </div>
       </div>

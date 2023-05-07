@@ -3,6 +3,7 @@ import createAPIClient from "@/web/createAPIClient.js"
 import parseSession from "@/web/parseSession.js"
 import signInService from "@/web/services/signIn.js"
 import signUpService from "@/web/services/signUp.js"
+import contactUsService from "@/web/services/contactUs.js"
 import {
   createContext,
   useCallback,
@@ -25,6 +26,7 @@ export const AppContextProvider = (props) => {
     localStorage.removeItem(config.session.localStorageKey)
     setSession(false)
   }, [])
+  const contactUs= contactUsService({ api })
 
   useEffect(() => {
     const jwt = localStorage.getItem(config.session.localStorageKey)
@@ -54,6 +56,7 @@ export const AppContextProvider = (props) => {
           signUp,
           signIn,
           signOut,
+          contactUs,
         },
         state: {
           session,

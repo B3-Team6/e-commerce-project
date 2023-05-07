@@ -9,7 +9,7 @@ export const displayNameValidator = yup.string().min(1)
 
 export const emailValidator = yup.string().email()
 
-export const bodyValidator = yup.string().min(1)
+export const messageValidator = yup.string().min(1)
 
 export const passwordValidator = yup
   .string()
