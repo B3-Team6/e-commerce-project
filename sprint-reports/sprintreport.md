@@ -227,6 +227,7 @@ Edouard=> Responsive finie, vérification avec louis à faire pour vérifier que
 
 - TAM William
 - LAGRANGE Louis
+-CHOPLAIN Edouard 
 
 ### Sprint overview
 
@@ -248,6 +249,9 @@ Louis :
 - Create tickets of the Back Office
 - Category page, back in progress
 
+
+Edouard:
+- front of the search page done, back in progress (almost done)
 ### Avis:
 
 #### TAM William
@@ -263,3 +267,10 @@ Louis :
 - Négatif: Le projet prend de plus en plus de retard
 - Questions:
 - Idées d'améliorations:
+
+#### CHOPLAIN Edouard
+
+- Positif: Malgré une manière de faire le back différente de celle que j'ai vu, j'ai bien avancé
+- Négatif: On a encore du retard, et on ne se tiens pas assez au courant de l'évolution des autres
+- Questions:
+- Idées d'améliorations:, il faudrait qu'on se tienne plus au courant les uns des autres, on perd du temps sur des choses betes 
