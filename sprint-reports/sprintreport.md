@@ -226,6 +226,7 @@ Edouard=> Responsive finie, vérification avec louis à faire pour vérifier que
 ### Contributeurs:
 
 - TAM William
+- LAGRANGE Louis
 
 ### Sprint overview
 
@@ -239,11 +240,26 @@ William(TamWilliam) => Back de la page Contact est presque terminé, le front a 
 William(TamWilliam) #112edc3 => Les pages ToS et LegalNotice sont terminés et accessible par la navbar et le footer
 William(TamWilliam) #29d9e6f => Fix du bug du footer qui n'était pas bien placé, ainsi que les liens après le merge de l'api sur le main
 
+Louis :
+
+- Merge HomePage in main
+- Fix bug NavBar
+- Do responsive of HomePage, ProductPage, CategoryPage
+- Create tickets of the Back Office
+- Category page, back in progress
+
 ### Avis:
 
 #### TAM William
 
 - Positif:
 - Négatif: Je n'ai malheuresement pas pu terminer ma page contact à temps, alors qu'il est a 95% finit
+- Questions:
+- Idées d'améliorations:
+
+#### LAGRANGE Louis
+
+- Positif: Le back office se construit petit à petit
+- Négatif: Le projet prend de plus en plus de retard
 - Questions:
 - Idées d'améliorations:
