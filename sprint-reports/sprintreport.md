@@ -291,4 +291,4 @@ Edouard:
 - Positif: Malgré une manière de faire le back différente de celle que j'ai vu, j'ai bien avancé
 - Négatif: On a encore du retard, et on ne se tiens pas assez au courant de l'évolution des autres
 - Questions:
-- Idées d'améliorations:, il faudrait qu'on se tienne plus au courant les uns des autres, on perd du temps sur des choses betes
+- Idées d'améliorations:, il faudrait qu'on se tienne plus au courant les uns des autres, on perd du temps sur des choses bete
