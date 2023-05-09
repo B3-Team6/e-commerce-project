@@ -92,7 +92,7 @@ const SimilarProducts = () => {
   return (
     <>
       
-      <div className="p-2 flex justify-center font-bold text-2xl font-serif bg-slate-200">
+      <div className="p-2 flex justify-center font-bold text-white text-2xl font-serif bg-orange-100">
         <p>Produits similaires</p>
       </div>
 

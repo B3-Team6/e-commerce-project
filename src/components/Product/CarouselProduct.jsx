@@ -17,8 +17,8 @@ const CarouselProduct = () => {
   }, [images.length]);
 
   return (
-    <div className="flex justify-start">
-      <div className=" w-full overflow-hidden p-4">
+    <div className="flex justify-start w-2/4 ">
+      <div className="overflow-hidden p-4">
         {images.map((item, index) => {
           const isActive = index === currentIndex;
           return (
