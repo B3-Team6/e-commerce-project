@@ -226,12 +226,15 @@ Edouard=> Responsive finie, vérification avec louis à faire pour vérifier que
 ### Contributeurs:
 
 - TAM William
+- LAGRANGE Louis
+- SABIN Marvin
 
 ### Sprint overview
 
-**Ticket | Auteur | Description | Score**
+Ticket | Auteur | Description | Score
 
 ECA-106 | TAM William | Footer is stuck under the navbar | 1
+ECA-107 | SABIN Marvin | Navbar closing issue | 1
 
 ### Changelogs:
 
@@ -239,11 +242,41 @@ William(TamWilliam) => Back de la page Contact est presque terminé, le front a 
 William(TamWilliam) #112edc3 => Les pages ToS et LegalNotice sont terminés et accessible par la navbar et le footer
 William(TamWilliam) #29d9e6f => Fix du bug du footer qui n'était pas bien placé, ainsi que les liens après le merge de l'api sur le main
 
+Marvin(TayZain) #c20a33f => Intégration du BACK END, Les Session et Routes de la pge Sign Up, Sign In et Sign Out
+
+Marvin(TayZain) #d887b0d, #b65643b => Back (CRUD,MODDEL,Routes,etc..) de Product,Order (je dois finir quelque truc sinon c'est fait)
+
+Marvin(TayZain) #da3d01d => Changement sur la NavBar
+
+Marvin(TayZain) # => Mise en place de la partie back de la page Cart
+
+Louis :
+
+- Merge HomePage in main
+- Fix bug NavBar
+- Do responsive of HomePage, ProductPage, CategoryPage
+- Create tickets of the Back Office
+- Category page, back in progress
+
 ### Avis:
 
 #### TAM William
 
 - Positif:
 - Négatif: Je n'ai malheuresement pas pu terminer ma page contact à temps, alors qu'il est a 95% finit
+- Questions:
+- Idées d'améliorations:
+
+#### LAGRANGE Louis
+
+- Positif: Le back office se construit petit à petit
+- Négatif: Le projet prend de plus en plus de retard
+- Questions:
+- Idées d'améliorations:
+
+#### SABIN Marvin
+
+- Positif: Amélioration sur l'organisation du projet et du projet en lui-meme.
+- Négatif: On a toujours beaucoups de choses à faire mais on s'organise pour le faire proprement et à temps
 - Questions:
 - Idées d'améliorations:
