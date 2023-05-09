@@ -286,27 +286,6 @@ Edouard:
 - Questions:
 - Idées d'améliorations:
 
-#### LAGRANGE Louis
-
-- Positif: Le back office se construit petit à petit
-- Négatif: Le projet prend de plus en plus de retard
-- Questions:
-- Idées d'améliorations:
-
-#### SABIN Marvin
-
-- Positif: Amélioration sur l'organisation du projet et du projet en lui-meme.
-- Négatif: On a toujours beaucoups de choses à faire mais on s'organise pour le faire proprement et à temps
-- Questions:
-- Idées d'améliorations:
-
-#### LAGRANGE Louis
-
-- Positif: Le back office se construit petit à petit
-- Négatif: Le projet prend de plus en plus de retard
-- Questions:
-- Idées d'améliorations:
-
 ##### CHOPLAIN Edouard
 
 - Positif: Malgré une manière de faire le back différente de celle que j'ai vu, j'ai bien avancé
