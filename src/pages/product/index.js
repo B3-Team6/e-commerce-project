@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import CarouselProduct from '@/components/Product/CarouselProduct'
-import DescriptionProduct from '@/components/Product/DescriptionProduct'
-import SimilarProducts from '@/components/Product/SimilarProducts'
+import CarouselProduct from '@/web/components/Product/CarouselProduct'
+import DescriptionProduct from '@/web/components/Product/DescriptionProduct'
+import SimilarProducts from '@/web/components/Product/SimilarProducts'
 
-const Home = ()=> {
+const Product = ()=> {
   return (
     <>
       <Head>
@@ -20,4 +20,5 @@ const Home = ()=> {
     </>
   )
 }
-export default  Home
+Product.isPublicPage = true
+export default  Product

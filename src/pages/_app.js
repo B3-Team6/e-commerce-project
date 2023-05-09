@@ -1,12 +1,15 @@
-import Layout from "@/components/Layout/Layout";
-import "@/styles/style.css";
+import { AppContextProvider } from "@/web/hooks/useAppContext"
+import Layout from "@/web/components/Layout/Layout"
+import "@/styles/style.css"
 
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <AppContextProvider isPublicPage={Component.isPublicPage}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </AppContextProvider>
     </>
-  );
+  )
 }
