@@ -1,12 +1,7 @@
 import OrderModel from "@/api/db/models/OrderModel"
-import ProductModel from "@/api/db/models/ProductModel"
 import validate from "@/api/middlewares/validate.js"
 import mw from "@/api/mw.js"
-import {
-  stringValidator,
-  numberValidator,
-  emailValidator,
-} from "@/validators.js"
+import { limitValidator, numberValidator, pageValidator } from "@/validators.js"
 
 const handler = mw({
   POST: [
@@ -14,45 +9,28 @@ const handler = mw({
       body: {
         product_id: numberValidator.required(),
         quantity: numberValidator.required(),
-        customer_name: stringValidator.required(),
-        customer_email: emailValidator.required(),
       },
     }),
     async ({
       locals: {
-        body: { product_id, quantity, customer_name, customer_email },
+        body: { product_id, quantity },
       },
       res,
     }) => {
-      const product = await ProductModel.query().findById(product_id)
-
-      if (!product) {
-        res.status(404).send({ error: "Product not found" })
-
-        return
-      }
-
-      if (product.quantity < quantity) {
-        res.status(400).send({ error: "Not enough quantity available" })
-
-        return
-      }
-
       const order = await OrderModel.query().insertAndFetch({
         product_id,
         quantity,
-        customer_name,
-        customer_email,
       })
-
-      await product.$query().patch({ quantity: product.quantity - quantity })
 
       res.send({ result: order })
     },
   ],
   GET: [
-    async ({ res }) => {
-      const orders = await OrderModel.query()
+    async ({
+      res,
+      query: { page = pageValidator, limit = limitValidator },
+    }) => {
+      const orders = await OrderModel.query().paginate(limit, page)
 
       res.send({ result: orders })
     },
@@ -74,6 +52,39 @@ const handler = mw({
       }
 
       res.send({ result: order })
+    },
+  ],
+  PATCH: [
+    validate({
+      params: {
+        id: numberValidator.required(),
+      },
+      body: {
+        product_id: numberValidator.optional(),
+        quantity: numberValidator.optional(),
+      },
+    }),
+    async ({
+      locals: {
+        params: { id },
+        body: { product_id, quantity },
+      },
+      res,
+    }) => {
+      const order = await OrderModel.query().findById(id)
+
+      if (!order) {
+        res.status(404).send({ error: "Order not found" })
+
+        return
+      }
+
+      const updatedOrder = await order.$query().patchAndFetch({
+        product_id,
+        quantity,
+      })
+
+      res.send({ result: updatedOrder })
     },
   ],
   DELETE: [

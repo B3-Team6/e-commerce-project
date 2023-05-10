@@ -1,7 +1,12 @@
 import ProductModel from "@/api/db/models/ProductModel"
 import validate from "@/api/middlewares/validate.js"
 import mw from "@/api/mw.js"
-import { stringValidator, numberValidator } from "@/validators.js"
+import {
+  stringValidator,
+  numberValidator,
+  pageValidator,
+  limitValidator,
+} from "@/validators.js"
 
 const handler = mw({
   POST: [
@@ -30,8 +35,11 @@ const handler = mw({
     },
   ],
   GET: [
-    async ({ res }) => {
-      const products = await ProductModel.query()
+    async ({
+      res,
+      query: { page = pageValidator, limit = limitValidator },
+    }) => {
+      const products = await ProductModel.query().paginate(limit, page)
 
       res.send({ result: products })
     },

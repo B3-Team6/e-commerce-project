@@ -1,20 +1,22 @@
-import { Model } from "objection"
+import BaseModel from "./BaseModel"
 import ProductModel from "./ProductModel"
 
-class OrderModel extends Model {
+class OrderModel extends BaseModel {
   static tableName = "orders"
 
-  static get relationMappings() {
-    return {
-      product: {
-        relation: Model.BelongsToOneRelation,
-        modelClass: ProductModel,
-        join: {
-          from: "orders.product_id",
-          to: "products.id",
-        },
+  static relationMappings = {
+    product: {
+      relation: BaseModel.BelongsToOneRelation,
+      modelClass: ProductModel,
+      join: {
+        from: "orders.product_id",
+        to: "products.id",
       },
-    }
+    },
+  }
+  static modifiers = {
+    paginate: (query, limit, page) =>
+      query.limit(limit).offset((page - 1) * limit),
   }
 }
 
