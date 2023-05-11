@@ -60,7 +60,7 @@ const Carousel = () => {
                   height="5000"
                 />
 
-                {/* Boutton */}
+                
                 <div className=" flex justify-center">
                   {images.map((item, index) => (
                     <div key={item.id} className="mx-2">
