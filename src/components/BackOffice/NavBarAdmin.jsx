@@ -17,35 +17,56 @@ const NavBarAdmin = () => {
           <Link href={"/"}>AIRNEIS</Link>
         </div>
         <div className="flex gap-4">
-          <span className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300">
+          <Link
+            href={`/backoffice`}
+            className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300"
+          >
             <HomeIcon className="h-8 " />
             Home
-          </span>
-          <span className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300">
+          </Link>
+          <Link
+            href={`#`}
+            className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300"
+          >
             <ChartBarIcon className="h-8 " />
             Dashboard
-          </span>
-          <span className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300">
+          </Link>
+          <Link
+            href={`backoffice/userAdmin`}
+            className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300"
+          >
             <UserIcon className="h-8 " />
             Users
-          </span>
-          <span className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300">
+          </Link>
+          <Link
+            href={`./backoffice/productAdmin`}
+            className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300"
+          >
             <ShoppingBagIcon className="h-8" />
             Products
-          </span>
-          <span className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300">
+          </Link>
+          <Link
+            href={`./backoffice/categoryAdmin`}
+            className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300"
+          >
             <TagIcon className="h-8 " />
             Category
-          </span>
-          <span className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300">
+          </Link>
+          <Link
+            href={`./backoffice/orderAdmin`}
+            className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300"
+          >
             <ShoppingCartIcon className="h-8 " />
             Orders
-          </span>
+          </Link>
 
-          <span className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300">
+          <Link
+            href={`#`}
+            className="flex flex-col hover:text-slate-300 hover:cursor-pointer duration-300"
+          >
             <PhotoIcon className="h-8 " />
             Images
-          </span>
+          </Link>
         </div>
       </div>
     </>
