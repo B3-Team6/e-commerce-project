@@ -1,5 +1,4 @@
-
-import Image from "next/image";
+import Image from "next/image"
 
 const similarProducts = [
   {
@@ -9,8 +8,8 @@ const similarProducts = [
     img: (
       <Image
         alt="canape"
-        width={300}
-        height={300}
+        width={500}
+        height={500}
         src="/images/canape.jpg"
         className="rounded-lg hover:opacity-50"
       />
@@ -23,8 +22,8 @@ const similarProducts = [
     img: (
       <Image
         alt="lit"
-        width={300}
-        height={300}
+        width={500}
+        height={500}
         src="/images/lit.jpg"
         className="rounded-lg hover:opacity-50"
       />
@@ -37,8 +36,8 @@ const similarProducts = [
     img: (
       <Image
         alt="table"
-        width={300}
-        height={300}
+        width={500}
+        height={500}
         src="/images/table.jpg"
         className="rounded-lg hover:opacity-50"
       />
@@ -51,8 +50,8 @@ const similarProducts = [
     img: (
       <Image
         alt="bureau"
-        width={300}
-        height={300}
+        width={500}
+        height={500}
         src="/images/bureau.jpg"
         className="rounded-lg hover:opacity-50"
       />
@@ -65,8 +64,8 @@ const similarProducts = [
     img: (
       <Image
         alt="canape"
-        width={300}
-        height={300}
+        width={500}
+        height={500}
         src="/images/canape.jpg"
         className="rounded-lg hover:opacity-50"
       />
@@ -79,38 +78,35 @@ const similarProducts = [
     img: (
       <Image
         alt="lit"
-        width={300}
-        height={300}
+        width={500}
+        height={500}
         src="/images/lit.jpg"
         className="rounded-lg hover:opacity-50"
       />
     ),
   },
-];
+]
 
 const SimilarProducts = () => {
   return (
     <>
-      
-      <div className="p-2 flex justify-center font-bold text-white text-2xl font-serif bg-orange-100">
+      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-white md:text-lg lg:text-2xl">
         <p>Produits similaires</p>
       </div>
 
-      <div className="grid grid-cols-3 gris-rows-2 gap-3 p-4 items-center">
+      <div className="grid grid-cols-1 gap-3 p-4 md:grid-cols-2 lg:grid-cols-3">
         {similarProducts.map((similarProduct) => (
           <>
-            <div className="flex items-center flex-col ">
-              <div className="flex  items-center w-4/5 justify-center ">
+            <div className="flex flex-col items-center ">
+              <div className="flex items-center justify-center lg:w-4/5 ">
                 {similarProduct.img}
               </div>
-              <div>
-                {similarProduct.name}
-              </div>
+              <div>{similarProduct.name}</div>
             </div>
           </>
         ))}
       </div>
     </>
-  );
-};
-export default SimilarProducts;
+  )
+}
+export default SimilarProducts

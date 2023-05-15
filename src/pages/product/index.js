@@ -1,9 +1,9 @@
-import Head from 'next/head'
-import CarouselProduct from '@/web/components/Product/CarouselProduct'
-import DescriptionProduct from '@/web/components/Product/DescriptionProduct'
-import SimilarProducts from '@/web/components/Product/SimilarProducts'
+import Head from "next/head"
+import CarouselProduct from "@/web/components/Product/CarouselProduct"
+import DescriptionProduct from "@/web/components/Product/DescriptionProduct"
+import SimilarProducts from "@/web/components/Product/SimilarProducts"
 
-const Product = ()=> {
+const Product = () => {
   return (
     <>
       <Head>
@@ -12,13 +12,13 @@ const Product = ()=> {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className='flex justify-between '>
-      <CarouselProduct/>
-      <DescriptionProduct/>
+      <div className="flex flex-col justify-between lg:flex-row ">
+        <CarouselProduct />
+        <DescriptionProduct />
       </div>
-      <SimilarProducts/>
+      <SimilarProducts />
     </>
   )
 }
 Product.isPublicPage = true
-export default  Product
+export default Product
