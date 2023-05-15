@@ -32,18 +32,16 @@ const ContactUsPage = () => {
 
       if (err) {
         setError(err)
-
-        return
+      } else {
+        setIsSubmitted(true)
       }
-
-      setIsSubmitted(true)
     },
     [contactUs]
   )
 
   return (
     <>
-      <div className="mx-16 flex min-h-screen flex-col">
+      <div className="mx-80 flex min-h-screen flex-col">
         <div className="my-20 flex justify-center text-xl font-bold lg:text-4xl">
           Contact us
         </div>
@@ -66,7 +64,7 @@ const ContactUsPage = () => {
               label="Message"
               type="message"
             />
-            <SubmitButton>Submit</SubmitButton>
+            <SubmitButton className="my-14">Submit</SubmitButton>
             {isSubmitted && (
               <div className="text-center text-green-600">
                 Successfully sent the message!
