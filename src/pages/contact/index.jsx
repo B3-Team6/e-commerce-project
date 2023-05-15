@@ -1,4 +1,8 @@
-import { createValidator, emailValidator, messageValidator } from "@/validators.js"
+import {
+  createValidator,
+  emailValidator,
+  messageValidator,
+} from "@/validators.js"
 import Form from "@/web/components/Form.jsx"
 import FormField from "@/web/components/FormField.jsx"
 import SubmitButton from "@/web/components/SubmitButton.jsx"
@@ -39,8 +43,8 @@ const ContactUsPage = () => {
 
   return (
     <>
-      <div className="flex min-h-screen flex-col mx-16">
-        <div className="flex justify-center text-xl font-bold my-20 lg:text-4xl">
+      <div className="mx-16 flex min-h-screen flex-col">
+        <div className="my-20 flex justify-center text-xl font-bold lg:text-4xl">
           Contact us
         </div>
         <div>
@@ -64,7 +68,7 @@ const ContactUsPage = () => {
             />
             <SubmitButton>Submit</SubmitButton>
             {isSubmitted && (
-              <div className="mt-4 text-green-500">
+              <div className="text-center text-green-600">
                 Successfully sent the message!
               </div>
             )}
