@@ -48,29 +48,11 @@ const CartPage = () => {
     )
   }
 
-  const calculateTax = (subTotal) => {
-    const taxRate = 0.2 // 20% tax
-    const tax = subTotal * taxRate
-
-    return tax
-  }
-
-  const calculateShipping = (subTotal) => {
-    const shippingRate = 0.1 // 10% shipping fee
-    const shipping = subTotal * shippingRate
-
-    return shipping
-  }
-
   const subTotal = cartItems.reduce(
     (accumulator, currentItem) =>
       accumulator + currentItem.price * currentItem.quantity,
     0
   )
-
-  const tax = calculateTax(subTotal)
-  const shipping = calculateShipping(subTotal)
-  const total = subTotal + tax + shipping
 
   return (
     <>
@@ -141,18 +123,6 @@ const CartPage = () => {
                   <p className="flex justify-between">
                     <span className="font-medium">Sous-total:</span>
                     <span>{subTotal.toFixed(2)}€</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span className="font-medium">Livraison:</span>
-                    <span>{shipping.toFixed(2)}€</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span className="font-medium">Taxe:</span>
-                    <span>{tax.toFixed(2)}€</span>
-                  </p>
-                  <p className="mt-2 flex justify-between">
-                    <span className="font-bold">Total:</span>
-                    <span className="font-bold">{total.toFixed(2)}€</span>
                   </p>
                   <button className="mt-4 w-full rounded-md bg-black px-4 py-2 text-white">
                     Commander
