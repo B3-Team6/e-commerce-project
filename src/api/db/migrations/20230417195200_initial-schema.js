@@ -7,7 +7,6 @@ export const up = async (knex) => {
     table.text("passwordSalt").notNullable()
     table.boolean("isAdmin").notNullable().defaultTo(false)
     table.timestamps(true, true, true)
-    table.jsonb("cart").notNullable().defaultTo({})
   })
 }
 

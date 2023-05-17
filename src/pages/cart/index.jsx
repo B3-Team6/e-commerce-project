@@ -1,54 +1,11 @@
-import React, { useState } from "react"
+import React, { useContext } from "react"
 import Wrapper from "../../web/components/Layout/Wrapper"
+import { CartContext } from "@/web/hooks/CartContext"
 
 const CartPage = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "Lit",
-      price: 199.99,
-      image:
-        "https://www.cdiscount.com/pdt2/6/8/8/1/700x700/vid3181049686688/rw/meuble-cadre-de-lit-double-structure-de-lit-adul.jpg",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      quantity: 2,
-    },
+  const { cart, removeFromCart, updateQuantity } = useContext(CartContext)
 
-    {
-      id: 2,
-      name: "Chaise blanc",
-      price: 29.99,
-      image:
-        "https://www.ikea.com/fr/fr/images/products/fanbyn-chaise-blanc-interieur-exterieur__1052803_pe846425_s5.jpg?f=s",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac turpis eget enim aliquam commodo.",
-      quantity: 1,
-      shipping: 9.99,
-      tax: 1.99,
-    },
-    {
-      id: 3,
-      name: "Table Basse",
-      price: 99.99,
-      image:
-        "https://pierimport.imgix.net/produits/table-basse-moderne-bois-pied-en-croix-volga-62cd87aa19b4f.jpg?",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      quantity: 1,
-    },
-  ])
-
-  const removeItem = (itemId) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId))
-  }
-
-  const updateQuantity = (itemId, newQuantity) => {
-    setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === itemId ? { ...item, quantity: newQuantity } : item
-      )
-    )
-  }
-
-  const subTotal = cartItems.reduce(
+  const subTotal = Object.values(cart).reduce(
     (accumulator, currentItem) =>
       accumulator + currentItem.price * currentItem.quantity,
     0
@@ -57,8 +14,8 @@ const CartPage = () => {
   return (
     <>
       <Wrapper>
-        <div className="flex h-screen items-center justify-center">
-          {cartItems.length === 0 ? (
+        <div className="flex h-screen flex-col items-center justify-center">
+          {Object.keys(cart).length === 0 ? (
             <p className="mt-10 text-center text-4xl font-bold">
               Votre panier est vide
               <img
@@ -67,24 +24,19 @@ const CartPage = () => {
               />
             </p>
           ) : (
-            <div className="flex flex-row">
-              <div className="w-3/4 p-4">
-                <div className="mb-4 mr-40 border-b pb-2">
+            <div className="flex flex-col md:flex-row">
+              <div className="w-full p-4 md:mr-4 md:w-3/4">
+                <div className="mb-4 border-b pb-2">
                   <h1 className="text-2xl font-bold">Votre Panier</h1>
                 </div>
-                <div className="mr-40 flex flex-col space-y-4">
+                <div className="flex flex-col space-y-4">
                   {/* List of Cart Items */}
-                  {cartItems.map((item) => (
+                  {Object.values(cart).map((item) => (
                     <div
                       key={item.id}
-                      className="flex items-center justify-between border-b pb-2"
+                      className="flex flex-col items-center justify-between border-b pb-2 md:flex-row"
                     >
                       <div className="flex items-center space-x-2">
-                        <img
-                          className="h-16 w-16 rounded-md object-cover"
-                          src={item.image}
-                          alt={item.name}
-                        />
                         <div>
                           <h2 className="text-lg font-medium">{item.name}</h2>
                           <p className="text-sm text-gray-500">
@@ -93,17 +45,17 @@ const CartPage = () => {
                           <p className="font-medium">{item.price}€</p>
                         </div>
                       </div>
-                      <div className="flex items-center space-x-2">
+                      <div className="mt-4 flex items-center space-x-2 md:mt-0">
                         <button
                           className="rounded-md bg-black px-2 py-1 text-white"
-                          onClick={() => removeItem(item.id)}
+                          onClick={() => removeFromCart(item.id)}
                         >
                           Supprimer
                         </button>
                         <input
                           type="number"
                           min="1"
-                          max="10"
+                          max="99"
                           value={item.quantity}
                           onChange={(e) =>
                             updateQuantity(item.id, parseInt(e.target.value))
@@ -115,7 +67,7 @@ const CartPage = () => {
                   ))}
                 </div>
               </div>
-              <div className="w-1/4 rounded-md bg-gray-100 p-4">
+              <div className="mt-4 w-full rounded-md bg-gray-100 p-4 md:ml-4 md:mt-0 md:w-1/4">
                 <div className="mb-4 border-b pb-2">
                   <h2 className="text-xl font-medium">Total</h2>
                 </div>
