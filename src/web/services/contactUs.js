@@ -8,9 +8,6 @@ const contactUs =
         email,
         message,
       })
-      setTimeout(() => {
-        window.location.reload()
-      }, 3000)
 
       return [null, true]
     } catch (err) {

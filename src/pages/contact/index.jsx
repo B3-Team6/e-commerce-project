@@ -24,8 +24,9 @@ const ContactUsPage = () => {
   } = useAppContext()
   const [error, setError] = useState(null)
   const [isSubmitted, setIsSubmitted] = useState(false)
+
   const handleSubmit = useCallback(
-    async (values) => {
+    async (values, { resetForm }) => {
       setError(null)
 
       const [err] = await contactUs(values)
@@ -34,6 +35,7 @@ const ContactUsPage = () => {
         setError(err)
       } else {
         setIsSubmitted(true)
+        resetForm()
       }
     },
     [contactUs]
@@ -41,7 +43,7 @@ const ContactUsPage = () => {
 
   return (
     <>
-      <div className="mx-80 flex min-h-screen flex-col">
+      <div className="mx-96 flex min-h-screen flex-col">
         <div className="my-20 flex justify-center text-xl font-bold lg:text-4xl">
           Contact us
         </div>
