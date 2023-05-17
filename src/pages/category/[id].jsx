@@ -126,7 +126,7 @@ export const getServerSideProps = async ({ params }) => {
   }
 }
 
-const Home = (props) => {
+const Category = (props) => {
   const {
     data: { result },
   } = props
@@ -152,22 +152,22 @@ const Home = (props) => {
           <div className="absolute text-3xl font-black">{result.name}</div>
         </div>
       </div>
-      <div className="flex justify-center border-2 border-red-500">
+      <div className="mb-4 flex justify-center font-bold ">
         {result.description}
       </div>
-      <div className="flex justify-center p-2 font-serif text-2xl font-bold text-black">
+      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-white md:text-lg lg:text-2xl">
         <p>
           Voici notre collection de {result.name}, cliquez sur un produit pour
           voir sa description
         </p>
       </div>
 
-      <div className="gris-rows-3 grid grid-cols-4 items-center gap-3 p-4">
+      <div className=" grid grid-cols-1 gap-3 p-4 md:grid-cols-2 lg:grid-cols-4">
         {products.map((product) => (
           <>
-            <div className="flex flex-col items-center ">
-              <div className="flex  w-4/5 items-center">{product.img}</div>
-              <div className="flex w-72 items-center justify-between">
+            <div className="flex flex-col items-center  ">
+              <div className="flex  w-5/6 items-center">{product.img}</div>
+              <div className="flex w-5/6 items-center justify-between ">
                 <a>{product.name}</a>
                 &nbsp;
                 <a>{product.price}</a>
@@ -179,5 +179,5 @@ const Home = (props) => {
     </>
   )
 }
-Home.isPublicPage = true
-export default Home
+Category.isPublicPage = true
+export default Category

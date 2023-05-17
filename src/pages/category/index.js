@@ -1,6 +1,6 @@
 import Head from "next/head"
 
-const Home = () => {
+const Category = () => {
   return (
     <>
       <Head>
@@ -12,5 +12,5 @@ const Home = () => {
     </>
   )
 }
-Home.isPublicPage = true
-export default Home
+Category.isPublicPage = true
+export default Category
