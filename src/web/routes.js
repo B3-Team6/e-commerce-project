@@ -9,6 +9,13 @@ const routes = {
     signUp: () => "/sign-up/sign-up",
     signIn: () => "/sign-in/sign-in",
   },
+  backoffice: {
+    backoffice: () => "/BackOffice",
+    category: () => "/BackOffice/categoryAdmin",
+    order: () => "/BackOffice/orderAdmin",
+    product: () => "/BackOffice/productAdmin",
+    user: () => "/BackOffice/userAdmin",
+  },
 }
 
 export default routes

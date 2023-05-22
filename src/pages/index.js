@@ -2,6 +2,7 @@ import Head from "next/head"
 import Carousel from "@/web/components/Carousel"
 import Image from "next/image"
 import Link from "next/link"
+import routes from "@/web/routes"
 
 const categories = [
   {
@@ -276,7 +277,10 @@ const Home = () => {
         ))}
       </div>
 
-      <Link href="BackOffice" className="hover:text-gray-500">
+      <Link
+        href={routes.backoffice.backoffice()}
+        className="hover:text-gray-500"
+      >
         <p>Back Office</p>
       </Link>
 
