@@ -18,7 +18,7 @@ const NavBarAdmin = () => {
         </div>
         <div className="flex gap-4">
           <Link
-            href={`/backoffice`}
+            href={"/backoffice"}
             className="flex flex-col duration-300 hover:cursor-pointer hover:text-slate-300"
           >
             <HomeIcon className="h-8 " />
@@ -32,28 +32,28 @@ const NavBarAdmin = () => {
             Dashboard
           </Link>
           <Link
-            href={`backoffice/userAdmin`}
+            href={"/backoffice/userAdmin"}
             className="flex flex-col duration-300 hover:cursor-pointer hover:text-slate-300"
           >
             <UserIcon className="h-8 " />
             Users
           </Link>
           <Link
-            href={`./backoffice/productAdmin`}
+            href={"/backoffice/productAdmin"}
             className="flex flex-col duration-300 hover:cursor-pointer hover:text-slate-300"
           >
             <ShoppingBagIcon className="h-8" />
             Products
           </Link>
           <Link
-            href={`./backoffice/categoryAdmin`}
+            href={"/backoffice/categoryAdmin"}
             className="flex flex-col duration-300 hover:cursor-pointer hover:text-slate-300"
           >
             <TagIcon className="h-8 " />
             Category
           </Link>
           <Link
-            href={`./backoffice/orderAdmin`}
+            href={"/backoffice/orderAdmin"}
             className="flex flex-col duration-300 hover:cursor-pointer hover:text-slate-300"
           >
             <ShoppingCartIcon className="h-8 " />
@@ -61,7 +61,7 @@ const NavBarAdmin = () => {
           </Link>
 
           <Link
-            href={`#`}
+            href={"#"}
             className="flex flex-col duration-300 hover:cursor-pointer hover:text-slate-300"
           >
             <PhotoIcon className="h-8 " />

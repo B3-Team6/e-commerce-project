@@ -1,6 +1,5 @@
+import LayoutAdmin from "@/web/components/BackOffice/LayoutAdmin"
 import Head from "next/head"
-
-import LayoutAdmin from "@/components/BackOffice/LayoutAdmin"
 
 const BackOffice = () => {
   return (
