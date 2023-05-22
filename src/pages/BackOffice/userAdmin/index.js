@@ -19,4 +19,5 @@ UserAdmin.getLayout = function getLayout(page) {
   return <LayoutAdmin>{page}</LayoutAdmin>
 }
 
+UserAdmin.isPublicPage = true
 export default UserAdmin

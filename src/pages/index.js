@@ -276,6 +276,10 @@ const Home = () => {
         ))}
       </div>
 
+      <Link href="backoffice" className="hover:text-gray-500">
+        <p>Back Office</p>
+      </Link>
+
       <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-white md:text-lg lg:text-2xl">
         <p>Les Highlanders du moment</p>
       </div>

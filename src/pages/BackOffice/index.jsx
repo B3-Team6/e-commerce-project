@@ -17,4 +17,5 @@ const BackOffice = () => {
 BackOffice.getLayout = function getLayout(page) {
   return <LayoutAdmin>{page}</LayoutAdmin>
 }
+BackOffice.isPublicPage = true
 export default BackOffice

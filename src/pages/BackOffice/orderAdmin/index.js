@@ -19,4 +19,5 @@ OrderAdmin.getLayout = function getLayout(page) {
   return <LayoutAdmin>{page}</LayoutAdmin>
 }
 
+OrderAdmin.isPublicPage = true
 export default OrderAdmin

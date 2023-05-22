@@ -19,4 +19,5 @@ CategoryAdmin.getLayout = function getLayout(page) {
   return <LayoutAdmin>{page}</LayoutAdmin>
 }
 
+CategoryAdmin.isPublicPage = true
 export default CategoryAdmin

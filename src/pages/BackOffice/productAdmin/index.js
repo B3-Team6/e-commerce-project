@@ -19,4 +19,5 @@ ProductAdmin.getLayout = function getLayout(page) {
   return <LayoutAdmin>{page}</LayoutAdmin>
 }
 
+ProductAdmin.isPublicPage = true
 export default ProductAdmin
