@@ -292,3 +292,28 @@ Edouard:
 - Négatif: On a encore du retard, et on ne se tiens pas assez au courant de l'évolution des autres
 - Questions:
 - Idées d'améliorations:, il faudrait qu'on se tienne plus au courant les uns des autres, on perd du temps sur des choses bete
+
+# 08/05/2023 - 04/06/2023
+
+### Contributeurs:
+
+- TAM William
+
+### Sprint overview
+
+Ticket | Auteur | Description | Score
+
+ECA-45-CONTACT
+
+### Changelogs:
+
+William(TamWilliam) => Changement dans le MCD; ajout de la table Contact
+
+### Avis:
+
+#### TAM William
+
+- Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations:
