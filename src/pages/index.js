@@ -276,7 +276,7 @@ const Home = () => {
         ))}
       </div>
 
-      <Link href="backoffice" className="hover:text-gray-500">
+      <Link href="BackOffice" className="hover:text-gray-500">
         <p>Back Office</p>
       </Link>
 
