@@ -14,6 +14,13 @@ const routes = {
     order: () => "/order/order",
     product: () => "/product/product",
   },
+  backoffice: {
+    backoffice: () => "/BackOffice",
+    category: () => "/BackOffice/categoryAdmin",
+    order: () => "/BackOffice/orderAdmin",
+    product: () => "/BackOffice/productAdmin",
+    user: () => "/BackOffice/userAdmin",
+  },
 }
 
 export default routes

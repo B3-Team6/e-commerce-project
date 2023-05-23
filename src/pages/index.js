@@ -4,6 +4,7 @@ import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
 
+
 const categories = [
   {
     id: 1,
@@ -253,6 +254,7 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Carousel />
 
       <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-white md:text-lg lg:text-2xl">
@@ -269,12 +271,19 @@ const Home = () => {
                 <div className=" absolute z-10 hidden text-2xl font-black text-black group-hover:flex">
                   {categorie.name}
                 </div>
-                {categorie.img}
+                <Link href={`/category/${categorie.id}`}>{categorie.img}</Link>
               </div>
             </div>
           </>
         ))}
       </div>
+
+      <Link
+        href={routes.backoffice.backoffice()}
+        className="hover:text-gray-500"
+      >
+        <p>Back Office</p>
+      </Link>
 
       <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-white md:text-lg lg:text-2xl">
         <p>Les Highlanders du moment</p>
