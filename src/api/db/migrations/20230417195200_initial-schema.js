@@ -5,6 +5,7 @@ export const up = async (knex) => {
     table.text("email").notNullable().unique()
     table.text("passwordHash").notNullable()
     table.text("passwordSalt").notNullable()
+    table.boolean("isAdmin").notNullable().defaultTo(false)
     table.timestamps(true, true, true)
   })
 }

@@ -6,9 +6,9 @@ import signUpService from "@/web/services/signUp.js"
 import {
   createContext,
   useCallback,
-  useContext,
   useEffect,
   useState,
+  useContext,
 } from "react"
 
 const AppContext = createContext()
@@ -48,7 +48,6 @@ export const AppContextProvider = (props) => {
 
   return (
     <AppContext.Provider
-      {...otherProps}
       value={{
         actions: {
           signUp,
@@ -59,7 +58,8 @@ export const AppContextProvider = (props) => {
           session,
         },
       }}
-    />
+      {...otherProps}
+    ></AppContext.Provider>
   )
 }
 
