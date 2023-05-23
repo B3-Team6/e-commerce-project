@@ -1,4 +1,10 @@
-import { createValidator, emailValidator } from "@/validators.js"
+import {
+  createValidator,
+  displayNameValidator,
+  emailValidator,
+  passwordValidator,
+} from "@/validator"s.js"
+
 import Form from "@/web/components/Form.jsx"
 import FormField from "@/web/components/FormField.jsx"
 import SubmitButton from "@/web/components/SubmitButton.jsx"
@@ -7,12 +13,17 @@ import { useRouter } from "next/router.js"
 import { useCallback, useState } from "react"
 import Image from "next/image"
 
+
+
 const initialValues = {
+  displayName: "",
   email: "",
   password: "",
 }
 const validationSchema = createValidator({
+  displayName: displayNameValidator.required(),
   email: emailValidator.required(),
+  password: passwordValidator.required(),
 })
 
 const SignUpPage = () => {
@@ -25,6 +36,7 @@ const SignUpPage = () => {
     async (values) => {
       setError(null)
 
+
       const [err] = await signUp(values)
 
       if (err) {
@@ -32,9 +44,7 @@ const SignUpPage = () => {
 
         return
       }
-
-      router.push("/")
-    },
+      router.push("/sign-in")    },
     [signUp, router]
   )
 
