@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { use, useCallback, useEffect, useState } from "react"
 import LayoutAdmin from "@/web/components/BackOffice/LayoutAdmin"
 import Head from "next/head"
 import {
@@ -7,94 +7,56 @@ import {
   XMarkIcon,
   CheckIcon,
 } from "@heroicons/react/24/solid"
+import axios from "axios"
 
 const CategoryAdmin = () => {
-  const [category, setCategory] = useState([
-    {
-      id: 1,
-      name: "Canapé",
-      description:
-        "Les canapés sont des sièges confortables pour les salons, disponibles dans différentes tailles et matériaux, souvent accompagnés de fauteuils assortis.",
-      image: "tg",
-    },
-    {
-      id: 2,
-      name: "Lit",
-      description:
-        "Les lits sont des meubles conçus pour offrir un endroit confortable pour dormir, disponibles dans différentes tailles et matériaux, souvent accompagnés de matelas et de literie.",
-      image: "tg",
-    },
-    {
-      id: 3,
-      name: "Table",
-      description:
-        "Les tables sont des surfaces planes pour placer des objets, disponibles dans différentes tailles, matériaux et formes, souvent accompagnées de sièges.",
-      image: "tg",
-    },
-    {
-      id: 4,
-      name: "Bureau",
-      description:
-        "Les bureaux sont des meubles de travail avec des fonctionnalités de rangement, disponibles dans différentes tailles et matériaux, souvent avec une chaise assortie.",
-      image: "tg",
-    },
-    {
-      id: 5,
-      name: "Chaise",
-      description:
-        "Les chaises sont des sièges individuels avec des fonctionnalités supplémentaires, disponibles dans différents matériaux et tailles. Elles sont souvent utilisées pour fournir des sièges supplémentaires ou compléter un ensemble.",
-      image: "tg",
-    },
-    {
-      id: 6,
-      name: "Armoire",
-      description:
-        "Les armoires sont des meubles de rangement verticaux pour les vêtements ou les articles ménagers, avec des étagères, des tiroirs et des portes, disponibles dans différents matériaux.",
-      image: "tg",
-    },
-  ])
-
+  const [category, setCategory] = useState([])
   const [editedId, setEditedId] = useState(null)
   const [editedName, setEditedName] = useState("")
   const [editedDescription, setEditedDescription] = useState("")
+  const [editedImage, setEditedImage] = useState("")
+
+  const fecthData = async () => {
+    const { data } = await axios.get("http://localhost:3000/api/category")
+    setCategory(data.result)
+
+    console.log(data)
+  }
+
+  useEffect(() => {
+    fecthData()
+  }, [])
 
   function handleEdit(id) {
-    // Récupérer l'élément correspondant à l'ID donné et effectuer des actions d'édition
     const element = category.find((categorie) => categorie.id === id)
 
     if (element) {
-      // Mettre à jour les valeurs éditées avec les valeurs actuelles de l'élément
       setEditedId(id)
       setEditedName(element.name)
       setEditedDescription(element.description)
-    } else {
-      console.log("Element not found")
+      setEditedImage(element.image)
     }
   }
 
-  function handleSaveEdit(id) {
-    // Récupérer l'index de l'élément correspondant à l'ID donné
-    const index = category.findIndex((categorie) => categorie.id === id)
+  const handleSaveEdit = useCallback(
+    async (category) => {
+      await axios.patch(`http://localhost:3000/api/category/${category.id}`, {
+        name: editedName,
+        description: editedDescription,
+        image: editedImage,
+      })
 
-    if (index !== -1) {
-      const updatedCategory = [...category]
-      updatedCategory[index].name = editedName
-      updatedCategory[index].description = editedDescription
-      setCategory(updatedCategory)
+      fecthData()
       setEditedId(null)
-      setEditedName("")
-      setEditedDescription("")
-    }
-  }
+    },
+    [editedName, editedDescription, editedImage]
+  )
 
-  function handleDelete(id) {
-    // Supprimer l'élément correspondant à l'ID donné
-    const updatedCategory = category.filter((categorie) => categorie.id !== id)
-    // Mettre à jour le tableau category avec les éléments restants
-    setCategory(updatedCategory)
-    // Exemple : Afficher un message de suppression réussie ou effectuer d'autres actions
-    console.log("Element deleted successfully")
-  }
+  const handleDelete = useCallback(async (id) => {
+    await axios.delete(`http://localhost:3000/api/category/${id}`)
+
+    fecthData()
+  }, [])
 
   return (
     <>
@@ -114,6 +76,7 @@ const CategoryAdmin = () => {
             <th>Id :</th>
             <th>Name :</th>
             <th>Desc :</th>
+            <th>Image :</th>
             <th>Action :</th>
           </tr>
         </thead>
@@ -121,7 +84,7 @@ const CategoryAdmin = () => {
           {category.map((categorie) => (
             <tr key={categorie.id} className="border-2 border-stone-300">
               <td className="w-16">{categorie.id}</td>
-              <td className="w-24 ">
+              <td className="w-24 text-sm">
                 {categorie.id === editedId ? (
                   <input
                     className="border-2 border-green-500"
@@ -136,7 +99,7 @@ const CategoryAdmin = () => {
               <td className="truncated-description w-2/3 text-sm">
                 {categorie.id === editedId ? (
                   <textarea
-                    className="border-2 border-red-500"
+                    className="w-full border-2 border-red-500"
                     value={editedDescription}
                     onChange={(e) => setEditedDescription(e.target.value)}
                   />
@@ -144,11 +107,22 @@ const CategoryAdmin = () => {
                   categorie.description
                 )}
               </td>
+              <td className="text-sm">
+                {categorie.id === editedId ? (
+                  <textarea
+                    className="w-full border-2 border-red-500"
+                    value={editedImage}
+                    onChange={(e) => setEditedImage(e.target.value)}
+                  />
+                ) : (
+                  categorie.image
+                )}
+              </td>
               <td>
                 {categorie.id === editedId ? (
                   <>
                     <div className="flex flex-row">
-                      <button onClick={() => handleSaveEdit(categorie.id)}>
+                      <button onClick={() => handleSaveEdit(categorie)}>
                         <CheckIcon className="h-8 text-green-500" />
                       </button>
                       <button onClick={() => setEditedId(null)}>

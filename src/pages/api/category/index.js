@@ -6,7 +6,7 @@ import { stringValidator } from "@/validators"
 const handler = mw({
   GET: [
     async ({ res }) => {
-      const category = await CategoryModel.query()
+      const category = await CategoryModel.query().orderBy("id")
 
       if (!category) {
         res.status(401).send({ error: "Il n'y a pas de categories" })
