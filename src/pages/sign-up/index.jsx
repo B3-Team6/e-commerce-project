@@ -41,7 +41,7 @@ const SignUpPage = () => {
 
         return
       }
-      router.push("/sign-in")
+      router.push("/sign-up")
     },
     [signUp, router]
   )
