@@ -49,7 +49,7 @@ const SignInPage = () => {
   return (
     <div className=" min-h-screen">
       <div className="lg:grid lg:grid-cols-2">
-        <div className="hidden w-auto  justify-center lg:col-span-1  lg:mb-8 lg:mt-40 lg:flex">
+        <div className="hidden lg:col-span-1 lg:mb-8  lg:mt-40 lg:flex lg:justify-center">
           <div className="flex max-h-80 items-center justify-center">
             <Image
               alt="canape"
