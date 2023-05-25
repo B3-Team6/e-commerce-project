@@ -80,7 +80,6 @@ const SignInPage = () => {
               onSubmit={handleSubmit}
               error={error}
             >
-             
               <FormField
                 name="email"
                 placeholder="Enter your e-mail"
