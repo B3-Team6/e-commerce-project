@@ -50,7 +50,7 @@ const ContactUsPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="mx-96 flex min-h-screen flex-col">
+      <div className="mx-16 flex min-h-screen flex-col lg:mx-96">
         <div className="my-20 flex justify-center text-xl font-bold lg:text-4xl">
           Contact us
         </div>
@@ -71,11 +71,11 @@ const ContactUsPage = () => {
               name="message"
               placeholder="Enter your message"
               label="Message"
-              type="message"
+              type="textarea"
               aria-label="Message input"
             />
 
-            <SubmitButton className="my-14">Submit</SubmitButton>
+            <SubmitButton className="mt-10">Submit</SubmitButton>
             {isSubmitted && (
               <div className="text-center text-green-600">
                 Successfully sent the message!
