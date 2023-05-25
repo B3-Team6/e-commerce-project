@@ -72,7 +72,9 @@ const ContactUsPage = () => {
               placeholder="Enter your message"
               label="Message"
               type="message"
+              aria-label="Message input"
             />
+
             <SubmitButton className="my-14">Submit</SubmitButton>
             {isSubmitted && (
               <div className="text-center text-green-600">
