@@ -41,6 +41,7 @@ const SignUpPage = () => {
 
         return
       }
+
       router.push("/sign-up")
     },
     [signUp, router]
@@ -49,14 +50,14 @@ const SignUpPage = () => {
   return (
     <div className=" min-h-screen">
       <div className="lg:grid lg:grid-cols-2">
-        <div className="hidden w-auto lg:col-span-1 lg:mb-8  lg:mt-40 lg:flex">
-          <div className="ml-4 flex max-h-80 items-center justify-center">
+        <div className="hidden lg:col-span-1 lg:mb-8  lg:mt-40 lg:flex lg:justify-center">
+          <div className="flex max-h-80 items-center justify-center">
             <Image
               alt="canape"
               width={700}
               height={1000}
               src="/images/canape.jpg"
-              className="  item-center   opacity-50"
+              className="ml-16 opacity-50"
             />
 
             <Image
@@ -64,7 +65,7 @@ const SignUpPage = () => {
               width={150}
               height={150}
               src="/images/Airneis.jpg"
-              className=" item-center absolute z-10"
+              className="absolute z-10 ml-16"
             />
           </div>
         </div>
@@ -97,7 +98,7 @@ const SignUpPage = () => {
                 label="Password"
                 type="password"
               />
-              <SubmitButton>Sign Up</SubmitButton>
+              <SubmitButton className="mt-10">Sign Up</SubmitButton>
             </Form>
           </div>
         </div>
