@@ -8,6 +8,9 @@ const routes = {
   api: {
     signUp: () => "/sign-up/sign-up",
     signIn: () => "/sign-in/sign-in",
+    category: {
+      categories: (categoryId) => `/category/${categoryId}`,
+    },
   },
   backoffice: {
     backoffice: () => "/BackOffice",

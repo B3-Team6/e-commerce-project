@@ -1,4 +1,4 @@
-import React, { use, useCallback, useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import LayoutAdmin from "@/web/components/BackOffice/LayoutAdmin"
 import Head from "next/head"
 import {
@@ -8,8 +8,13 @@ import {
   CheckIcon,
 } from "@heroicons/react/24/solid"
 import axios from "axios"
+import useAppContext from "@/web/hooks/useAppContext"
 
 const CategoryAdmin = () => {
+  const {
+    actions: { updateCategory, deleteCategory },
+  } = useAppContext()
+
   const [category, setCategory] = useState([])
   const [editedId, setEditedId] = useState(null)
   const [editedName, setEditedName] = useState("")
@@ -19,8 +24,6 @@ const CategoryAdmin = () => {
   const fecthData = async () => {
     const { data } = await axios.get("http://localhost:3000/api/category")
     setCategory(data.result)
-
-    console.log(data)
   }
 
   useEffect(() => {
@@ -38,25 +41,36 @@ const CategoryAdmin = () => {
     }
   }
 
-  const handleSaveEdit = useCallback(
-    async (category) => {
-      await axios.patch(`http://localhost:3000/api/category/${category.id}`, {
-        name: editedName,
-        description: editedDescription,
-        image: editedImage,
-      })
+  const handleSaveEdit = useCallback(async () => {
+    const [err] = await updateCategory(
+      editedId,
+      editedName,
+      editedDescription,
+      editedImage
+    )
 
-      fecthData()
-      setEditedId(null)
-    },
-    [editedName, editedDescription, editedImage]
-  )
-
-  const handleDelete = useCallback(async (id) => {
-    await axios.delete(`http://localhost:3000/api/category/${id}`)
+    if (err) {
+      return err
+    }
 
     fecthData()
-  }, [])
+    setEditedId(null)
+  }, [editedId, editedName, editedDescription, editedImage, updateCategory])
+
+  const handleDelete = useCallback(
+    async (id) => {
+      const [err] = await deleteCategory(id)
+
+      if (err) {
+        return err
+      }
+
+      await axios.delete(`http://localhost:3000/api/category/${id}`)
+
+      fecthData()
+    },
+    [deleteCategory]
+  )
 
   return (
     <>
