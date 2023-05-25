@@ -3,6 +3,7 @@ import {
   emailValidator,
   messageValidator,
 } from "@/validators.js"
+import Head from "next/head"
 import Form from "@/web/components/Form.jsx"
 import FormField from "@/web/components/FormField.jsx"
 import SubmitButton from "@/web/components/SubmitButton.jsx"
@@ -43,6 +44,12 @@ const ContactUsPage = () => {
 
   return (
     <>
+      <Head>
+        <title>Contact us</title>
+        <meta name="description" content="Contact us page" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="mx-96 flex min-h-screen flex-col">
         <div className="my-20 flex justify-center text-xl font-bold lg:text-4xl">
           Contact us
