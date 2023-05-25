@@ -9,6 +9,8 @@ import {
 } from "@heroicons/react/24/solid"
 import axios from "axios"
 import useAppContext from "@/web/hooks/useAppContext"
+import routes from "@/web/routes"
+import Link from "next/link"
 
 const CategoryAdmin = () => {
   const {
@@ -164,6 +166,12 @@ const CategoryAdmin = () => {
           ))}
         </tbody>
       </table>
+      <Link
+        href={routes.backoffice.addCategory()}
+        className="mx-auto mt-4 flex w-fit justify-center rounded-md bg-black px-4 py-2 text-white"
+      >
+        Ajouter une catégorie
+      </Link>
     </>
   )
 }

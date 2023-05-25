@@ -1,4 +1,5 @@
 import { createValidator, stringValidator } from "@/validators.js"
+import LayoutAdmin from "@/web/components/BackOffice/LayoutAdmin"
 import Form from "@/web/components/Form.jsx"
 import FormField from "@/web/components/FormField.jsx"
 import SubmitButton from "@/web/components/SubmitButton.jsx"
@@ -47,22 +48,26 @@ const CategoryPage = () => {
       onSubmit={handleSubmit}
       error={error}
     >
-      <FormField name="name" placeholder="Enter your name" label="Name" />
+      <FormField name="name" placeholder="Enter the name" label="Name" />
       <FormField
         name="description"
-        placeholder="Enter your e-mail"
-        label="E-mail"
-        type="email"
+        placeholder="Enter the description"
+        label="Description"
+        type="description"
       />
       <FormField
         name="image"
-        placeholder="Enter your password"
-        label="Password"
+        placeholder="Enter the image"
+        label="Image"
         type="text"
       />
       <SubmitButton>Create</SubmitButton>
     </Form>
   )
+}
+
+CategoryPage.getLayout = function getLayout(page) {
+  return <LayoutAdmin>{page}</LayoutAdmin>
 }
 
 CategoryPage.isPublicPage = true

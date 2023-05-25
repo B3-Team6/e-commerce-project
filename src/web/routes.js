@@ -16,6 +16,7 @@ const routes = {
   backoffice: {
     backoffice: () => "/BackOffice",
     category: () => "/BackOffice/categoryAdmin",
+    addCategory: () => "/BackOffice/categoryAdmin/add",
     order: () => "/BackOffice/orderAdmin",
     product: () => "/BackOffice/productAdmin",
     user: () => "/BackOffice/userAdmin",
