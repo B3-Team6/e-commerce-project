@@ -41,6 +41,7 @@ const SignInPage = () => {
 
         return
       }
+
       router.push("/sign-in")
     },
     [signIn, router]
@@ -92,7 +93,7 @@ const SignInPage = () => {
                 label="Password"
                 type="password"
               />
-              <SubmitButton>Sign In</SubmitButton>
+              <SubmitButton className="mt-1O">Sign In</SubmitButton>
             </Form>
           </div>
         </div>
