@@ -49,14 +49,14 @@ const SignInPage = () => {
   return (
     <div className=" min-h-screen">
       <div className="lg:grid lg:grid-cols-2">
-        <div className="hidden w-auto lg:col-span-1 lg:mb-8  lg:mt-40 lg:flex">
+        <div className="hidden w-auto lg:col-span-1 lg:mb-8 lg:mt-40 lg:flex lg:justify-center">
           <div className="ml-4 flex max-h-80 items-center justify-center">
             <Image
               alt="canape"
               width={700}
               height={1000}
               src="/images/canape.jpg"
-              className="  item-center   opacity-50"
+              className="ml-20 opacity-50"
             />
 
             <Image
@@ -64,7 +64,7 @@ const SignInPage = () => {
               width={150}
               height={150}
               src="/images/Airneis.jpg"
-              className=" item-center absolute z-10"
+              className="absolute z-10 ml-20"
             />
           </div>
         </div>
@@ -80,7 +80,6 @@ const SignInPage = () => {
               onSubmit={handleSubmit}
               error={error}
             >
-             
               <FormField
                 name="email"
                 placeholder="Enter your e-mail"
