@@ -2,16 +2,14 @@ import routes from "@/web/routes"
 
 const addCategory =
   ({ api }) =>
-  async (editedId, editedName, editedDescription, editedImage) => {
+  async ({ name, description, image }) => {
     try {
-      const { data } = await api.post(
-        routes.api.category.categories(editedId),
-        {
-          name: editedName,
-          description: editedDescription,
-          image: editedImage,
-        }
-      )
+      const { data } = await api.post(routes.api.category.category(), {
+        name: name,
+        slug: name.toLowerCase().replace(/ /g, "-"),
+        description: description,
+        image: image,
+      })
 
       return [null, data]
     } catch (err) {

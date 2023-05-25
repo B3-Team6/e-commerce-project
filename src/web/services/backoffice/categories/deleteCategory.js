@@ -4,7 +4,7 @@ const deleteCategory =
   ({ api }) =>
   async (id) => {
     try {
-      const { data } = await api.delete(routes.api.category.categories(id), {})
+      const { data } = await api.delete(routes.api.category.categories(id))
 
       return [null, data]
     } catch (err) {

@@ -10,6 +10,7 @@ const routes = {
     signIn: () => "/sign-in/sign-in",
     category: {
       categories: (categoryId) => `/category/${categoryId}`,
+      category: () => `/category`,
     },
   },
   backoffice: {
