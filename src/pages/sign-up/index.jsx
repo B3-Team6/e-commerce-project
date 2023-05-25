@@ -1,4 +1,10 @@
-import { createValidator, emailValidator } from "@/validators.js"
+import {
+  createValidator,
+  displayNameValidator,
+  emailValidator,
+  passwordValidator,
+} from "@/validators.js"
+
 import Form from "@/web/components/Form.jsx"
 import FormField from "@/web/components/FormField.jsx"
 import SubmitButton from "@/web/components/SubmitButton.jsx"
@@ -8,38 +14,40 @@ import { useCallback, useState } from "react"
 import Image from "next/image"
 
 const initialValues = {
+  displayName: "",
   email: "",
   password: "",
 }
 const validationSchema = createValidator({
+  displayName: displayNameValidator.required(),
   email: emailValidator.required(),
+  password: passwordValidator.required(),
 })
 
-const SignInPage = () => {
+const SignUpPage = () => {
   const router = useRouter()
   const {
-    actions: { signIn },
+    actions: { signUp },
   } = useAppContext()
   const [error, setError] = useState(null)
   const handleSubmit = useCallback(
     async (values) => {
       setError(null)
 
-      const [err] = await signIn(values)
+      const [err] = await signUp(values)
 
       if (err) {
         setError(err)
 
         return
       }
-
-      router.push("/")
+      router.push("/sign-up")
     },
-    [signIn, router]
+    [signUp, router]
   )
 
   return (
-  <div className=" min-h-screen">
+    <div className=" min-h-screen">
       <div className="lg:grid lg:grid-cols-2">
         <div className="hidden w-auto lg:col-span-1 lg:mb-8  lg:mt-40 lg:flex">
           <div className="ml-4 flex max-h-80 items-center justify-center">
@@ -60,11 +68,12 @@ const SignInPage = () => {
             />
           </div>
         </div>
-        <div className="lg:col-span-1">
-          <div className="mt-20 flex justify-center text-lg font-bold">
-            Sign-In
+
+        <div className="flex-col  lg:col-span-1">
+          <div className="mt-20 flex justify-center text-3xl font-bold">
+            Sign-Up
           </div>
-          <div className="mx-auto mb-28 mt-8 max-w-md  border border-black">
+          <div className="mx-auto mb-16 mt-8 max-w-md border border-black">
             <Form
               initialValues={initialValues}
               validationSchema={validationSchema}
@@ -72,20 +81,23 @@ const SignInPage = () => {
               error={error}
             >
               <FormField
+                name="displayName"
+                placeholder="Enter your name"
+                label="Name"
+              />
+              <FormField
                 name="email"
                 placeholder="Enter your e-mail"
                 label="E-mail"
                 type="email"
-                className="mb-4"
               />
               <FormField
                 name="password"
                 placeholder="Enter your password"
                 label="Password"
                 type="password"
-                className="mb-4"
               />
-              <SubmitButton>Sign In</SubmitButton>
+              <SubmitButton>Sign Up</SubmitButton>
             </Form>
           </div>
         </div>
@@ -94,5 +106,5 @@ const SignInPage = () => {
   )
 }
 
-SignInPage.isPublicPage = true
-export default SignInPage
+SignUpPage.isPublicPage = true
+export default SignUpPage
