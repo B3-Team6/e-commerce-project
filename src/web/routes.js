@@ -16,6 +16,7 @@ const routes = {
     product: () => "/BackOffice/productAdmin",
     user: () => "/BackOffice/userAdmin",
   },
+  category: {},
 }
 
 export default routes
