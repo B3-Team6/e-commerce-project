@@ -52,7 +52,7 @@ const ContactUsPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="mx-96 flex min-h-screen flex-col">
+      <div className="mx-16 flex min-h-screen flex-col lg:mx-96">
         <div className="my-20 flex justify-center text-xl font-bold lg:text-4xl">
           {t("contactTitle")}
         </div>
@@ -73,11 +73,11 @@ const ContactUsPage = () => {
               name="message"
               placeholder={t("messagePlaceholder")}
               label={t("messageLabel")}
-              type="message"
+              type="textarea"
               aria-label={t("messageAriaLabel")}
             />
 
-            <SubmitButton className="my-14">{t("submitButton")}</SubmitButton>
+            <SubmitButton className="mt-10">{t("submitButton")}</SubmitButton>
             {isSubmitted && (
               <div className="text-center text-green-600">
                 {t("submitSuccessMessage")}
