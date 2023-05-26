@@ -10,6 +10,7 @@ const updateCategory =
           name: editedName,
           description: editedDescription,
           image: editedImage,
+          slug: editedName.toLowerCase().replace(/ /g, "-"),
         }
       )
 

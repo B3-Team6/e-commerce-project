@@ -5,6 +5,7 @@ module.exports.up = async (knex) => {
     table.text("description").notNullable()
     table.text("image").notNullable()
     table.timestamps(true, true, true)
+    table.text("slug").notNullable()
   })
 }
 
