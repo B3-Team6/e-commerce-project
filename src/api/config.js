@@ -1,6 +1,6 @@
 import dotenv from "dotenv"
 import knexfile from "knexfile"
-import { resolve } from "node:path"
+import { resolve } from "path"
 
 dotenv.config({ path: resolve(".env.local") })
 

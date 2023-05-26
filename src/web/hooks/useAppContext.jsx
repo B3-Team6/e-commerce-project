@@ -3,12 +3,13 @@ import createAPIClient from "@/web/createAPIClient.js"
 import parseSession from "@/web/parseSession.js"
 import signInService from "@/web/services/signIn.js"
 import signUpService from "@/web/services/signUp.js"
+import productService from "@/web/services/Product/product.js"
 import {
   createContext,
   useCallback,
-  useContext,
   useEffect,
   useState,
+  useContext,
 } from "react"
 import updateCategoryService from "@/web/services/backoffice/categories/updateCategory"
 import deleteCategorySevrvice from "@/web/services/backoffice/categories/deleteCategory"
@@ -22,6 +23,7 @@ export const AppContextProvider = (props) => {
   const [jwt, setJWT] = useState(null)
   const api = createAPIClient({ jwt })
 
+  const product = productService({ api })
   const signUp = signUpService({ api })
   const signIn = signInService({ api, setSession, setJWT })
   const signOut = useCallback(() => {
@@ -55,7 +57,6 @@ export const AppContextProvider = (props) => {
 
   return (
     <AppContext.Provider
-      {...otherProps}
       value={{
         actions: {
           signUp,
@@ -64,12 +65,14 @@ export const AppContextProvider = (props) => {
           updateCategory,
           deleteCategory,
           addCategory,
+          product,
         },
         state: {
           session,
         },
       }}
-    />
+      {...otherProps}
+    ></AppContext.Provider>
   )
 }
 

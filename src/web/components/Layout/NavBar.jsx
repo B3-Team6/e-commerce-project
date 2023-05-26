@@ -1,6 +1,6 @@
 import useAppContext from "@/web/hooks/useAppContext"
 import routes from "@/web/routes.js"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import {
   MagnifyingGlassIcon,
   XMarkIcon,
@@ -8,6 +8,7 @@ import {
   Bars3Icon,
 } from "@heroicons/react/24/outline"
 import Link from "next/link"
+import { CartContext } from "@/web/hooks/CartContext"
 
 const NavBar = () => {
   const [isOpen, setOpen] = useState(false)
@@ -30,6 +31,27 @@ const NavBar = () => {
     return HandleSignOut
   }
 
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  const { cart, setCart } = useContext(CartContext)
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart")
+
+    if (savedCart) {
+      const parsedCart = JSON.parse(savedCart)
+
+      setCart(parsedCart)
+    }
+  }, [setCart])
+
+  const cartCount = Object.values(cart).reduce(
+    (total, item) => total + item.quantity,
+    0
+  )
+
   return (
     <>
       <div className="flex items-center justify-between border-b border-gray-400 bg-[#F6E6D1] p-3 font-[Mulish] font-semibold">
@@ -45,12 +67,19 @@ const NavBar = () => {
             </button>
 
             <div className="relative">
-              <button className="group relative flex items-center justify-center rounded-md p-2 text-black hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400">
-                <ShoppingCartIcon
-                  className="h-8 w-10 lg:mr-6"
-                  aria-hidden="true"
-                />
-              </button>
+              <Link href={routes.cart()}>
+                <button className="group relative flex items-center justify-center rounded-md p-2 text-black hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400">
+                  <ShoppingCartIcon
+                    className="h-10 w-10 lg:mr-6"
+                    aria-hidden="true"
+                  />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-black text-xs text-white">
+                      {cartCount}
+                    </span>
+                  )}
+                </button>
+              </Link>
             </div>
             <div
               className="mt-2 cursor-pointer space-y-2 lg:pr-10"
@@ -71,19 +100,34 @@ const NavBar = () => {
                 {session ? (
                   <>
                     <li className="my-8 border-b border-gray-400  uppercase">
+                      <Link
+                        href={routes.backoffice.backoffice()}
+                        onClick={handleClose}
+                      >
+                        Back Office
+                      </Link>
+                    </li>
+                    <li className="my-8 border-b border-gray-400  uppercase">
                       <a href="#">My Settings</a>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
                       <a href="#">My Orders</a>
                     </li>
+
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">Legal Notice</a>
+                      <Link href={routes.legalNotice()} onClick={handleClose}>
+                        Legal Notice
+                      </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
-                      <a href="#">Terms of use</a>
+                      <Link href={routes.tos()} onClick={handleClose}>
+                        Terms of Use
+                      </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
-                      <a href="#">Contact</a>
+                      <Link href={routes.contact()} onClick={handleClose}>
+                        Contact
+                      </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
                       <a href="#">About AIRNEIS</a>
@@ -98,39 +142,27 @@ const NavBar = () => {
                 ) : (
                   <>
                     <li className="my-8 border-b border-gray-400 uppercase">
-                      <Link
-                        href={routes.signIn()}
-                        onClick={() => setOpen(false)}
-                      >
+                      <Link href={routes.signIn()} onClick={handleClose}>
                         Sign In
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400 uppercase">
-                      <Link
-                        href={routes.signUp()}
-                        onClick={() => setOpen(false)}
-                      >
+                      <Link href={routes.signUp()} onClick={handleClose}>
                         Sign Up
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <Link
-                        href={routes.legalNotice()}
-                        onClick={() => setOpen(false)}
-                      >
+                      <Link href={routes.legalNotice()} onClick={handleClose}>
                         Legal Notice
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
-                      <Link href={routes.tos()} onClick={() => setOpen(false)}>
+                      <Link href={routes.tos()} onClick={handleClose}>
                         Terms of Use
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
-                      <Link
-                        href={routes.contact()}
-                        onClick={() => setOpen(false)}
-                      >
+                      <Link href={routes.contact()} onClick={handleClose}>
                         Contact
                       </Link>
                     </li>

@@ -5,6 +5,8 @@ const routes = {
   legalNotice: () => "/legal-notice",
   tos: () => "/tos",
   contact: () => "/contact",
+  cart: () => "/cart",
+  product: () => "/product",
   api: {
     signUp: () => "/sign-up/sign-up",
     signIn: () => "/sign-in/sign-in",
@@ -12,6 +14,9 @@ const routes = {
       categories: (categoryId) => `/category/${categoryId}`,
       category: () => `/category`,
     },
+    cart: () => "/cart/cart",
+    order: () => "/order/order",
+    product: () => "/backoffice/product/product",
   },
   backoffice: {
     backoffice: () => "/BackOffice",
