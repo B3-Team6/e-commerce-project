@@ -11,9 +11,6 @@ import {
   useState,
   useContext,
 } from "react"
-import updateCategoryService from "@/web/services/backoffice/categories/updateCategory"
-import deleteCategorySevrvice from "@/web/services/backoffice/categories/deleteCategory"
-import addCategoryService from "@/web/services/backoffice/categories/addCategory"
 
 const AppContext = createContext()
 
@@ -43,10 +40,6 @@ export const AppContextProvider = (props) => {
     setJWT({ jwt })
   }, [])
 
-  const updateCategory = updateCategoryService({ api })
-  const deleteCategory = deleteCategorySevrvice({ api })
-  const addCategory = addCategoryService({ api })
-
   if (!isPublicPage && session === null) {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-white text-4xl font-bold">
@@ -62,9 +55,6 @@ export const AppContextProvider = (props) => {
           signUp,
           signIn,
           signOut,
-          updateCategory,
-          deleteCategory,
-          addCategory,
           product,
         },
         state: {
