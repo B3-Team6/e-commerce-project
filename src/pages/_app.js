@@ -19,9 +19,7 @@ export default function App({ Component, pageProps }) {
     <>
       <CartProvider>
         <AppContextProvider isPublicPage={Component.isPublicPage}>
-          <Layout>
-            {renderLayout(<Component {...pageProps} />)}
-          </Layout>
+          {renderLayout(<Component {...pageProps} />)}
         </AppContextProvider>
       </CartProvider>
     </>

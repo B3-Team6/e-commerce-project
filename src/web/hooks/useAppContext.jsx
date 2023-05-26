@@ -3,6 +3,7 @@ import createAPIClient from "@/web/createAPIClient.js"
 import parseSession from "@/web/parseSession.js"
 import signInService from "@/web/services/signIn.js"
 import signUpService from "@/web/services/signUp.js"
+import productService from "@/web/services/Product/product.js"
 import {
   createContext,
   useCallback,
@@ -19,6 +20,7 @@ export const AppContextProvider = (props) => {
   const [jwt, setJWT] = useState(null)
   const api = createAPIClient({ jwt })
 
+  const product = productService({ api })
   const signUp = signUpService({ api })
   const signIn = signInService({ api, setSession, setJWT })
   const signOut = useCallback(() => {
@@ -53,6 +55,7 @@ export const AppContextProvider = (props) => {
           signUp,
           signIn,
           signOut,
+          product,
         },
         state: {
           session,

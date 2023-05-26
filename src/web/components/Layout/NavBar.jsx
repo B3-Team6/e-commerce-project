@@ -100,11 +100,20 @@ const NavBar = () => {
                 {session ? (
                   <>
                     <li className="my-8 border-b border-gray-400  uppercase">
+                      <Link
+                        href={routes.backoffice.backoffice()}
+                        onClick={handleClose}
+                      >
+                        Back Office
+                      </Link>
+                    </li>
+                    <li className="my-8 border-b border-gray-400  uppercase">
                       <a href="#">My Settings</a>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
                       <a href="#">My Orders</a>
                     </li>
+
                     <li className="my-8 border-b border-gray-400  uppercase">
                       <Link href={routes.legalNotice()} onClick={handleClose}>
                         Legal Notice

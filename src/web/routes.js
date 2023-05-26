@@ -12,7 +12,7 @@ const routes = {
     signIn: () => "/sign-in/sign-in",
     cart: () => "/cart/cart",
     order: () => "/order/order",
-    product: () => "/product/product",
+    product: () => "/backoffice/product/product",
   },
   backoffice: {
     backoffice: () => "/BackOffice",

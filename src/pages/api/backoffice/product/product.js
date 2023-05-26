@@ -3,9 +3,10 @@ import validate from "@/api/middlewares/validate.js"
 import mw from "@/api/mw.js"
 import {
   stringValidator,
-  numberValidator,
+  intValidator,
   pageValidator,
   limitValidator,
+  idValidator,
 } from "@/validators.js"
 
 const handler = mw({
@@ -14,13 +15,14 @@ const handler = mw({
       body: {
         name: stringValidator.required(),
         description: stringValidator.required(),
-        price: numberValidator.required(),
-        quantity: numberValidator.required(),
+        price: intValidator.required(),
+        quantity: intValidator.required(),
+        material: stringValidator.required(),
       },
     }),
     async ({
       locals: {
-        body: { name, description, price, quantity },
+        body: { name, description, price, quantity, material },
       },
       res,
     }) => {
@@ -29,6 +31,7 @@ const handler = mw({
         description,
         price,
         quantity,
+        material_id: material,
       })
 
       res.send({ result: product })
@@ -47,7 +50,7 @@ const handler = mw({
   GET_BY_ID: [
     validate({
       params: {
-        id: numberValidator.required(),
+        id: intValidator.required(),
       },
     }),
     async ({ req, res }) => {
@@ -66,19 +69,20 @@ const handler = mw({
   PATCH: [
     validate({
       params: {
-        id: numberValidator.required(),
+        id: idValidator.required(),
       },
       body: {
         name: stringValidator.optional(),
         description: stringValidator.optional(),
-        price: numberValidator.optional(),
-        quantity: numberValidator.optional(),
+        price: intValidator.optional(),
+        quantity: intValidator.optional(),
+        material: stringValidator.optional(),
       },
     }),
     async ({
       locals: {
         params: { id },
-        body: { name, description, price, quantity },
+        body: { name, description, price, quantity, material },
       },
       res,
     }) => {
@@ -95,6 +99,7 @@ const handler = mw({
         description,
         price,
         quantity,
+        material_id: material,
       })
 
       res.send({ result: updatedProduct })
@@ -103,7 +108,7 @@ const handler = mw({
   DELETE: [
     validate({
       params: {
-        id: numberValidator.required(),
+        id: idValidator.required(),
       },
     }),
     async ({ req, res }) => {
