@@ -65,7 +65,7 @@ const SignUpPage = () => {
               width={150}
               height={150}
               src="/images/Airneis.jpg"
-              className="absolute z-10 ml-16"
+              className="absolute  ml-16"
             />
           </div>
         </div>
