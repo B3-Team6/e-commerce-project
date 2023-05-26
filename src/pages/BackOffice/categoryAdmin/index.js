@@ -103,7 +103,7 @@ const CategoryAdmin = () => {
               <td className="w-24 text-sm">
                 {categorie.id === editedId ? (
                   <input
-                    className="border-2 border-green-500"
+                    className="border-2 border-slate-500"
                     type="text"
                     value={editedName}
                     onChange={(e) => setEditedName(e.target.value)}
@@ -112,10 +112,10 @@ const CategoryAdmin = () => {
                   categorie.name
                 )}
               </td>
-              <td className="truncated-description w-2/3 text-sm">
+              <td className="truncated-description w-2/3 text-sm ">
                 {categorie.id === editedId ? (
                   <textarea
-                    className="w-full border-2 border-red-500"
+                    className="w-full border-2 border-slate-300"
                     value={editedDescription}
                     onChange={(e) => setEditedDescription(e.target.value)}
                   />
@@ -123,10 +123,10 @@ const CategoryAdmin = () => {
                   categorie.description
                 )}
               </td>
-              <td className="text-sm">
+              <td className=" text-sm">
                 {categorie.id === editedId ? (
-                  <textarea
-                    className="w-full border-2 border-red-500"
+                  <input
+                    className="w-full border-2 border-slate-300"
                     value={editedImage}
                     onChange={(e) => setEditedImage(e.target.value)}
                   />

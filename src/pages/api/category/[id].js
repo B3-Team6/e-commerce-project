@@ -28,7 +28,7 @@ const handler = mw({
     async ({
       locals: {
         query: { id },
-        body: { name, description, image },
+        body: { name, description, image, slug },
       },
       res,
     }) => {
@@ -37,6 +37,7 @@ const handler = mw({
           ...(name ? { name } : {}),
           ...(description ? { description } : {}),
           ...(image ? { image } : {}),
+          ...(slug ? { slug } : {}),
         })
         .where({
           id: id,
