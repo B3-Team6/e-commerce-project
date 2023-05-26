@@ -23,6 +23,47 @@ const handler = mw({
       res.send({ result: category })
     },
   ],
+  PATCH: [
+    validate({ query: { id: idValidator } }),
+    async ({
+      locals: {
+        query: { id },
+        body: { name, description, image },
+      },
+      res,
+    }) => {
+      const categoryUpdate = await CategoryModel.query()
+        .update({
+          ...(name ? { name } : {}),
+          ...(description ? { description } : {}),
+          ...(image ? { image } : {}),
+        })
+        .where({
+          id: id,
+        })
+        .returning("*")
+
+      res.send({ result: categoryUpdate })
+    },
+  ],
+  DELETE: [
+    validate({ query: { id: idValidator } }),
+    async ({
+      locals: {
+        query: { id },
+      },
+      res,
+    }) => {
+      const categoryUpdate = await CategoryModel.query()
+        .delete()
+        .where({
+          id: id,
+        })
+        .returning("*")
+
+      res.send({ result: categoryUpdate })
+    },
+  ],
 })
 
 export default handler
