@@ -45,7 +45,7 @@ const NavBar = () => {
             </button>
 
             <div className="relative">
-              <button className="focus:outline-none group relative flex items-center justify-center rounded-md p-2 text-black hover:text-gray-500 focus:ring-2 focus:ring-gray-400">
+              <button className="group relative flex items-center justify-center rounded-md p-2 text-black hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400">
                 <ShoppingCartIcon
                   className="h-8 w-10 lg:mr-6"
                   aria-hidden="true"

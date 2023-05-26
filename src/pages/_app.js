@@ -1,14 +1,22 @@
-import { AppContextProvider } from "@/web/hooks/useAppContext"
 import Layout from "@/web/components/Layout/Layout"
 import "@/styles/style.css"
+import { AppContextProvider } from "@/web/hooks/useAppContext"
 
 export default function App({ Component, pageProps }) {
+  const renderLayout =
+    Component.getLayout ||
+    ((page) => {
+      return (
+        <>
+          <Layout>{page}</Layout>
+        </>
+      )
+    })
+
   return (
     <>
       <AppContextProvider isPublicPage={Component.isPublicPage}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        {renderLayout(<Component {...pageProps} />)}
       </AppContextProvider>
     </>
   )
