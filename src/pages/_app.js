@@ -1,6 +1,7 @@
 import { AppContextProvider } from "@/web/hooks/useAppContext"
 import Layout from "@/web/components/Layout/Layout"
 import "@/styles/style.css"
+import "@/i18n"
 
 export default function App({ Component, pageProps }) {
   return (

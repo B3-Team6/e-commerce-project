@@ -9,6 +9,7 @@ import FormField from "@/web/components/FormField.jsx"
 import SubmitButton from "@/web/components/SubmitButton.jsx"
 import useAppContext from "@/web/hooks/useAppContext.jsx"
 import { useCallback, useState } from "react"
+import { useTranslation } from "react-i18next"
 
 const initialValues = {
   email: "",
@@ -20,6 +21,7 @@ const validationSchema = createValidator({
 })
 
 const ContactUsPage = () => {
+  const { t } = useTranslation()
   const {
     actions: { contactUs },
   } = useAppContext()
@@ -45,14 +47,14 @@ const ContactUsPage = () => {
   return (
     <>
       <Head>
-        <title>Contact us</title>
+        <title>{t("contactTitle")}</title>
         <meta name="description" content="Contact us page" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="mx-96 flex min-h-screen flex-col">
         <div className="my-20 flex justify-center text-xl font-bold lg:text-4xl">
-          Contact us
+          {t("contactTitle")}
         </div>
         <div>
           <Form
@@ -63,22 +65,22 @@ const ContactUsPage = () => {
           >
             <FormField
               name="email"
-              placeholder="Enter your e-mail"
-              label="E-mail"
+              placeholder={t("emailPlaceholder")}
+              label={t("emailLabel")}
               type="email"
             />
             <FormField
               name="message"
-              placeholder="Enter your message"
-              label="Message"
+              placeholder={t("messagePlaceholder")}
+              label={t("messageLabel")}
               type="message"
-              aria-label="Message input"
+              aria-label={t("messageAriaLabel")}
             />
 
-            <SubmitButton className="my-14">Submit</SubmitButton>
+            <SubmitButton className="my-14">{t("submitButton")}</SubmitButton>
             {isSubmitted && (
               <div className="text-center text-green-600">
-                Successfully sent the message!
+                {t("submitSuccessMessage")}
               </div>
             )}
           </Form>
