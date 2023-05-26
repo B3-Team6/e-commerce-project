@@ -65,7 +65,7 @@ const SignInPage = () => {
               width={150}
               height={150}
               src="/images/Airneis.jpg"
-              className="absolute z-10 ml-16"
+              className="absolute ml-16"
             />
           </div>
         </div>
@@ -74,7 +74,7 @@ const SignInPage = () => {
           <div className="mt-20 flex justify-center text-3xl font-bold">
             Sign-In
           </div>
-          <div className="mx-auto mb-16 mt-8 max-w-md border border-black">
+          <div className="mx-auto mb-16 mt-8 max-w-md border-black">
             <Form
               initialValues={initialValues}
               validationSchema={validationSchema}
