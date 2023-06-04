@@ -298,19 +298,19 @@ Edouard:
 ### Contributeurs:
 
 - TAM William
--CHOPLain Edouard
+- CHOPLain Edouard
 
 ### Sprint overview
 
 Ticket | Auteur | Description | Score
 
-ECA-45-CONTACT
+ECA-45-CONTACT | TAM William | Page pour contacter les admins | 2
 ECA-125 |CHOPLAIN Edouard |add pictures
-
 
 ### Changelogs:
 
 William(TamWilliam) => Changement dans le MCD; ajout de la table Contact
+William(TamWilliam) #ad3254c => Back de la page Contact finit et fonctionnel
 Edouard => Création bucket et ajout image dans CRUD category
 
 ### Avis:
@@ -321,7 +321,6 @@ Edouard => Création bucket et ajout image dans CRUD category
 - Négatif:
 - Questions:
 - Idées d'améliorations:
-
 
 ##### CHOPLAIN Edouard
 
