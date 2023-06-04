@@ -11,6 +11,7 @@ export const up = async (knex) => {
     table.text("description").notNullable()
     table.float("price").notNullable()
     table.integer("quantity").notNullable()
+    table.integer("image").notNullable()
     table
       .integer("material_id")
       .notNullable()
@@ -19,6 +20,7 @@ export const up = async (knex) => {
     table.timestamps(true, true, true)
   })
 }
+
 export const down = async (knex) => {
   await knex.schema.dropTable("materials")
   await knex.schema.dropTable("products")

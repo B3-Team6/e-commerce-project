@@ -24,7 +24,9 @@ const CategoryAdmin = () => {
   const [editedImage, setEditedImage] = useState("")
 
   const fecthData = async () => {
-    const { data } = await axios.get("http://localhost:3000/api/category")
+    const { data } = await axios.get(
+      "http://localhost:3000/api/backoffice/category"
+    )
     setCategory(data.result)
   }
 
@@ -67,7 +69,7 @@ const CategoryAdmin = () => {
         return err
       }
 
-      await axios.delete(`http://localhost:3000/api/category/${id}`)
+      await axios.delete(`http://localhost:3000/api/backoffice/category/${id}`)
 
       fecthData()
     },

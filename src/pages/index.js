@@ -284,7 +284,7 @@ const Home = () => {
       <div className="grid grid-cols-1 items-center gap-3 p-2 md:grid-cols-3 lg:grid-cols-4 ">
         {products.map((product) => (
           <>
-            <Link href={routes.product()}>
+            <Link href={routes.products()}>
               <div className="flex justify-center">
                 <div className="group flex w-3/5 items-center  justify-center ">
                   <div className=" absolute z-10 hidden text-xl font-black text-black group-hover:flex">

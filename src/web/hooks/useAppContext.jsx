@@ -3,7 +3,6 @@ import createAPIClient from "@/web/createAPIClient.js"
 import parseSession from "@/web/parseSession.js"
 import signInService from "@/web/services/signIn.js"
 import signUpService from "@/web/services/signUp.js"
-import productService from "@/web/services/Product/product.js"
 import {
   createContext,
   useCallback,
@@ -15,6 +14,10 @@ import updateCategoryService from "@/web/services/backoffice/categories/updateCa
 import deleteCategorySevrvice from "@/web/services/backoffice/categories/deleteCategory"
 import addCategoryService from "@/web/services/backoffice/categories/addCategory"
 
+import updateProductService from "@/web/services/backoffice/products/updateProduct"
+import deleteProductSevrvice from "@/web/services/backoffice/products/deleteProduct"
+import addProductService from "@/web/services/backoffice/products/addProduct"
+
 const AppContext = createContext()
 
 export const AppContextProvider = (props) => {
@@ -23,7 +26,6 @@ export const AppContextProvider = (props) => {
   const [jwt, setJWT] = useState(null)
   const api = createAPIClient({ jwt })
 
-  const product = productService({ api })
   const signUp = signUpService({ api })
   const signIn = signInService({ api, setSession, setJWT })
   const signOut = useCallback(() => {
@@ -42,6 +44,10 @@ export const AppContextProvider = (props) => {
     setSession(session)
     setJWT({ jwt })
   }, [])
+
+  const updateProduct = updateProductService({ api })
+  const deleteProduct = deleteProductSevrvice({ api })
+  const addProduct = addProductService({ api })
 
   const updateCategory = updateCategoryService({ api })
   const deleteCategory = deleteCategorySevrvice({ api })
@@ -65,7 +71,9 @@ export const AppContextProvider = (props) => {
           updateCategory,
           deleteCategory,
           addCategory,
-          product,
+          updateProduct,
+          deleteProduct,
+          addProduct,
         },
         state: {
           session,
