@@ -310,6 +310,7 @@ ECA-125 |CHOPLAIN Edouard |add pictures
 ### Changelogs:
 
 William(TamWilliam) => Changement dans le MCD; ajout de la table Contact
+William(TamWilliam) => Module de langage i18next commencé mais pour le moment, c'est de la traduction manuelle et non automatique
 William(TamWilliam) #ad3254c => Back de la page Contact finit et fonctionnel
 Edouard => Création bucket et ajout image dans CRUD category
 
