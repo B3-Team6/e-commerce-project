@@ -5,21 +5,29 @@ const updateProduct =
   async (
     editedId,
     editedName,
+    editedDescription,
+    editedMaterial,
     editedQuantity,
     editedPrice,
-    editedMaterial,
-    editedDescription,
     editedImage
   ) => {
     try {
-      const { data } = await api.patch(routes.api.product.product(editedId), {
+      // eslint-disable-next-line no-console
+      console.log(editedMaterial)
+      // eslint-disable-next-line no-console
+      console.log(editedPrice)
+      // eslint-disable-next-line no-console
+      console.log(editedQuantity)
+      // eslint-disable-next-line no-console
+      console.log(editedImage)
+
+      const { data } = await api.patch(routes.api.product.products(editedId), {
         name: editedName,
         description: editedDescription,
         quantity: editedQuantity,
         price: editedPrice,
-        material: editedMaterial,
+        materials: editedMaterial,
         image: editedImage,
-        slug: editedName.toLowerCase().replace(/ /g, "-"),
       })
 
       return [null, data]

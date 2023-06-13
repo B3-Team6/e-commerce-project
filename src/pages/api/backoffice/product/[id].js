@@ -12,7 +12,9 @@ const handler = mw({
     }),
     async ({ req, res }) => {
       const { id } = req.params
-      const product = await ProductModel.query().findById(id)
+      const product = await ProductModel.query()
+        .findById(id)
+        .withGraphFetched("material")
 
       if (!product) {
         res.status(404).send({ error: "Product not found" })
@@ -25,62 +27,78 @@ const handler = mw({
   ],
   PATCH: [
     validate({
-      params: {
+      query: {
         id: idValidator.required(),
       },
       body: {
-        name: stringValidator.optional(),
-        description: stringValidator.optional(),
-        price: intValidator.optional(),
-        quantity: intValidator.optional(),
-        material: stringValidator.optional(),
-        image: stringValidator.optional(),
+        name: stringValidator.required(),
+        description: stringValidator.required(),
+        price: intValidator.required(),
+        quantity: intValidator.required(),
+        image: intValidator.required(),
       },
     }),
     async ({
       locals: {
-        params: { id },
-        body: { name, description, price, quantity, material, image },
+        query: { id },
+        body: { name, description, price, quantity, materials, image },
       },
       res,
     }) => {
-      const product = await ProductModel.query().findById(id)
+      try {
+        //const product = await ProductModel.query().findById(id)
 
-      if (!product) {
-        res.status(404).send({ error: "Product not found" })
+        // if (!product) {
+        // res.status(404).send({ error: "Product not found" })
 
-        return
+        // return
+        //}
+
+        const updatedProduct = await ProductModel.query().patchAndFetchById(
+          id,
+          {
+            name,
+            description,
+            price,
+            quantity,
+            image,
+            material_id: parseInt(materials),
+          }
+        )
+
+        res.send({ result: updatedProduct })
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(error)
+        res
+          .status(500)
+          .send({ error: "An error occurred while updating the product" })
       }
-
-      const updatedProduct = await product.$query().patchAndFetch({
-        name,
-        description,
-        price,
-        quantity,
-        image,
-        material_id: material,
-      })
-
-      res.send({ result: updatedProduct })
     },
   ],
   DELETE: [
     validate({
-      params: {
+      query: {
         id: idValidator.required(),
       },
     }),
-    async ({ req, res }) => {
-      const { id } = req.params
-      const deletedProduct = await ProductModel.query().deleteById(id)
+    async ({
+      locals: {
+        query: { id },
+      },
+      res,
+    }) => {
+      try {
+        const deletedProduct = await ProductModel.query().deleteById(id)
 
-      if (!deletedProduct) {
-        res.status(404).send({ error: "Product not found" })
-
-        return
+        res.send({ result: deletedProduct })
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(error)
+        res
+          .status(500)
+          .send({ error: "An error occurred while deleting the product" })
       }
-
-      res.send({ result: true })
     },
   ],
 })

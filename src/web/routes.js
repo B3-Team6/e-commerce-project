@@ -15,12 +15,12 @@ const routes = {
       category: () => `/backoffice/category`,
     },
     product: {
-      products: (productId) => `/product/${productId}`,
-      product: () => `/product`,
+      products: (productId) => `/backoffice/product/${productId}`,
+      product: () => `/backoffice/product`,
     },
     material: {
       materials: (materialId) => `/material/${materialId}`,
-      material: () => `/material`,
+      material: () => `/backoffice/material`,
     },
     cart: () => "/cart/cart",
     order: () => "/order/order",

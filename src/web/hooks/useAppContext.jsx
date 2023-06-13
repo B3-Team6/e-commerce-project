@@ -15,7 +15,7 @@ import deleteCategorySevrvice from "@/web/services/backoffice/categories/deleteC
 import addCategoryService from "@/web/services/backoffice/categories/addCategory"
 
 import updateProductService from "@/web/services/backoffice/products/updateProduct"
-import deleteProductSevrvice from "@/web/services/backoffice/products/deleteProduct"
+import deleteProductService from "@/web/services/backoffice/products/deleteProduct"
 import addProductService from "@/web/services/backoffice/products/addProduct"
 
 const AppContext = createContext()
@@ -46,7 +46,7 @@ export const AppContextProvider = (props) => {
   }, [])
 
   const updateProduct = updateProductService({ api })
-  const deleteProduct = deleteProductSevrvice({ api })
+  const deleteProduct = deleteProductService({ api })
   const addProduct = addProductService({ api })
 
   const updateCategory = updateCategoryService({ api })

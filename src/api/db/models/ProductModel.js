@@ -5,7 +5,7 @@ class ProductModel extends BaseModel {
   static tableName = "products"
 
   static relationMappings = {
-    product: {
+    material: {
       relation: BaseModel.HasOneRelation,
       modelClass: MaterialModel,
       join: {

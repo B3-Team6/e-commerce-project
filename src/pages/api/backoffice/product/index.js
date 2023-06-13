@@ -6,7 +6,9 @@ import { stringValidator, intValidator } from "@/validators.js"
 const handler = mw({
   GET: [
     async ({ res }) => {
-      const product = await ProductModel.query().orderBy("id")
+      const product = await ProductModel.query()
+        .orderBy("id")
+        .withGraphFetched("material")
 
       if (!product) {
         res.status(401).send({ error: "Product Not Found" })
@@ -25,27 +27,42 @@ const handler = mw({
         price: intValidator.required(),
         quantity: intValidator.required(),
         slug: stringValidator.required(),
-        materials: stringValidator.required(),
-        image: stringValidator.required(),
+        image: intValidator.required(),
       },
     }),
     async ({
       locals: {
-        body: { name, description, price, quantity, materials, image, slug },
+        body: { name, description, price, quantity, image, materials, slug },
       },
       res,
     }) => {
-      const product = await ProductModel.query().insertAndFetch({
-        name,
-        description,
-        price,
-        quantity,
-        image,
-        slug,
-        material_id: materials,
-      })
+      try {
+        const product = await ProductModel.query().findOne({
+          slug: slug,
+        })
 
-      res.send({ result: product })
+        if (product) {
+          return res.status(401).send({ error: "Product already exists" })
+        }
+
+        const newProduct = await ProductModel.query().insert({
+          name,
+          description,
+          price,
+          quantity,
+          image,
+          material_id: parseInt(materials),
+          slug: slug,
+        })
+
+        res.send({ result: newProduct })
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(error)
+        res
+          .status(500)
+          .send({ error: "An error occurred while creating the product" })
+      }
     },
   ],
 })

@@ -27,9 +27,7 @@ const ProductAdmin = () => {
   const [editedImage, setEditedImage] = useState("")
 
   const fetchData = async () => {
-    const { data } = await axios.get(
-      "http://localhost:3000/api/backoffice/product"
-    )
+    const { data } = await axios.get("/api/backoffice/product")
     setProducts(data.result)
   }
 
@@ -45,7 +43,7 @@ const ProductAdmin = () => {
         setEditedId(id)
         setEditedName(product.name)
         setEditedDescription(product.description)
-        setEditedMaterial(product.material)
+        setEditedMaterial(product.material.id)
         setEditedQuantity(product.quantity)
         setEditedPrice(product.price)
         setEditedImage(product.image)
@@ -90,12 +88,25 @@ const ProductAdmin = () => {
         return err
       }
 
-      await axios.delete(`http://localhost:3000/api/backoffice/product/${id}`)
+      await axios.delete(`/api/backoffice/product/${id}`)
 
       fetchData()
     },
     [deleteProduct]
   )
+
+  const [materials, setMaterials] = useState([])
+
+  const fecthData = async () => {
+    const { data } = await axios.get(
+      "http://localhost:3000/api/backoffice/material"
+    )
+    setMaterials(data.result)
+  }
+
+  useEffect(() => {
+    fecthData()
+  }, [])
 
   return (
     <>
@@ -151,16 +162,23 @@ const ProductAdmin = () => {
               </td>
               <td className="w-24 text-sm">
                 {product.id === editedId ? (
-                  <input
-                    className="border-2 border-slate-500"
-                    type="text"
-                    value={editedMaterial}
+                  <select
+                    name="materials"
+                    label="Material"
                     onChange={(e) => setEditedMaterial(e.target.value)}
-                  />
+                  >
+                    <option value="">Select a material</option>
+                    {materials.map((material) => (
+                      <option key={material.id} value={material.id}>
+                        {material.name}
+                      </option>
+                    ))}
+                  </select>
                 ) : (
-                  product.material
+                  product.material.name
                 )}
               </td>
+
               <td className="w-24 text-sm">
                 {product.id === editedId ? (
                   <input
@@ -200,11 +218,11 @@ const ProductAdmin = () => {
                 {product.id === editedId ? (
                   <>
                     <div className="flex flex-row">
-                      <button onClick={() => handleSaveEdit(product)}>
+                      <button onClick={() => handleSaveEdit(product.id)}>
                         <CheckIcon className="h-8 text-green-500" />
                       </button>
                       <button onClick={() => setEditedId(null)}>
-                        <XMarkIcon className="h-8w-0 text-red-500" />
+                        <XMarkIcon className="h-8 text-red-500" />
                       </button>
                     </div>
                   </>
@@ -212,13 +230,13 @@ const ProductAdmin = () => {
                   <>
                     <div className="flex flex-row">
                       <button onClick={() => handleEdit(product.id)}>
-                        <PencilSquareIcon className="h-8 w-0" />
+                        <PencilSquareIcon className="h-8 w-8" />
                       </button>
                       <button
                         onClick={() => handleDelete(product.id)}
                         className="text-red-500"
                       >
-                        <TrashIcon className="h-8 w-0" />
+                        <TrashIcon className="h-8 w-8" />
                       </button>
                     </div>
                   </>

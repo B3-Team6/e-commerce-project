@@ -1,12 +1,10 @@
 import useAppContext from "@/web/hooks/useAppContext"
 import routes from "@/web/routes.js"
 import { useContext, useEffect, useState } from "react"
-import {
-  MagnifyingGlassIcon,
-  XMarkIcon,
-  ShoppingCartIcon,
-  Bars3Icon,
-} from "@heroicons/react/24/outline"
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"
+import { XMarkIcon } from "@heroicons/react/24/solid"
+import { ShoppingCartIcon } from "@heroicons/react/24/solid"
+import { Bars3Icon } from "@heroicons/react/24/solid"
 import Link from "next/link"
 import { CartContext } from "@/web/hooks/CartContext"
 

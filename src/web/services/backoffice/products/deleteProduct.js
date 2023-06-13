@@ -4,7 +4,9 @@ const deleteProduct =
   ({ api }) =>
   async (id) => {
     try {
-      const { data } = await api.delete(routes.api.product.product(id))
+      // eslint-disable-next-line no-console
+      console.log(id)
+      const { data } = await api.delete(routes.api.product.products(id))
 
       return [null, data]
     } catch (err) {

@@ -14,7 +14,6 @@ const initialValues = {
   description: "",
   quantity: "",
   price: "",
-  material: "",
   image: "",
 }
 
@@ -24,7 +23,6 @@ const validationSchema = createValidator({
   image: stringValidator.required(),
   quantity: intValidator.required(),
   price: intValidator.required(),
-  material: stringValidator.required(),
 })
 
 const ProductPage = () => {
@@ -103,11 +101,11 @@ const ProductPage = () => {
         />
         <FormField
           name="image"
-          type="text"
+          type="number"
           placeholder="Enter the image of the product"
           label="Image"
         />
-        <FormField name="material" label="Material" component="select">
+        <FormField name="materials" label="Material" component="select">
           <option value="">Select a material</option>
           {materials.map((material) => (
             <option key={material.id} value={material.id}>
