@@ -8,7 +8,7 @@ const routes = {
   api: {
     signUp: () => "/sign-up/sign-up",
     signIn: () => "/sign-in/sign-in",
-    contactUs: () => "/contact/contact",
+    contactUs: () => "/contact/",
     contact: {
       contacts: (contactId) => `/contact/${contactId}`,
       contact: () => `/contact`,
