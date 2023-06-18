@@ -7,6 +7,7 @@ import {
   ShoppingCartIcon,
   TagIcon,
   PhotoIcon,
+  EnvelopeIcon,
 } from "@heroicons/react/24/solid"
 import Link from "next/link"
 
@@ -67,6 +68,13 @@ const NavBarAdmin = () => {
           >
             <PhotoIcon className="h-8 " />
             Images
+          </Link>
+          <Link
+            href={routes.backoffice.contact()}
+            className="flex flex-col duration-300 hover:cursor-pointer hover:text-slate-300"
+          >
+            <EnvelopeIcon className="h-8 " />
+            Contact
           </Link>
         </div>
       </div>

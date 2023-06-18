@@ -14,6 +14,7 @@ import {
 import updateCategoryService from "@/web/services/backoffice/categories/updateCategory"
 import deleteCategorySevrvice from "@/web/services/backoffice/categories/deleteCategory"
 import addCategoryService from "@/web/services/backoffice/categories/addCategory"
+import deleteContactService from "@/web/services/backoffice/contact/deleteContact"
 
 const AppContext = createContext()
 
@@ -29,7 +30,7 @@ export const AppContextProvider = (props) => {
     localStorage.removeItem(config.session.localStorageKey)
     setSession(false)
   }, [])
-  const contactUs= contactUsService({ api })
+  const contactUs = contactUsService({ api })
 
   useEffect(() => {
     const jwt = localStorage.getItem(config.session.localStorageKey)
@@ -46,6 +47,8 @@ export const AppContextProvider = (props) => {
   const updateCategory = updateCategoryService({ api })
   const deleteCategory = deleteCategorySevrvice({ api })
   const addCategory = addCategoryService({ api })
+
+  const deleteContact = deleteContactService({ api })
 
   if (!isPublicPage && session === null) {
     return (
@@ -67,6 +70,7 @@ export const AppContextProvider = (props) => {
           updateCategory,
           deleteCategory,
           addCategory,
+          deleteContact,
         },
         state: {
           session,
