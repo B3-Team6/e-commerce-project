@@ -17,6 +17,11 @@ export const up = async (knex) => {
       .notNullable()
       .references("id")
       .inTable("materials")
+    table
+      .integer("categories_id")
+      .notNullable()
+      .references("id")
+      .inTable("categories")
     table.timestamps(true, true, true)
   })
 }
