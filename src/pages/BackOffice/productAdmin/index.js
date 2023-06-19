@@ -21,6 +21,7 @@ const ProductAdmin = () => {
   const [editedId, setEditedId] = useState(null)
   const [editedName, setEditedName] = useState("")
   const [editedDescription, setEditedDescription] = useState("")
+  const [editedCategory, setEditedCategory] = useState("")
   const [editedMaterial, setEditedMaterial] = useState("")
   const [editedQuantity, setEditedQuantity] = useState("")
   const [editedPrice, setEditedPrice] = useState("")
@@ -43,6 +44,7 @@ const ProductAdmin = () => {
         setEditedId(id)
         setEditedName(product.name)
         setEditedDescription(product.description)
+        setEditedCategory(product.category.id)
         setEditedMaterial(product.material.id)
         setEditedQuantity(product.quantity)
         setEditedPrice(product.price)
@@ -57,6 +59,7 @@ const ProductAdmin = () => {
       editedId,
       editedName,
       editedDescription,
+      editedCategory,
       editedMaterial,
       editedQuantity,
       editedPrice,
@@ -73,6 +76,7 @@ const ProductAdmin = () => {
     editedId,
     editedName,
     editedDescription,
+    editedCategory,
     editedMaterial,
     editedQuantity,
     editedPrice,
@@ -88,8 +92,6 @@ const ProductAdmin = () => {
         return err
       }
 
-      await axios.delete(`/api/backoffice/product/${id}`)
-
       fetchData()
     },
     [deleteProduct]
@@ -97,7 +99,7 @@ const ProductAdmin = () => {
 
   const [materials, setMaterials] = useState([])
 
-  const fecthData = async () => {
+  const fecthDataMaterial = async () => {
     const { data } = await axios.get(
       "http://localhost:3000/api/backoffice/material"
     )
@@ -105,7 +107,20 @@ const ProductAdmin = () => {
   }
 
   useEffect(() => {
-    fecthData()
+    fecthDataMaterial()
+  }, [])
+
+  const [categories, setCategories] = useState([])
+
+  const fecthDataCategory = async () => {
+    const { data } = await axios.get(
+      "http://localhost:3000/api/backoffice/category"
+    )
+    setCategories(data.result)
+  }
+
+  useEffect(() => {
+    fecthDataCategory()
   }, [])
 
   return (
@@ -126,6 +141,7 @@ const ProductAdmin = () => {
             <th>Id :</th>
             <th>Name :</th>
             <th>Desc :</th>
+            <th>Category :</th>
             <th>Material :</th>
             <th>Quantity :</th>
             <th>Price :</th>
@@ -158,6 +174,24 @@ const ProductAdmin = () => {
                   />
                 ) : (
                   product.description
+                )}
+              </td>
+              <td className="w-24 text-sm">
+                {product.id === editedId ? (
+                  <select
+                    name="categories"
+                    label="Category"
+                    onChange={(e) => setEditedCategory(e.target.value)}
+                  >
+                    <option value="">Select a category</option>
+                    {categories.map((category) => (
+                      <option key={category.id} value={category.id}>
+                        {category.name}
+                      </option>
+                    ))}
+                  </select>
+                ) : (
+                  product.category.name
                 )}
               </td>
               <td className="w-24 text-sm">

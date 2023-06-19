@@ -15,6 +15,7 @@ const handler = mw({
       const product = await ProductModel.query()
         .findById(id)
         .withGraphFetched("material")
+        .withGraphFetched("category")
 
       if (!product) {
         res.status(404).send({ error: "Product not found" })
@@ -41,19 +42,22 @@ const handler = mw({
     async ({
       locals: {
         query: { id },
-        body: { name, description, price, quantity, materials, image },
+        body: {
+          name,
+          description,
+          price,
+          quantity,
+          materials,
+          categories,
+          image,
+        },
       },
       res,
     }) => {
+      // eslint-disable-next-line no-console
+      console.log(categories)
+
       try {
-        //const product = await ProductModel.query().findById(id)
-
-        // if (!product) {
-        // res.status(404).send({ error: "Product not found" })
-
-        // return
-        //}
-
         const updatedProduct = await ProductModel.query().patchAndFetchById(
           id,
           {
@@ -63,13 +67,12 @@ const handler = mw({
             quantity,
             image,
             material_id: parseInt(materials),
+            categories_id: parseInt(categories),
           }
         )
 
         res.send({ result: updatedProduct })
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(error)
         res
           .status(500)
           .send({ error: "An error occurred while updating the product" })

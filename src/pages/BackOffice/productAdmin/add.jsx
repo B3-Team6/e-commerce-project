@@ -61,6 +61,19 @@ const ProductPage = () => {
     fecthData()
   }, [])
 
+  const [categories, setCategory] = useState([])
+
+  const fecthDataCategory = async () => {
+    const { data } = await axios.get(
+      "http://localhost:3000/api/backoffice/category"
+    )
+    setCategory(data.result)
+  }
+
+  useEffect(() => {
+    fecthDataCategory()
+  }, [])
+
   return (
     <>
       <Head>
@@ -110,6 +123,15 @@ const ProductPage = () => {
           {materials.map((material) => (
             <option key={material.id} value={material.id}>
               {material.name}
+            </option>
+          ))}
+        </FormField>
+
+        <FormField name="categories" label="Category" component="select">
+          <option value="">Select a category</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
             </option>
           ))}
         </FormField>

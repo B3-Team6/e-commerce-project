@@ -9,6 +9,7 @@ const handler = mw({
       const product = await ProductModel.query()
         .orderBy("id")
         .withGraphFetched("material")
+        .withGraphFetched("category")
 
       if (!product) {
         res.status(401).send({ error: "Product Not Found" })
@@ -32,7 +33,16 @@ const handler = mw({
     }),
     async ({
       locals: {
-        body: { name, description, price, quantity, image, materials, slug },
+        body: {
+          name,
+          description,
+          price,
+          categories,
+          quantity,
+          image,
+          materials,
+          slug,
+        },
       },
       res,
     }) => {
@@ -51,14 +61,13 @@ const handler = mw({
           price,
           quantity,
           image,
+          categories_id: parseInt(categories),
           material_id: parseInt(materials),
           slug: slug,
         })
 
         res.send({ result: newProduct })
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(error)
         res
           .status(500)
           .send({ error: "An error occurred while creating the product" })

@@ -9,6 +9,7 @@ exports.seed = async function (knex) {
       quantity: 40,
       image: 1,
       material_id: 1,
+      categories_id: 1,
       slug: "canape",
     },
     {
@@ -19,6 +20,7 @@ exports.seed = async function (knex) {
       quantity: 40,
       image: 1,
       material_id: 1,
+      categories_id: 1,
       slug: "canape",
     },
     {
@@ -29,6 +31,7 @@ exports.seed = async function (knex) {
       quantity: 40,
       image: 1,
       material_id: 2,
+      categories_id: 2,
       slug: "canape",
     },
   ])

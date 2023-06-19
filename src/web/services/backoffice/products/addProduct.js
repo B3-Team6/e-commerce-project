@@ -2,7 +2,15 @@ import routes from "@/web/routes"
 
 const addProduct =
   ({ api }) =>
-  async ({ name, description, price, quantity, materials, image }) => {
+  async ({
+    name,
+    description,
+    price,
+    categories,
+    quantity,
+    materials,
+    image,
+  }) => {
     try {
       const { data } = await api.post(routes.api.product.product(), {
         name,
@@ -11,6 +19,7 @@ const addProduct =
         quantity,
         materials,
         image,
+        categories,
         slug: name.toLowerCase().replace(/ /g, "-"),
       })
 
