@@ -105,7 +105,7 @@ const NavBarAdmin = () => {
             </Link>
           </div>
         </div>
-        <Link href={"/"} className="flex items-center font-serif  font-black hover:cursor-pointer flex-col hover:bg-blue-800">
+        <Link href={"/"} className="flex items-center font-serif  font-black hover:cursor-pointer flex-col">
           <a className="text-3xl" href={"/"}>AIRNEIS</a>
           <a className="text-sm" href={"/"}>BACKOFFICE</a>
         </Link>
