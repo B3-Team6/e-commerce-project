@@ -32,21 +32,17 @@ const NavBarAdmin = () => {
         >
           <Bars3Icon className="h-8 w-8 cursor-pointer hover:text-gray-500" />
         </div>
-        <div
-          className={`${
-            isOpen ? "showNavAdmin" : "hideNavAdmin"
-          } transition-duration-500`}
-        >
+        <div className={isOpen ? "showNavAdmin" : "hideNavAdmin"}>
           <div className="absolute left-4 top-4" onClick={() => setOpen(false)}>
             <Bars3Icon className="h-8 w-8 mt-2 cursor-pointer text-transparent" />
           </div>
 
-          <div className="flex flex-col gap-8 bg-white  pb-44 border-2 border-black">
+          <div className="flex flex-col gap-8 bg-white  pb-44 border-2 border-black pl-4">
 
             <Link
               href={routes.backoffice.backoffice()}
               onClick={() => setOpen(false)}
-              className="gap-2 items-center flex duration-300 hover:cursor-pointer text-slate-600 hover:text-black"
+              className="gap-2 items-center flex duration-300 hover:cursor-pointer text-slate-600 hover:text-black pt-2"
             >
               <HomeIcon className="h-8" />
               Home
