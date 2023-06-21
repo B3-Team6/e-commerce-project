@@ -1,5 +1,6 @@
 import Carousel from "@/web/components/Carousel"
 import routes from "@/web/routes"
+import axios from "axios"
 import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
@@ -85,166 +86,23 @@ const categories = [
   },
 ]
 
-const products = [
-  {
-    id: 1,
-    name: "Canape",
-    img: (
-      <Image
-        alt="canape"
-        width={300}
-        height={300}
-        src="/images/canape.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 2,
-    name: "Lit",
-    img: (
-      <Image
-        alt="lit"
-        width={300}
-        height={300}
-        src="/images/lit.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 3,
-    name: "Table",
-    img: (
-      <Image
-        alt="table"
-        width={300}
-        height={300}
-        src="/images/table.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 4,
-    name: "Bureau",
-    img: (
-      <Image
-        alt="bureau"
-        width={300}
-        height={300}
-        src="/images/bureau.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 5,
-    name: "Chaise",
-    img: (
-      <Image
-        alt="chaise"
-        width={300}
-        height={300}
-        src="/images/chaise.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 6,
-    name: "Armoire",
-    img: (
-      <Image
-        alt="armoire"
-        width={300}
-        height={300}
-        src="/images/armoire.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 1,
-    name: "Canape",
-    img: (
-      <Image
-        alt="canape"
-        width={300}
-        height={300}
-        src="/images/canape.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 2,
-    name: "Lit",
-    img: (
-      <Image
-        alt="lit"
-        width={300}
-        height={300}
-        src="/images/lit.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 3,
-    name: "Table",
-    img: (
-      <Image
-        alt="table"
-        width={300}
-        height={300}
-        src="/images/table.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 4,
-    name: "Bureau",
-    img: (
-      <Image
-        alt="bureau"
-        width={300}
-        height={300}
-        src="/images/bureau.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 5,
-    name: "Chaise",
-    img: (
-      <Image
-        alt="chaise"
-        width={300}
-        height={300}
-        src="/images/chaise.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 6,
-    name: "Armoire",
-    img: (
-      <Image
-        alt="armoire"
-        width={300}
-        height={300}
-        src="/images/armoire.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-]
+export const getServerSideProps = async () => {
+  const { data } = await axios.get(
+    `http://localhost:3000/api/backoffice/product/`
+  )
 
-const Home = () => {
+  return {
+    props: { data },
+  }
+}
+const Home = (props) => {
+  const {
+    data: { result },
+  } = props
+
+  // eslint-disable-next-line no-console
+  console.log(result)
+
   return (
     <div>
       <Head>
@@ -282,23 +140,30 @@ const Home = () => {
       </div>
 
       <div className="grid grid-cols-1 items-center gap-3 p-2 md:grid-cols-3 lg:grid-cols-4 ">
-        {products.map((product) => (
-          <>
-            <Link href={routes.products()}>
+        {result.map((product) => (
+          <div key={product.id}>
+            <Link href={routes.products(product.id)}>
               <div className="flex justify-center">
                 <div className="group flex w-3/5 items-center  justify-center ">
                   <div className=" absolute z-10 hidden text-xl font-black text-black group-hover:flex">
                     {product.name}
                   </div>
-                  {product.img}
+                  <Image
+                    alt={product.name}
+                    width={400}
+                    height={400}
+                    src="/images/canape.jpg"
+                    className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
+                  />
                 </div>
               </div>
             </Link>
-          </>
+          </div>
         ))}
       </div>
     </div>
   )
 }
+
 Home.isPublicPage = true
 export default Home

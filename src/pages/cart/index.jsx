@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import Wrapper from "../../web/components/Layout/Wrapper"
 import { CartContext } from "@/web/hooks/CartContext"
 import Head from "next/head"
+import Image from "next/image"
 
 const CartPage = () => {
   const { cart, removeFromCart, updateQuantity } = useContext(CartContext)
@@ -25,10 +26,12 @@ const CartPage = () => {
           {Object.keys(cart).length === 0 ? (
             <div className="flex flex-col items-center justify-center">
               <p className="mb-4 text-2xl font-bold">Votre panier est vide</p>
-              <img
-                src="https://media.istockphoto.com/id/861576608/vector/empty-shopping-bag-icon-online-business-vector-icon-template.jpg?s=612x612&w=0&k=20&c=I7MbHHcjhRH4Dy0NVpf4ZN4gn8FVDnwn99YdRW2x5k0="
-                alt=""
-                className="mb-8 max-w-xs"
+              <Image
+                alt="Photo d'un panier vide"
+                src="/images/empty-cart.jpg"
+                className="mb-8 "
+                width={600}
+                height={600}
               />
             </div>
           ) : (
@@ -41,10 +44,12 @@ const CartPage = () => {
                       key={item.id}
                       className="flex items-center rounded-lg border p-4"
                     >
-                      <img
-                        src={item.image}
+                      <Image
                         alt={item.name}
-                        className="mr-4 h-32 w-32 object-contain"
+                        width={400}
+                        height={400}
+                        src="/images/canape.jpg"
+                        className="mr-4 h-32 w-32 rounded-lg object-contain "
                       />
                       <div>
                         <h2 className="text-xl font-medium">{item.name}</h2>

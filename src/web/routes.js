@@ -6,7 +6,7 @@ const routes = {
   tos: () => "/tos",
   contact: () => "/contact",
   cart: () => "/cart",
-  products: () => "/product",
+  products: (productId) => `/product/${productId}`,
   api: {
     signUp: () => "/sign-up/sign-up",
     signIn: () => "/sign-in/sign-in",

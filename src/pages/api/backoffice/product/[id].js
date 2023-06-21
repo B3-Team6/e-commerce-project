@@ -4,14 +4,18 @@ import mw from "@/api/mw.js"
 import { stringValidator, intValidator, idValidator } from "@/validators.js"
 
 const handler = mw({
-  GET_BY_ID: [
+  GET: [
     validate({
-      params: {
-        id: intValidator.required(),
+      query: {
+        id: idValidator.required(),
       },
     }),
-    async ({ req, res }) => {
-      const { id } = req.params
+    async ({
+      locals: {
+        query: { id },
+      },
+      res,
+    }) => {
       const product = await ProductModel.query()
         .findById(id)
         .withGraphFetched("material")
