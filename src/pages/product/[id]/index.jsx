@@ -20,7 +20,7 @@ const Product = (props) => {
   const {
     data: { result },
   } = props
-  // eslint-disable-next-line no-console
+
   const { addToCart } = useContext(CartContext)
 
   const handleAddToCart = useCallback(

@@ -29,9 +29,9 @@ const CartPage = () => {
               <Image
                 alt="Photo d'un panier vide"
                 src="/images/empty-cart.jpg"
-                className="mb-8 "
-                width={600}
-                height={600}
+                className="mb-8 max-w-xl"
+                width={500}
+                height={500}
               />
             </div>
           ) : (
