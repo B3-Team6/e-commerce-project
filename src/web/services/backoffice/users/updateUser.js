@@ -1,20 +1,18 @@
 import routes from "@/web/routes"
 
-const updateProduct =
+const updateUser =
   ({ api }) =>
   async (
     editedId,
     editedDisplayName,
-    editedPasswordHash,
-    editedPasswordSalt,
+    editedPassword,
     editedEmail,
     editedIsAdmin
   ) => {
     try {
-      const { data } = await api.patch(routes.api.product.products(editedId), {
+      const { data } = await api.patch(routes.api.user.users(editedId), {
         displayName: editedDisplayName,
-        passwordHash: editedPasswordHash,
-        passwordSalt: editedPasswordSalt,
+        password: editedPassword,
         email: editedEmail,
         isAdmin: editedIsAdmin,
       })
@@ -27,4 +25,4 @@ const updateProduct =
     }
   }
 
-export default updateProduct
+export default updateUser

@@ -12,19 +12,19 @@ const routes = {
     signIn: () => "/sign-in/sign-in",
     category: {
       categories: (categoryId) => `/backoffice/category/${categoryId}`,
-      category: () => `/backoffice/category`,
+      category: () => "/backoffice/category",
     },
     product: {
       products: (productId) => `/backoffice/product/${productId}`,
-      product: () => `/backoffice/product`,
+      product: () => "/backoffice/product",
     },
     material: {
       materials: (materialId) => `/material/${materialId}`,
-      material: () => `/backoffice/material`,
+      material: () => "/backoffice/material",
     },
     user: {
       users: (userId) => `/backoffice/user/${userId}`,
-      user: () => `/backoffice/user`,
+      user: () => "/backoffice/user",
     },
     cart: () => "/cart/cart",
     order: () => "/order/order",

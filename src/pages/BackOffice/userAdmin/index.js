@@ -161,7 +161,7 @@ const UserAdmin = () => {
                   </>
                 ) : (
                   <>
-                    <div className="flex flex-row">
+                    <div className="flex flex-row gap-8">
                       <button onClick={() => handleEdit(user.id)}>
                         <PencilSquareIcon className="h-8 w-8" />
                       </button>
