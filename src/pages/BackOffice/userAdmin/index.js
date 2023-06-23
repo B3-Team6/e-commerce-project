@@ -21,7 +21,7 @@ const UserAdmin = () => {
   const [editedId, setEditedId] = useState(null)
   const [editedDisplayName, setEditedDisplayName] = useState("")
   const [editedEmail, setEditedEmail] = useState("")
-  const [editedIsAdmin, setEditedIsAdmin] = useState("")
+  const [editedIsAdmin, setEditedIsAdmin] = useState(null)
 
   const fetchData = async () => {
     const { data } = await axios.get("/api/backoffice/user")
@@ -84,12 +84,11 @@ const UserAdmin = () => {
   return (
     <>
       <Head>
-        <title>Back Office</title>
+        <title>Back Office - Users</title>
         <meta name="description" content="Backoffice user page" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>Users</div>
 
       <p className="my-8 flex justify-center font-serif text-2xl underline">
         USERS
@@ -107,10 +106,9 @@ const UserAdmin = () => {
         <tbody>
           {users.map((user) => (
             <tr key={user.id} className="border-2 border-stone-300">
-              <td className="w-16">{user.id}</td> // ID
-              <td className="w-24 text-sm">
+              <td className="w-16">{user.id}</td>
+              <td className="w-1/4 text-sm">
                 {" "}
-                // DisplayName
                 {user.id === editedId ? (
                   <input
                     className="border-2 border-slate-500"
@@ -122,9 +120,8 @@ const UserAdmin = () => {
                   user.displayName
                 )}
               </td>
-              <td className="truncated-description w-2/3 text-sm">
+              <td className="w-1/4 text-sm">
                 {" "}
-                // Email
                 {user.id === editedId ? (
                   <textarea
                     className="w-full border-2 border-slate-300"
@@ -135,24 +132,24 @@ const UserAdmin = () => {
                   user.email
                 )}
               </td>
-              <td className="w-24 text-sm">
-                {" "}
-                // IsAdmin
+              <td className="w-1/4 text-lg font-bold">
                 {user.id === editedId ? (
                   <input
-                    className="border-2 border-slate-500"
-                    type="number"
-                    value={editedIsAdmin}
-                    onChange={(e) => setEditedIsAdmin(e.target.value)}
+                    className="h-6 w-6 border-2 border-slate-500"
+                    type="checkbox"
+                    checked={editedIsAdmin}
+                    onChange={(e) => setEditedIsAdmin(e.target.checked)}
                   />
+                ) : user.isAdmin ? (
+                  "Yes"
                 ) : (
-                  user.isAdmin
+                  "No"
                 )}
               </td>
-              <td>
+              <td className="w-32">
                 {user.id === editedId ? (
                   <>
-                    <div className="flex flex-row">
+                    <div className="flex flex-row ">
                       <button onClick={() => handleSaveEdit(user.id)}>
                         <CheckIcon className="h-8 text-green-500" />
                       </button>
@@ -195,6 +192,6 @@ UserAdmin.getLayout = function getLayout(page) {
   return <LayoutAdmin>{page}</LayoutAdmin>
 }
 
-UserAdmin.isPublicPage = false
+UserAdmin.isPublicPage = true
 
 export default UserAdmin
