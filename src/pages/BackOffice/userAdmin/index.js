@@ -123,8 +123,9 @@ const UserAdmin = () => {
               <td className="w-1/4 text-sm">
                 {" "}
                 {user.id === editedId ? (
-                  <textarea
+                  <input
                     className="w-full border-2 border-slate-300"
+                    type="text"
                     value={editedEmail}
                     onChange={(e) => setEditedEmail(e.target.value)}
                   />
