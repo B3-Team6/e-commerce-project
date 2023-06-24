@@ -5,6 +5,11 @@ const routes = {
   legalNotice: () => "/legal-notice",
   tos: () => "/tos",
   contact: () => "/contact",
+  checkout: {
+    checkout: () => "/checkout",
+    payment: () => "/checkout/payment",
+    summary: () => "/checkout/summary",
+  },
   api: {
     signUp: () => "/sign-up/sign-up",
     signIn: () => "/sign-in/sign-in",
