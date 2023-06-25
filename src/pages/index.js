@@ -254,9 +254,24 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <div className="my-8 flex  justify-center gap-10 bg-gradient-to-r from-yellow-300 via-green-300 to-blue-300 p-3">
+        <Link
+          href={routes.backoffice.backoffice()}
+          className="text-xl font-bold duration-500 hover:bg-pink-500 hover:underline "
+        >
+          <p>Back Office</p>
+        </Link>
+        <Link
+          href={routes.checkout.checkout()}
+          className="text-xl font-bold duration-500 hover:bg-pink-500 hover:underline"
+        >
+          <p>Checkout</p>
+        </Link>
+      </div>
+
       <Carousel />
 
-      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-white md:text-lg lg:text-2xl">
+      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold md:text-lg lg:text-2xl">
         <p>
           Découvrez nos catégories de meubles ainsi que nos meilleures ventes
         </p>
@@ -277,14 +292,7 @@ const Home = () => {
         ))}
       </div>
 
-      <Link
-        href={routes.backoffice.backoffice()}
-        className="hover:text-gray-500"
-      >
-        <p>Back Office</p>
-      </Link>
-
-      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-white md:text-lg lg:text-2xl">
+      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold md:text-lg lg:text-2xl">
         <p>Les Highlanders du moment</p>
       </div>
 
