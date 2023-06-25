@@ -2,6 +2,8 @@ import Head from "next/head"
 import Carousel from "@/web/components/Carousel"
 import Image from "next/image"
 
+import { useTranslation } from "react-i18next"
+
 const categories = [
   {
     id: 1,
@@ -243,6 +245,8 @@ const products = [
 ]
 
 const Home = () => {
+  const { t, i18n } = useTranslation()
+
   return (
     <div>
       <Head>
@@ -253,10 +257,8 @@ const Home = () => {
       </Head>
       <Carousel />
 
-      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-white md:text-lg lg:text-2xl">
-        <p>
-          Découvrez nos catégories de meubles ainsi que nos meilleures ventes
-        </p>
+      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-black md:text-lg lg:text-2xl">
+        <p>{t("discoverCategory")}</p>
       </div>
 
       <div className="grid  flex-col  items-center gap-3  p-2  md:grid-cols-2 lg:grid-cols-3 ">
@@ -274,8 +276,8 @@ const Home = () => {
         ))}
       </div>
 
-      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-white md:text-lg lg:text-2xl">
-        <p>Les Highlanders du moment</p>
+      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-black md:text-lg lg:text-2xl">
+        <p>{t("discoverProduct")}</p>
       </div>
 
       <div className="grid grid-cols-1 items-center gap-3 p-2 md:grid-cols-3 lg:grid-cols-4 ">

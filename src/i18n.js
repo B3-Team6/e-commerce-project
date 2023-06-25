@@ -28,6 +28,10 @@ i18next
           aboutUs: "About AIRNEIS",
           mySettings: "My account",
           myOrders: "My orders",
+          // home page
+          discoverCategory:
+            "Discover our categories of furniture as well as our best sellers",
+          discoverProduct: "The Highlanders of the moment",
         },
       },
       fr: {
@@ -50,6 +54,10 @@ i18next
           aboutUs: "À propos de nous",
           mySettings: "Mon compte",
           myOrders: "Mes commandes",
+          // home page
+          discoverCategory:
+            "Découvrez nos catégories de meubles ainsi que nos meilleures ventes",
+          discoverProduct: "Les Highlanders du moment",
         },
       },
     },
