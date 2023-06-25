@@ -10,6 +10,8 @@ i18next
     resources: {
       en: {
         translation: {
+          // components
+          submitButton: "Submit",
           // contact page
           contactHeadTitle: "AIRNEIS - Contact Us",
           contactTitle: "Contact Us",
@@ -18,7 +20,6 @@ i18next
           messagePlaceholder: "Enter your message",
           messageLabel: "Message",
           messageAriaLabel: "Message input",
-          submitButton: "Submit",
           submitSuccessMessage: "Message successfully sent",
           // navbar & footer
           signIn: "Sign in",
@@ -38,6 +39,8 @@ i18next
       },
       fr: {
         translation: {
+          // components
+          submitButton: "Soumettre",
           // contact page
           contactHeadTitle: "AIRNEIS - Contactez nous",
           contactTitle: "Contactez-nous",
@@ -46,7 +49,6 @@ i18next
           messagePlaceholder: "Entrez votre message",
           messageLabel: "Message",
           messageAriaLabel: "Message input",
-          submitButton: "Soumettre",
           submitSuccessMessage: "Message envoyé avec succès",
           // navbar & footer
           signIn: "Se connecter",
