@@ -8,6 +8,7 @@ import {
   Bars3Icon,
 } from "@heroicons/react/24/outline"
 import Link from "next/link"
+import { useTranslation } from "react-i18next"
 
 const NavBar = () => {
   const [isOpen, setOpen] = useState(false)
@@ -30,6 +31,8 @@ const NavBar = () => {
     return HandleSignOut
   }
 
+  const { t, i18n } = useTranslation()
+
   return (
     <>
       <div className="flex items-center justify-between border-b border-gray-400 bg-[#F6E6D1] p-3 font-[Mulish] font-semibold">
@@ -40,12 +43,20 @@ const NavBar = () => {
         </Link>
         <nav>
           <section className="flex flex-row gap-3">
+            <select className="bg-[#F6E6D1] mr-6"
+              value={i18n.language}
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+            >
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+            </select>
+
             <button className="cursor-pointer hover:text-gray-500">
               <MagnifyingGlassIcon className="h-8 lg:mr-6 lg:w-10" />
             </button>
 
             <div className="relative">
-              <button className="focus:outline-none group relative flex items-center justify-center rounded-md p-2 text-black hover:text-gray-500 focus:ring-2 focus:ring-gray-400">
+              <button className="group relative flex items-center justify-center rounded-md p-2 text-black hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400">
                 <ShoppingCartIcon
                   className="h-8 w-10 lg:mr-6"
                   aria-hidden="true"
@@ -71,28 +82,28 @@ const NavBar = () => {
                 {session ? (
                   <>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">My Settings</a>
+                      <a href="#">{t('mySettings')}</a>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">My Orders</a>
+                      <a href="#">{t('myOrders')}</a>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">Legal Notice</a>
+                      <a href="#">{t('legalNotice')}</a>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
-                      <a href="#">Terms of use</a>
+                      <a href="#">{t('termsOfUse')}</a>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
-                      <a href="#">Contact</a>
+                      <a href="#">{t('contactUs')}</a>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">About AIRNEIS</a>
+                      <a href="#">{t('aboutUs')}</a>
                     </li>
                     <button
                       className="my-8 border-b border-gray-400 uppercase"
                       onClick={HandleSignOut}
                     >
-                      Sign out
+                      {t('signOut')}
                     </button>
                   </>
                 ) : (
@@ -102,7 +113,7 @@ const NavBar = () => {
                         href={routes.signIn()}
                         onClick={() => setOpen(false)}
                       >
-                        Sign In
+                        {t('signIn')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400 uppercase">
@@ -110,7 +121,7 @@ const NavBar = () => {
                         href={routes.signUp()}
                         onClick={() => setOpen(false)}
                       >
-                        Sign Up
+                        {t('signUp')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
@@ -118,12 +129,12 @@ const NavBar = () => {
                         href={routes.legalNotice()}
                         onClick={() => setOpen(false)}
                       >
-                        Legal Notice
+                        {t('legalNotice')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
                       <Link href={routes.tos()} onClick={() => setOpen(false)}>
-                        Terms of Use
+                        {t('termsOfUse')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
@@ -131,11 +142,11 @@ const NavBar = () => {
                         href={routes.contact()}
                         onClick={() => setOpen(false)}
                       >
-                        Contact
+                        {t('contactUs')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">About AIRNEIS</a>
+                      <a href="#">{t('aboutUs')}</a>
                     </li>
                   </>
                 )}

@@ -10,6 +10,7 @@ i18next
     resources: {
       en: {
         translation: {
+          // contact page
           contactTitle: "Contact Us",
           emailPlaceholder: "Enter your email",
           emailLabel: "E-mail",
@@ -18,6 +19,37 @@ i18next
           messageAriaLabel: "Message input",
           submitButton: "Submit",
           submitSuccessMessage: "Message successfully sent",
+          // navbar & footer
+          signIn: "Sign in",
+          signUp: "Sign up",
+          legalNotice: "Legal Notice",
+          termsOfUse: "Terms of Use",
+          contactUs: "Contact us",
+          aboutUs: "About AIRNEIS",
+          mySettings: "My account",
+          myOrders: "My orders",
+        },
+      },
+      fr: {
+        translation: {
+          // contact page
+          contactTitle: "Contactez-nous",
+          emailPlaceholder: "Entrez votre email",
+          emailLabel: "E-mail",
+          messagePlaceholder: "Entrez votre message",
+          messageLabel: "Message",
+          messageAriaLabel: "Message input",
+          submitButton: "Soumettre",
+          submitSuccessMessage: "Message envoyé avec succès",
+          // navbar & footer
+          signIn: "Se connecter",
+          signUp: "S'inscrire",
+          legalNotice: "Mentions légales",
+          termsOfUse: "Conditions d'utilisations",
+          contactUs: "Contactez-nous",
+          aboutUs: "À propos de nous",
+          mySettings: "Mon compte",
+          myOrders: "Mes commandes",
         },
       },
     },
