@@ -11,6 +11,7 @@ i18next
       en: {
         translation: {
           // contact page
+          contactHeadTitle: "AIRNEIS - Contact Us",
           contactTitle: "Contact Us",
           emailPlaceholder: "Enter your email",
           emailLabel: "E-mail",
@@ -29,6 +30,7 @@ i18next
           mySettings: "My account",
           myOrders: "My orders",
           // home page
+          homepageHeadTitle: "AIRNEIS - Home",
           discoverCategory:
             "Discover our categories of furniture as well as our best sellers",
           discoverProduct: "The Highlanders of the moment",
@@ -37,6 +39,7 @@ i18next
       fr: {
         translation: {
           // contact page
+          contactHeadTitle: "AIRNEIS - Contactez nous",
           contactTitle: "Contactez-nous",
           emailPlaceholder: "Entrez votre email",
           emailLabel: "E-mail",
@@ -55,6 +58,7 @@ i18next
           mySettings: "Mon compte",
           myOrders: "Mes commandes",
           // home page
+          homepageHeadTitle: "AIRNEIS - Accueil",
           discoverCategory:
             "Découvrez nos catégories de meubles ainsi que nos meilleures ventes",
           discoverProduct: "Les Highlanders du moment",
