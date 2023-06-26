@@ -119,7 +119,9 @@ const products = [
 export const getServerSideProps = async ({ params }) => {
   const id = params.id
 
-  const { data } = await axios.get(`http://localhost:3000/api/category/${id}`)
+  const { data } = await axios.get(
+    `http://localhost:3000/api/backoffice/category/${id}`
+  )
 
   return {
     props: { data },
