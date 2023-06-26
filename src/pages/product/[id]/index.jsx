@@ -20,7 +20,7 @@ const Product = (props) => {
   const {
     data: { result },
   } = props
-  // eslint-disable-next-line no-console
+
   const { addToCart } = useContext(CartContext)
 
   const handleAddToCart = useCallback(
@@ -66,7 +66,7 @@ const Product = (props) => {
                 <div className="text-lg font-semibold text-slate-500">
                   {result.price} €
                 </div>
-                <div className="text-sm font-medium text-slate-500">
+                <div className="ml-3 text-sm font-medium text-slate-500">
                   {getStockStatus(result.quantity)}
                 </div>
               </div>
@@ -79,7 +79,7 @@ const Product = (props) => {
               <div className="mb-6 flex space-x-4 text-sm font-medium">
                 <div className="flex flex-auto justify-end space-x-4">
                   <button
-                    className={`h-10 rounded-md border border-slate-200 px-6 font-semibold text-slate-900 ${
+                    className={`mt-7 h-10 rounded-md border border-slate-200 px-6 font-semibold text-slate-900 ${
                       result.quantity === 0 ? "bg-gray-300" : "bg-orange-100"
                     }`}
                     onClick={() => handleAddToCart(result)}
