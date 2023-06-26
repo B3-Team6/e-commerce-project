@@ -20,6 +20,10 @@ import updateProductService from "@/web/services/backoffice/products/updateProdu
 import deleteProductService from "@/web/services/backoffice/products/deleteProduct"
 import addProductService from "@/web/services/backoffice/products/addProduct"
 
+import updateUserService from "@/web/services/backoffice/users/updateUser"
+import deleteUserService from "@/web/services/backoffice/users/deleteUser"
+import addUserService from "@/web/services/backoffice/users/addUser"
+
 const AppContext = createContext()
 
 export const AppContextProvider = (props) => {
@@ -56,6 +60,10 @@ export const AppContextProvider = (props) => {
   const deleteCategory = deleteCategorySevrvice({ api })
   const addCategory = addCategoryService({ api })
 
+  const updateUser = updateUserService({ api })
+  const deleteUser = deleteUserService({ api })
+  const addUser = addUserService({ api })
+  
   const deleteContact = deleteContactService({ api })
 
   if (!isPublicPage && session === null) {
@@ -80,6 +88,9 @@ export const AppContextProvider = (props) => {
           updateProduct,
           deleteProduct,
           addProduct,
+          updateUser,
+          deleteUser,
+          addUser,
           deleteContact,
         },
         state: {

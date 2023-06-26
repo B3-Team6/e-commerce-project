@@ -17,15 +17,19 @@ const routes = {
     },
     category: {
       categories: (categoryId) => `/backoffice/category/${categoryId}`,
-      category: () => `/backoffice/category`,
+      category: () => "/backoffice/category",
     },
     product: {
       products: (productId) => `/backoffice/product/${productId}`,
-      product: () => `/backoffice/product`,
+      product: () => "/backoffice/product",
     },
     material: {
       materials: (materialId) => `/material/${materialId}`,
-      material: () => `/backoffice/material`,
+      material: () => "/backoffice/material",
+    },
+    user: {
+      users: (userId) => `/backoffice/user/${userId}`,
+      user: () => "/backoffice/user",
     },
     cart: () => "/cart/cart",
     order: () => "/order/order",
@@ -38,10 +42,12 @@ const routes = {
     product: () => "/BackOffice/productAdmin",
     addProduct: () => "/BackOffice/productAdmin/add",
     user: () => "/BackOffice/userAdmin",
+    addUser: () => "/BackOffice/userAdmin/add",
     contact: () => "/BackOffice/contactAdmin",
   },
   category: {},
   product: {},
+  user: {},
 }
 
 export default routes
