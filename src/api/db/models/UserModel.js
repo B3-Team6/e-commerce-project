@@ -9,6 +9,11 @@ class UserModel extends BaseModel {
 
     return passwordHash === this.passwordHash
   }
+
+  static modifiers = {
+    paginate: (query, limit, page) =>
+      query.limit(limit).offset((page - 1) * limit),
+  }
 }
 
 export default UserModel

@@ -7,14 +7,18 @@ import contactUsService from "@/web/services/contactUs.js"
 import {
   createContext,
   useCallback,
-  useContext,
   useEffect,
   useState,
+  useContext,
 } from "react"
 import updateCategoryService from "@/web/services/backoffice/categories/updateCategory"
 import deleteCategorySevrvice from "@/web/services/backoffice/categories/deleteCategory"
 import addCategoryService from "@/web/services/backoffice/categories/addCategory"
 import deleteContactService from "@/web/services/backoffice/contact/deleteContact"
+
+import updateProductService from "@/web/services/backoffice/products/updateProduct"
+import deleteProductService from "@/web/services/backoffice/products/deleteProduct"
+import addProductService from "@/web/services/backoffice/products/addProduct"
 
 const AppContext = createContext()
 
@@ -44,6 +48,10 @@ export const AppContextProvider = (props) => {
     setJWT({ jwt })
   }, [])
 
+  const updateProduct = updateProductService({ api })
+  const deleteProduct = deleteProductService({ api })
+  const addProduct = addProductService({ api })
+
   const updateCategory = updateCategoryService({ api })
   const deleteCategory = deleteCategorySevrvice({ api })
   const addCategory = addCategoryService({ api })
@@ -60,7 +68,6 @@ export const AppContextProvider = (props) => {
 
   return (
     <AppContext.Provider
-      {...otherProps}
       value={{
         actions: {
           signUp,
@@ -70,13 +77,17 @@ export const AppContextProvider = (props) => {
           updateCategory,
           deleteCategory,
           addCategory,
+          updateProduct,
+          deleteProduct,
+          addProduct,
           deleteContact,
         },
         state: {
           session,
         },
       }}
-    />
+      {...otherProps}
+    ></AppContext.Provider>
   )
 }
 

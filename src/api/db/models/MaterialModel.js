@@ -1,7 +1,7 @@
 import BaseModel from "./BaseModel"
 
-class CategoryModel extends BaseModel {
-  static tableName = "categories"
+class MaterialModel extends BaseModel {
+  static tableName = "materials"
 
   static modifiers = {
     paginate: (query, limit, page) =>
@@ -9,4 +9,4 @@ class CategoryModel extends BaseModel {
   }
 }
 
-export default CategoryModel
+export default MaterialModel
