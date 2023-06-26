@@ -1,3 +1,4 @@
+import hashPassword from "@/api/db/hashPassword"
 import UserModel from "@/api/db/models/UserModel"
 import validate from "@/api/middlewares/validate.js"
 import mw from "@/api/mw.js"

@@ -2,17 +2,10 @@ import routes from "@/web/routes"
 
 const updateUser =
   ({ api }) =>
-  async (
-    editedId,
-    editedDisplayName,
-    editedPassword,
-    editedEmail,
-    editedIsAdmin
-  ) => {
+  async (editedId, editedDisplayName, editedEmail, editedIsAdmin) => {
     try {
       const { data } = await api.patch(routes.api.user.users(editedId), {
         displayName: editedDisplayName,
-        password: editedPassword,
         email: editedEmail,
         isAdmin: editedIsAdmin,
       })
