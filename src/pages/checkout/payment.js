@@ -28,76 +28,74 @@ const Payment = (props) => {
   const { onSubmit } = props
 
   return (
-    <>
-      <div className="my-12 flex justify-center text-xl font-bold  lg:text-5xl">
-        Payment
-      </div>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-        validationSchema={validationSchema}
-      >
-        {({ isSubmitting, isValid }) => (
-          <div>
-            <div className="flex justify-center gap-4">
-              <FormField
-                name="Firstname"
-                type="text"
-                label="First Name"
-                placeholder="Firstname"
-              />
+    <div className="mb-8 flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="my-12  text-xl font-bold  lg:text-5xl">Payment</h1>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          validationSchema={validationSchema}
+        >
+          {({ isSubmitting, isValid }) => (
+            <div className="flex w-fit flex-col">
+              <div className="flex justify-center gap-4">
+                <FormField
+                  name="Firstname"
+                  type="text"
+                  label="First Name"
+                  placeholder="Firstname"
+                />
 
-              <FormField
-                name="Lastname"
-                type="text"
-                label="Last Name"
-                placeholder="Lastname"
-              />
-            </div>
+                <FormField
+                  name="Lastname"
+                  type="text"
+                  label="Last Name"
+                  placeholder="Lastname"
+                />
+              </div>
 
-            <div className="flex justify-center">
               <FormField
                 name="Cardnumber"
                 type="text"
                 label="Card Number"
                 placeholder="Cardnumber"
               />
-            </div>
 
-            <div className="flex justify-center gap-10">
-              <FormField
-                name="Expirationdate"
-                type="month"
-                label="Expiration Date"
-                placeholder="Expirationdate"
-                className="mb-8"
-              />
+              <div className="flex justify-center gap-10">
+                <FormField
+                  name="Expirationdate"
+                  type="month"
+                  label="Expiration Date"
+                  placeholder="Expirationdate"
+                  className="mb-8"
+                />
 
-              <FormField
-                name="Cvv"
-                type="password"
-                label="CVV"
-                placeholder="CVV"
-                className="mb-8"
-              />
-            </div>
+                <FormField
+                  name="Cvv"
+                  type="password"
+                  label="CVV"
+                  placeholder="CVV"
+                  className="mb-8"
+                />
+              </div>
 
-            <Link
-              href={routes.checkout.summary()}
-              className="flex items-center justify-center  lg:col-start-2"
-            >
-              <button
-                disabled={isSubmitting || !isValid}
-                type="submit"
-                className=" text-md h-12 w-64 items-center rounded-lg bg-orange-100  font-bold disabled:bg-slate-400 lg:mt-8"
+              <Link
+                href={routes.checkout.summary()}
+                className="flex items-center justify-center  lg:col-start-2"
               >
-                Purchase
-              </button>
-            </Link>
-          </div>
-        )}
-      </Formik>
-    </>
+                <button
+                  disabled={isSubmitting || !isValid}
+                  type="submit"
+                  className=" text-md h-12 w-64 items-center rounded-lg bg-orange-100  font-bold disabled:bg-slate-400 lg:mt-8"
+                >
+                  Purchase
+                </button>
+              </Link>
+            </div>
+          )}
+        </Formik>
+      </div>
+    </div>
   )
 }
 
