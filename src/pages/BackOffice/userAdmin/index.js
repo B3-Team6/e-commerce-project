@@ -60,7 +60,7 @@ const UserAdmin = () => {
 
     fetchData()
     setEditedId(null)
-  }, [editedId, editedDisplayName, editedEmail, editedIsAdmin])
+  }, [updateUser, editedId, editedDisplayName, editedEmail, editedIsAdmin])
 
   const handleDelete = useCallback(
     async (id) => {
