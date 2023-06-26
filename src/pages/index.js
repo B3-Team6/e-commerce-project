@@ -5,103 +5,27 @@ import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
 
-const categories = [
-  {
-    id: 1,
-    name: "Canape",
-    img: (
-      <Image
-        alt="canape"
-        width={400}
-        height={400}
-        src="/images/canape.jpg"
-        className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 2,
-    name: "Lit",
-    img: (
-      <Image
-        alt="lit"
-        width={400}
-        height={400}
-        src="/images/lit.jpg"
-        className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 3,
-    name: "Table",
-    img: (
-      <Image
-        alt="table"
-        width={400}
-        height={400}
-        src="/images/table.jpg"
-        className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 4,
-    name: "Bureau",
-    img: (
-      <Image
-        alt="bureau"
-        width={400}
-        height={400}
-        src="/images/bureau.jpg"
-        className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 5,
-    name: "Chaise",
-    img: (
-      <Image
-        alt="chaise"
-        width={400}
-        height={400}
-        src="/images/chaise.jpg"
-        className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 6,
-    name: "Armoire",
-    img: (
-      <Image
-        alt="armoire"
-        width={400}
-        height={400}
-        src="/images/armoire.jpg"
-        className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
-      />
-    ),
-  },
-]
-
 export const getServerSideProps = async () => {
-  const { data } = await axios.get(
+  const productResponse = await axios.get(
     `http://localhost:3000/api/backoffice/product/`
   )
 
+  const categoryResponse = await axios.get(
+    `http://localhost:3000/api/backoffice/category/`
+  )
+
+  const { data: productData } = productResponse
+  const { data: categoryData } = categoryResponse
+
   return {
-    props: { data },
+    props: {
+      products: productData.result,
+      categories: categoryData.result,
+    },
   }
 }
 const Home = (props) => {
-  const {
-    data: { result },
-  } = props
-
-  // eslint-disable-next-line no-console
-  console.log(result)
+  const { products, categories } = props
 
   return (
     <div>
@@ -122,16 +46,24 @@ const Home = (props) => {
 
       <div className="grid  flex-col  items-center gap-3  p-2  md:grid-cols-2 lg:grid-cols-3 ">
         {categories.map((categorie) => (
-          <>
+          <div key={categorie.id}>
             <div className="flex justify-center">
               <div className="group flex w-5/6 items-center  justify-center ">
                 <div className=" absolute z-10 hidden text-2xl font-black text-black group-hover:flex">
                   {categorie.name}
                 </div>
-                <Link href={`/category/${categorie.id}`}>{categorie.img}</Link>
+                <Link href={`/category/${categorie.id}`}>
+                  <Image
+                    alt={categorie.name}
+                    width={400}
+                    height={400}
+                    src="/images/canape.jpg"
+                    className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
+                  />
+                </Link>
               </div>
             </div>
-          </>
+          </div>
         ))}
       </div>
 
@@ -140,7 +72,7 @@ const Home = (props) => {
       </div>
 
       <div className="grid grid-cols-1 items-center gap-3 p-2 md:grid-cols-3 lg:grid-cols-4 ">
-        {result.map((product) => (
+        {products.map((product) => (
           <div key={product.id}>
             <Link href={routes.products(product.id)}>
               <div className="flex justify-center">
