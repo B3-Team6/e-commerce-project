@@ -24,12 +24,15 @@ const Footer = () => {
       <div className="flex flex-row-reverse gap-6">
         <Link href="https://www.facebook.com/" className="hover:text-gray-500">
           <FontAwesomeIcon icon={faFacebookSquare} className="h-8 w-8" />
+          <span className="sr-only">Facebook</span>
         </Link>
         <Link href="https://www.instagram.com/" className="hover:text-gray-500">
           <FontAwesomeIcon icon={faInstagramSquare} className="h-8 w-8" />
+          <span className="sr-only">Instagram</span>
         </Link>
         <Link href="https://www.linkedin.com/" className="hover:text-gray-500">
           <FontAwesomeIcon icon={faLinkedin} className="h-8 w-8" />
+          <span className="sr-only">LinkedIn</span>
         </Link>
       </div>
     </footer>
