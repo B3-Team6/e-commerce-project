@@ -30,6 +30,7 @@ i18next
           aboutUs: "About AIRNEIS",
           mySettings: "My account",
           myOrders: "My orders",
+          signOut: "Sign out",
           // home page
           homepageHeadTitle: "AIRNEIS - Home",
           discoverCategory:
@@ -59,6 +60,7 @@ i18next
           aboutUs: "À propos de nous",
           mySettings: "Mon compte",
           myOrders: "Mes commandes",
+          signOut: "Déconnexion",
           // home page
           homepageHeadTitle: "AIRNEIS - Accueil",
           discoverCategory:
