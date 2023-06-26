@@ -6,16 +6,16 @@ import Image from "next/image"
 import Link from "next/link"
 
 export const getServerSideProps = async () => {
-  const productResponse = await axios.get(
+  const productAllResponse = await axios.get(
     `http://localhost:3000/api/backoffice/product/`
   )
 
-  const categoryResponse = await axios.get(
+  const categoryAllResponse = await axios.get(
     `http://localhost:3000/api/backoffice/category/`
   )
 
-  const { data: productData } = productResponse
-  const { data: categoryData } = categoryResponse
+  const { data: productData } = productAllResponse
+  const { data: categoryData } = categoryAllResponse
 
   return {
     props: {
@@ -38,7 +38,7 @@ const Home = (props) => {
 
       <Carousel />
 
-      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-white md:text-lg lg:text-2xl">
+      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold  md:text-lg lg:text-2xl">
         <p>
           Découvrez nos catégories de meubles ainsi que nos meilleures ventes
         </p>
@@ -67,7 +67,7 @@ const Home = (props) => {
         ))}
       </div>
 
-      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-white md:text-lg lg:text-2xl">
+      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold  md:text-lg lg:text-2xl">
         <p>Les Highlanders du moment</p>
       </div>
 
