@@ -10,6 +10,11 @@ const routes = {
   api: {
     signUp: () => "/sign-up/sign-up",
     signIn: () => "/sign-in/sign-in",
+    contactUs: () => "/contact/",
+    contact: {
+      contacts: (contactId) => `/contact/${contactId}`,
+      contact: () => `/contact`,
+    },
     category: {
       categories: (categoryId) => `/backoffice/category/${categoryId}`,
       category: () => `/backoffice/category`,
@@ -33,6 +38,7 @@ const routes = {
     product: () => "/BackOffice/productAdmin",
     addProduct: () => "/BackOffice/productAdmin/add",
     user: () => "/BackOffice/userAdmin",
+    contact: () => "/BackOffice/contactAdmin",
   },
   category: {},
   product: {},

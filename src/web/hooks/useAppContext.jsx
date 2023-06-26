@@ -3,6 +3,7 @@ import createAPIClient from "@/web/createAPIClient.js"
 import parseSession from "@/web/parseSession.js"
 import signInService from "@/web/services/signIn.js"
 import signUpService from "@/web/services/signUp.js"
+import contactUsService from "@/web/services/contactUs.js"
 import {
   createContext,
   useCallback,
@@ -13,6 +14,7 @@ import {
 import updateCategoryService from "@/web/services/backoffice/categories/updateCategory"
 import deleteCategorySevrvice from "@/web/services/backoffice/categories/deleteCategory"
 import addCategoryService from "@/web/services/backoffice/categories/addCategory"
+import deleteContactService from "@/web/services/backoffice/contact/deleteContact"
 
 import updateProductService from "@/web/services/backoffice/products/updateProduct"
 import deleteProductService from "@/web/services/backoffice/products/deleteProduct"
@@ -32,6 +34,7 @@ export const AppContextProvider = (props) => {
     localStorage.removeItem(config.session.localStorageKey)
     setSession(false)
   }, [])
+  const contactUs = contactUsService({ api })
 
   useEffect(() => {
     const jwt = localStorage.getItem(config.session.localStorageKey)
@@ -53,6 +56,8 @@ export const AppContextProvider = (props) => {
   const deleteCategory = deleteCategorySevrvice({ api })
   const addCategory = addCategoryService({ api })
 
+  const deleteContact = deleteContactService({ api })
+
   if (!isPublicPage && session === null) {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-white text-4xl font-bold">
@@ -68,12 +73,14 @@ export const AppContextProvider = (props) => {
           signUp,
           signIn,
           signOut,
+          contactUs,
           updateCategory,
           deleteCategory,
           addCategory,
           updateProduct,
           deleteProduct,
           addProduct,
+          deleteContact,
         },
         state: {
           session,

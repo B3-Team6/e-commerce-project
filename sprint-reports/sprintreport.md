@@ -292,3 +292,59 @@ Edouard:
 - Négatif: On a encore du retard, et on ne se tiens pas assez au courant de l'évolution des autres
 - Questions:
 - Idées d'améliorations:, il faudrait qu'on se tienne plus au courant les uns des autres, on perd du temps sur des choses bete
+
+# 08/05/2023 - 04/06/2023
+
+### Contributeurs:
+
+- TAM William
+- CHOPLain Edouard
+- SABIN Marvin
+
+### Sprint overview
+
+Ticket | Auteur | Description | Score
+
+ECA-45-CONTACT | TAM William | Page pour contacter les admins | 2
+ECA-125 |CHOPLAIN Edouard |add pictures
+ECA-86 | SABIN Marvin | As an ADMIN I want to be able to CREATE PRODUCTS | 2
+ECA-87 | SABIN Marvin | As an ADMIN I want to be able to READ PRODUCTS | 1
+ECA-88 | SABIN Marvin | As an ADMIN I want to be able to UPDATE PRODUCTS | 3
+ECA-89 | SABIN Marvin | As an ADMIN I want to be able to DELETE PRODUCTS | 3
+ECA-114 | SABIN Marvin | As ADMIN, i want to generate random data (SEED) User, material and Product | 2
+ECA-123 | SABIN Marvin | BackOffice-Product | 3
+
+### Changelogs:
+
+William(TamWilliam) => Changement dans le MCD; ajout de la table Contact
+William(TamWilliam) => Module de langage i18next commencé mais pour le moment, c'est de la traduction manuelle et non automatique
+William(TamWilliam) #ad3254c => Back de la page Contact finit et fonctionnel
+Edouard => Création bucket et ajout image dans CRUD category
+
+Marvin(TayZain)6748c3f => Back et Front du Back Office de Product, CRUD Material V0, CRUD Product V1, Seed V0 (Product,Material)
+Marvin(TayZain)9995d9a => Seed UserV0,Product (Peut etre pas retenu)
+Marvin(TayZain)=> Début du Module a11y pour l'accessibilité
+Marvin(TayZain)=> Début de la documentation technique de mes pages
+
+### Avis:
+
+#### TAM William
+
+- Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations:
+
+##### CHOPLAIN Edouard
+
+- Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations:
+
+##### SABIN Marvin
+
+- Positif: Difficultés pour le back office Product mais ça avance.
+- Négatif:
+- Questions:
+- Idées d'améliorations:
