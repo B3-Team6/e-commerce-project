@@ -11,6 +11,7 @@ import axios from "axios"
 import useAppContext from "@/web/hooks/useAppContext"
 import routes from "@/web/routes"
 import Link from "next/link"
+import clsx from "clsx"
 
 const CategoryAdmin = () => {
   const {
@@ -40,6 +41,25 @@ const CategoryAdmin = () => {
       setEditedName(element.name)
       setEditedDescription(element.description)
       setEditedImage(element.image)
+    }
+  }
+
+  const handleEditedImageChange = (event) => {
+    const eventFile = event.target.files[0]
+
+    if (editedImage) {
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        const fileContent = e.target.result
+        const buffer = Buffer.from(fileContent.split(",")[1], "base64")
+
+        setEditedImage({
+          name: eventFile.name,
+          content: buffer,
+          type: eventFile.type,
+        })
+      }
+      reader.readAsDataURL(eventFile)
     }
   }
 
@@ -126,9 +146,11 @@ const CategoryAdmin = () => {
               <td className=" text-sm">
                 {categorie.id === editedId ? (
                   <input
-                    className="w-full border-2 border-slate-300"
-                    value={editedImage}
-                    onChange={(e) => setEditedImage(e.target.value)}
+                    type={"file"}
+                    className={clsx(
+                      "rounded-lg border-2 px-4 py-2 outline-none"
+                    )}
+                    onChange={(e) => handleEditedImageChange(e)}
                   />
                 ) : (
                   categorie.image
@@ -170,7 +192,7 @@ const CategoryAdmin = () => {
         href={routes.backoffice.addCategory()}
         className="mx-auto mt-4 flex w-fit justify-center rounded-md bg-black px-4 py-2 text-white"
       >
-        Ajouter une catégorie
+        Ajouter une catÃ©gorie
       </Link>
     </>
   )
