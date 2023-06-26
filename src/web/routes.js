@@ -17,12 +17,17 @@ const routes = {
       categories: (categoryId) => `/category/${categoryId}`,
       category: () => `/category`,
     },
+       order: {
+      orders: () => `/order`,
+      order: (orderId) => `/order/${orderId}`,
+    },
   },
   backoffice: {
     backoffice: () => "/BackOffice",
     category: () => "/BackOffice/categoryAdmin",
     addCategory: () => "/BackOffice/categoryAdmin/add",
     order: () => "/BackOffice/orderAdmin",
+    addOrder: () => "/BackOffice/orderAdmin/add",
     product: () => "/BackOffice/productAdmin",
     user: () => "/BackOffice/userAdmin",
     contact: () => "/BackOffice/contactAdmin",
