@@ -9,6 +9,7 @@ const routes = {
     signUp: () => "/sign-up/sign-up",
     signIn: () => "/sign-in/sign-in",
     contactUs: () => "/contact/",
+    search: () => "/search",
     contact: {
       contacts: (contactId) => `/contact/${contactId}`,
       contact: () => `/contact`,
