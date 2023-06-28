@@ -63,7 +63,7 @@ export const AppContextProvider = (props) => {
   const updateUser = updateUserService({ api })
   const deleteUser = deleteUserService({ api })
   const addUser = addUserService({ api })
-  
+
   const deleteContact = deleteContactService({ api })
 
   if (!isPublicPage && session === null) {

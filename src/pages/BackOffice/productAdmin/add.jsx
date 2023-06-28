@@ -20,11 +20,9 @@ const initialValues = {
 const validationSchema = createValidator({
   name: stringValidator.required(),
   description: stringValidator.required(),
-  image: stringValidator.required(),
   quantity: intValidator.required(),
   price: intValidator.required(),
 })
-
 const ProductPage = () => {
   const router = useRouter()
   const {
@@ -32,10 +30,34 @@ const ProductPage = () => {
   } = useAppContext()
 
   const [error, setError] = useState(null)
+  const [file, setFile] = useState(null)
+
+  const handleImageChange = (event) => {
+    const eventFile = event.target.files[0]
+
+    if (eventFile) {
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        const fileContent = e.target.result
+        const buffer = Buffer.from(fileContent.split(",")[1], "base64")
+
+        setFile({
+          name: eventFile.name,
+          content: buffer,
+          type: eventFile.type,
+        })
+      }
+      reader.readAsDataURL(eventFile)
+    }
+  }
 
   const handleSubmit = useCallback(
     async (values) => {
-      const [err] = await addProduct(values)
+      if (!file.content) {
+        return setError(["Please select a file"])
+      }
+
+      const [err] = await addProduct({ ...values, image: file })
 
       if (err) {
         setError(err)
@@ -45,33 +67,26 @@ const ProductPage = () => {
 
       router.push("/BackOffice/productAdmin")
     },
-    [addProduct, router]
+    [addProduct, router, file]
   )
 
   const [materials, setMaterials] = useState([])
-
-  const fecthData = async () => {
-    const { data } = await axios.get(
-      "http://localhost:3000/api/backoffice/material"
-    )
-    setMaterials(data.result)
-  }
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
-    fecthData()
-  }, [])
+    const fetchData = async () => {
+      const materialResponse = await axios.get(
+        "http://localhost:3000/api/backoffice/material"
+      )
+      setMaterials(materialResponse.data.result)
 
-  const [categories, setCategory] = useState([])
+      const categoryResponse = await axios.get(
+        "http://localhost:3000/api/backoffice/category"
+      )
+      setCategories(categoryResponse.data.result)
+    }
 
-  const fecthDataCategory = async () => {
-    const { data } = await axios.get(
-      "http://localhost:3000/api/backoffice/category"
-    )
-    setCategory(data.result)
-  }
-
-  useEffect(() => {
-    fecthDataCategory()
+    fetchData()
   }, [])
 
   return (
@@ -114,11 +129,13 @@ const ProductPage = () => {
         />
         <FormField
           name="image"
-          type="number"
-          placeholder="Enter the image of the product"
+          placeholder="Enter the image"
           label="Image"
+          type="file"
+          multiple={false}
+          handleChange={handleImageChange}
         />
-        <FormField name="materials" label="Material" component="select">
+        <FormField name="materials" label="Material" type="select">
           <option value="">Select a material</option>
           {materials.map((material) => (
             <option key={material.id} value={material.id}>
@@ -127,7 +144,7 @@ const ProductPage = () => {
           ))}
         </FormField>
 
-        <FormField name="categories" label="Category" component="select">
+        <FormField name="categories" label="Category" type="select">
           <option value="">Select a category</option>
           {categories.map((category) => (
             <option key={category.id} value={category.id}>
