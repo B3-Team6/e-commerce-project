@@ -3,11 +3,31 @@ exports.seed = async function (knex) {
   await knex("materials").insert([
     {
       name: "Bois",
-      slug: "canape",
+      slug: "bois",
     },
     {
-      name: "Metal",
-      slug: "caeadzdnape",
+      name: "Métal",
+      slug: "metal",
+    },
+    {
+      name: "Cuir",
+      slug: "cuir",
+    },
+    {
+      name: "Verre",
+      slug: "verre",
+    },
+    {
+      name: "Plastique",
+      slug: "plastique",
+    },
+    {
+      name: "Acier",
+      slug: "acier",
+    },
+    {
+      name: "Tissue",
+      slug: "tissue",
     },
   ])
 }

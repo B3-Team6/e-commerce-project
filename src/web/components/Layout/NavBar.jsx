@@ -52,7 +52,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between border-b border-gray-400 bg-[#F6E6D1] p-3 font-[Mulish] font-semibold">
+      <div className="sticky top-0 z-50 flex items-center justify-between border-b border-gray-400 bg-[#F6E6D1] p-3 font-[Mulish] font-semibold ">
         <Link href={routes.home()}>
           <span className="text-2xl font-bold text-black lg:ml-10">
             AIRNEIS
