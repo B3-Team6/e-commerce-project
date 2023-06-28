@@ -348,3 +348,31 @@ Marvin(TayZain)=> Début de la documentation technique de mes pages
 - Négatif:
 - Questions:
 - Idées d'améliorations:
+
+# 05/06/2023 - 03/07/2023
+
+### Contributeurs:
+
+- TAM William
+
+### Sprint overview
+
+Ticket | Auteur | Description | Score
+
+ECA-81 | TAM William | As an ADMIN I want to be able to CREATE USER | 2
+ECA-83 | TAM William | As an ADMIN I want to be able to READ USERS | 1
+ECA-84 | TAM William | As an ADMIN I want to be able to UPDATE USERS | 3
+ECA-85 | TAM William | As an ADMIN I want to be able to DELETE USERS | 1
+
+### Changelogs:
+
+William(TamWilliam) #1f87b56 => Backoffice CRUD user
+
+### Avis:
+
+#### TAM William
+
+- Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations:
