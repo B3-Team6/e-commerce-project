@@ -4,7 +4,7 @@ import { forwardRef } from "react"
 
 // eslint-disable-next-line react/display-name
 const FormField = forwardRef((props, ref) => {
-  const { className, label, name, ...otherProps } = props
+  const { className, label, name, type, handleChange, ...otherProps } = props
   const [field, meta] = useField({ name })
   const hasError = meta.error && meta.touched
 
@@ -24,7 +24,7 @@ const FormField = forwardRef((props, ref) => {
           {...otherProps}
           ref={ref}
         />
-      ) : props.component === "select" ? (
+      ) : props.type === "enum" ? (
         <select
           className={clsx("rounded-lg border-2 px-4 py-2 outline-none", {
             "focus:border-blue-600": !hasError,
@@ -33,12 +33,24 @@ const FormField = forwardRef((props, ref) => {
           {...field}
           {...otherProps}
           ref={ref}
+          onChange={(e) => {
+            field.onChange(e)
+
+            if (handleChange) {
+              handleChange(e)
+            }
+          }}
         >
-          {props.children}
+          <option value="">Select a status</option>
+          {props.enumvalues.map((value) => (
+            <option value={value} key={value}>
+              {value}
+            </option>
+          ))}
         </select>
       ) : (
         <input
-          type={props.type || "text"}
+          type={type || "text"}
           className={clsx("rounded-lg border-2 px-4 py-2 outline-none", {
             "focus:border-blue-600": !hasError,
             "focus:border-red-600": hasError,
@@ -46,6 +58,13 @@ const FormField = forwardRef((props, ref) => {
           {...field}
           {...otherProps}
           ref={ref}
+          onChange={(e) => {
+            field.onChange(e)
+
+            if (handleChange) {
+              handleChange(e)
+            }
+          }}
         />
       )}
       {hasError && <span className="text-sm text-red-600">{meta.error}</span>}
