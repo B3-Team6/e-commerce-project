@@ -5,6 +5,8 @@ const routes = {
   legalNotice: () => "/legal-notice",
   tos: () => "/tos",
   contact: () => "/contact",
+  cart: () => "/cart",
+  products: (productId) => `/product/${productId}`,
   api: {
     signUp: () => "/sign-up/sign-up",
     signIn: () => "/sign-in/sign-in",
@@ -14,13 +16,23 @@ const routes = {
       contact: () => `/contact`,
     },
     category: {
-      categories: (categoryId) => `/category/${categoryId}`,
-      category: () => `/category`,
+      categories: (categoryId) => `/backoffice/category/${categoryId}`,
+      category: () => "/backoffice/category",
     },
-       order: {
-      orders: () => `/order`,
-      order: (orderId) => `/order/${orderId}`,
+    product: {
+      products: (productId) => `/backoffice/product/${productId}`,
+      product: () => "/backoffice/product",
     },
+    material: {
+      materials: (materialId) => `/material/${materialId}`,
+      material: () => "/backoffice/material",
+    },
+    user: {
+      users: (userId) => `/backoffice/user/${userId}`,
+      user: () => "/backoffice/user",
+    },
+    cart: () => "/cart/cart",
+    order: () => "/order/order",
   },
   backoffice: {
     backoffice: () => "/BackOffice",
@@ -29,10 +41,14 @@ const routes = {
     order: () => "/BackOffice/orderAdmin",
     addOrder: () => "/BackOffice/orderAdmin/add",
     product: () => "/BackOffice/productAdmin",
+    addProduct: () => "/BackOffice/productAdmin/add",
     user: () => "/BackOffice/userAdmin",
+    addUser: () => "/BackOffice/userAdmin/add",
     contact: () => "/BackOffice/contactAdmin",
   },
   category: {},
+  product: {},
+  user: {},
 }
 
 export default routes

@@ -1,7 +1,7 @@
 import CategoryModel from "@/api/db/models/CategoryModel"
 import validate from "@/api/middlewares/validate"
 import mw from "@/api/mw"
-import { stringValidator } from "@/validators"
+import { stringValidator, imageValidator } from "@/validators"
 
 const handler = mw({
   GET: [
@@ -23,7 +23,7 @@ const handler = mw({
         name: stringValidator.required(),
         slug: stringValidator.required(),
         description: stringValidator.required(),
-        image: stringValidator.required(),
+        image: imageValidator.required(),
       },
     }),
     async ({

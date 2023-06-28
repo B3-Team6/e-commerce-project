@@ -5,6 +5,8 @@ export const stringValidator = yup.string()
 
 export const idValidator = yup.number().integer().min(1)
 
+export const intValidator = yup.number()
+
 export const displayNameValidator = yup.string().min(1)
 
 export const emailValidator = yup.string().email()
@@ -29,3 +31,5 @@ export const orderFieldValidator = (fields) => yup.string().oneOf(fields)
 export const orderValidator = yup.string().lowercase().oneOf(["asc", "desc"])
 
 export const createValidator = (object) => yup.object().shape(object)
+
+export const imageValidator = yup.mixed()
