@@ -15,7 +15,6 @@ const initialValues = {
 const validationSchema = createValidator({
   name: stringValidator.required(),
   description: stringValidator.required(),
-  image: stringValidator.required(),
 })
 
 const CategoryPage = () => {
@@ -25,10 +24,34 @@ const CategoryPage = () => {
   } = useAppContext()
 
   const [error, setError] = useState(null)
+  const [file, setFile] = useState(null)
+
+  const handleImageChange = (event) => {
+    const eventFile = event.target.files[0]
+
+    if (eventFile) {
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        const fileContent = e.target.result
+        const buffer = Buffer.from(fileContent.split(",")[1], "base64")
+
+        setFile({
+          name: eventFile.name,
+          content: buffer,
+          type: eventFile.type,
+        })
+      }
+      reader.readAsDataURL(eventFile)
+    }
+  }
 
   const handleSubmit = useCallback(
     async (values) => {
-      const [err] = await addCategory(values)
+      if (!file.content) {
+        return setError(["Please select a file"])
+      }
+
+      const [err] = await addCategory({ ...values, image: file })
 
       if (err) {
         setError(err)
@@ -38,7 +61,7 @@ const CategoryPage = () => {
 
       router.push("/BackOffice/categoryAdmin")
     },
-    [addCategory, router]
+    [addCategory, router, file]
   )
 
   return (
@@ -59,7 +82,9 @@ const CategoryPage = () => {
         name="image"
         placeholder="Enter the image"
         label="Image"
-        type="text"
+        type="file"
+        multiple={false}
+        handleChange={handleImageChange}
       />
       <SubmitButton>Create</SubmitButton>
     </Form>

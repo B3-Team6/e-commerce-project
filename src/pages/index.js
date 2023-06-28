@@ -57,7 +57,7 @@ const Home = (props) => {
                     alt={categorie.name}
                     width={400}
                     height={400}
-                    src="/images/canape.jpg"
+                    src={categorie.image}
                     className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
                   />
                 </Link>

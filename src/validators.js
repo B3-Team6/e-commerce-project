@@ -31,3 +31,5 @@ export const orderFieldValidator = (fields) => yup.string().oneOf(fields)
 export const orderValidator = yup.string().lowercase().oneOf(["asc", "desc"])
 
 export const createValidator = (object) => yup.object().shape(object)
+
+export const imageValidator = yup.mixed()

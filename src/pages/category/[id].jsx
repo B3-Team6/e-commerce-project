@@ -45,7 +45,7 @@ const Category = (props) => {
             alt="canape"
             width={550}
             height={550}
-            src="/images/canape.jpg"
+            src={category.image}
             className="w-full   rounded-3xl p-4 "
           />
           <div className="absolute text-3xl font-black">{category.name}</div>

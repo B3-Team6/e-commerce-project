@@ -12,6 +12,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@heroicons/react": "^2.0.18",
+    "aws-sdk": "^2.1406.0",
     "axios": "^1.4.0",
     "chalk": "^5.2.0",
     "clsx": "^1.2.1",
