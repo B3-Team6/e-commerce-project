@@ -1,12 +1,12 @@
 import routes from "@/web/routes"
 const updateOrder =
   ({ api }) =>
-  async (editedId, editeduserId, editedDate, editedStatus) => {
+  async (editedId, editeduserId, editedStatus, editedDate) => {
     try {
       const { data } = await api.patch(routes.api.order.orders(editedId), {
         userId: editeduserId,
-        Date: editedDate,
         Status: editedStatus,
+        date: editedDate,
       })
 
       return [null, data]

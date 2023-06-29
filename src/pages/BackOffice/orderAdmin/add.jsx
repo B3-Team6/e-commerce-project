@@ -11,7 +11,7 @@ const initialValues = {
   userId: "",
   status: "",
   date: "",
-} 
+}
 
 const OrderPage = () => {
   const router = useRouter()
@@ -37,11 +37,7 @@ const OrderPage = () => {
   )
 
   return (
-    <Form
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      error={error}
-    >
+    <Form initialValues={initialValues} onSubmit={handleSubmit} error={error}>
       <FormField name="userId" placeholder="userID" label="Name" />
       <FormField
         name="date"

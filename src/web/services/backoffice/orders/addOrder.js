@@ -3,13 +3,13 @@ import routes from "@/web/routes"
 
 const addOrder =
   ({ api }) =>
-  async ({ userId, name, date, status }) => {
+  async ({ userId, name, status, date }) => {
     try {
       const { data } = await api.post(routes.api.order.orders(), {
         name: name,
-        date: date,
         status: status,
         userId: userId,
+        date: date,
       })
 
       return [null, data]
@@ -21,4 +21,3 @@ const addOrder =
   }
 
 export default addOrder
-

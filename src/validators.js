@@ -33,3 +33,8 @@ export const orderValidator = yup.string().lowercase().oneOf(["asc", "desc"])
 export const createValidator = (object) => yup.object().shape(object)
 
 export const imageValidator = yup.mixed()
+export const dateValidator = yup.date()
+export const statusOrderValidator = yup
+  .string()
+  .lowercase()
+  .oneOf(["pending", "finished"])
