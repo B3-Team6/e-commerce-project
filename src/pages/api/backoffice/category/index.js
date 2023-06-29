@@ -9,7 +9,7 @@ const handler = mw({
       const category = await CategoryModel.query().orderBy("id")
 
       if (!category) {
-        res.status(401).send({ error: "Il n'y a pas de categories" })
+        res.status(401).send({ error: "There is no categories" })
 
         return
       }
@@ -35,7 +35,7 @@ const handler = mw({
       const category = await CategoryModel.query().findOne({ slug: slug })
 
       if (category) {
-        res.status(401).send({ error: "La categorie existe deja" })
+        res.status(401).send({ error: "This category already exist" })
 
         return
       }
