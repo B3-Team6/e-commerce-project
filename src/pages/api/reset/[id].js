@@ -32,16 +32,6 @@ const handler = mw({
           return
         }
 
-        const passwordsMatch = await user.checkPassword(password)
-
-        if (!passwordsMatch) {
-          res.status(400).send({
-            error: "The passwords provided do not match.",
-          })
-
-          return
-        }
-
         const [newPasswordHash, newPasswordSalt] = await hashPassword(password)
 
         await UserModel.query().findById(id).patch({

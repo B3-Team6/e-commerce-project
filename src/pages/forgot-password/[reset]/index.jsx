@@ -1,4 +1,8 @@
-import { createValidator, passwordValidator } from "@/validators.js"
+import {
+  confirmPasswordValidator,
+  createValidator,
+  passwordValidator,
+} from "@/validators.js"
 import Head from "next/head"
 import Form from "@/web/components/Form.jsx"
 import FormField from "@/web/components/FormField.jsx"
@@ -13,7 +17,7 @@ const initialValues = {
 }
 const validationSchema = createValidator({
   password: passwordValidator.required(),
-  comfirmpassword: passwordValidator.required(),
+  comfirmpassword: confirmPasswordValidator.required(),
 })
 
 const ForgotPasswordResetPage = () => {
@@ -70,7 +74,7 @@ const ForgotPasswordResetPage = () => {
             <FormField
               name="comfirmpassword"
               placeholder="Enter your new password"
-              label="Reset Password"
+              label="Confirm Reset Password"
               type="password"
             />
 
