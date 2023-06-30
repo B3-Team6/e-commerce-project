@@ -6,11 +6,14 @@ import useAppContext from "@/web/hooks/useAppContext.jsx"
 import { useRouter } from "next/router.js"
 import { useCallback, useState } from "react"
 import Image from "next/image"
+import routes from "@/web/routes"
+import Link from "next/link"
 
 const initialValues = {
   email: "",
   password: "",
 }
+
 const validationSchema = createValidator({
   email: emailValidator.required(),
 })
@@ -21,6 +24,7 @@ const SignInPage = () => {
     actions: { signIn },
   } = useAppContext()
   const [error, setError] = useState(null)
+
   const handleSubmit = useCallback(
     async (values) => {
       setError(null)
@@ -39,7 +43,7 @@ const SignInPage = () => {
   )
 
   return (
-    <div className=" min-h-screen">
+    <div className="min-h-screen">
       <div className="lg:grid lg:grid-cols-2">
         <div className="hidden lg:col-span-1 lg:mb-8  lg:mt-40 lg:flex lg:justify-center">
           <div className="flex max-h-80 items-center justify-center">
@@ -50,7 +54,6 @@ const SignInPage = () => {
               src="/images/canape.jpg"
               className="ml-16 opacity-50"
             />
-
             <Image
               alt="logo"
               width={150}
@@ -65,7 +68,7 @@ const SignInPage = () => {
           <div className="mt-20 flex justify-center text-3xl font-bold">
             Sign-in
           </div>
-          <div className="mx-auto mb-16 mt-8 max-w-md  border-black">
+          <div className="mx-auto mb-16 mt-8 max-w-md border-black">
             <Form
               initialValues={initialValues}
               validationSchema={validationSchema}
@@ -86,6 +89,14 @@ const SignInPage = () => {
               />
               <SubmitButton className="mt-10">Sign Up</SubmitButton>
             </Form>
+            <div className="mt-4 text-center">
+              <Link
+                href={routes.forgotPassword()}
+                className="text-sm  underline"
+              >
+                Forgot Password ?
+              </Link>
+            </div>
           </div>
         </div>
       </div>

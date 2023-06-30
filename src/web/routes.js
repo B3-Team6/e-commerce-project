@@ -6,10 +6,13 @@ const routes = {
   tos: () => "/tos",
   contact: () => "/contact",
   cart: () => "/cart",
+  forgotPassword: () => "/forgot-password",
   products: (productId) => `/product/${productId}`,
   api: {
     signUp: () => "/sign-up/sign-up",
     signIn: () => "/sign-in/sign-in",
+    sendMailPassword: () => `/mail/`,
+    resetPassword: (userId) => `/reset/${userId}`,
     contactUs: () => "/contact/",
     contact: {
       contacts: (contactId) => `/contact/${contactId}`,

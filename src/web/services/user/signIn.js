@@ -1,6 +1,6 @@
 import config from "@/web/config.js"
-import parseSession from "@/web/parseSession.js"
-import routes from "@/web/routes.js"
+import parseSession from "@/web/parseSession"
+import routes from "@/web/routes"
 
 const signIn =
   ({ api, setSession, setJWT }) =>
