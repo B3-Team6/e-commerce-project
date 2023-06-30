@@ -5,19 +5,22 @@ const updateCategory =
   ({ api }) =>
   async (editedId, editedName, editedDescription, editedImage) => {
     try {
-      const aws = new AwsService()
-      const { url } = await aws.uploadFile({
-        content: editedImage?.content,
-        name: editedImage?.name,
-        type: editedImage?.type,
-      })
+      if (editedImage) {
+        const aws = new AwsService()
+        const { url } = await aws.uploadFile({
+          content: editedImage?.content,
+          name: editedImage?.name,
+          type: editedImage?.type,
+        })
+        editedImage = url
+      }
 
       const { data } = await api.patch(
         routes.api.category.categories(editedId),
         {
           name: editedName,
           description: editedDescription,
-          image: url,
+          image: editedImage ?? null,
           slug: editedName.toLowerCase().replace(/ /g, "-"),
         }
       )

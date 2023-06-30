@@ -11,6 +11,7 @@ import useAppContext from "@/web/hooks/useAppContext.jsx"
 import Head from "next/head"
 import { useRouter } from "next/router.js"
 import { useCallback, useState } from "react"
+import Image from "next/image"
 
 const initialValues = {
   displayName: "",

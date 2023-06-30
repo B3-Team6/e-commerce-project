@@ -8,6 +8,7 @@ import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router.js"
 import { useCallback, useState } from "react"
+import Image from "next/image"
 
 const initialValues = {
   email: "",
