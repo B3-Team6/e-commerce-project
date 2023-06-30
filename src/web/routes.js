@@ -42,7 +42,6 @@ const routes = {
     category: () => "/BackOffice/categoryAdmin",
     addCategory: () => "/BackOffice/categoryAdmin/add",
     order: () => "/BackOffice/orderAdmin",
-    addOrder: () => "/BackOffice/orderAdmin/add",
     product: () => "/BackOffice/productAdmin",
     addProduct: () => "/BackOffice/productAdmin/add",
     user: () => "/BackOffice/userAdmin",
