@@ -1,8 +1,8 @@
 import config from "@/web/config.js"
 import createAPIClient from "@/web/createAPIClient.js"
 import parseSession from "@/web/parseSession.js"
-import signInService from "@/web/services/signIn.js"
-import signUpService from "@/web/services/signUp.js"
+import signInService from "@/web/services/user/signIn"
+import signUpService from "@/web/services/user/signUp"
 import contactUsService from "@/web/services/contactUs.js"
 import {
   createContext,
@@ -23,6 +23,8 @@ import addProductService from "@/web/services/backoffice/products/addProduct"
 import updateUserService from "@/web/services/backoffice/users/updateUser"
 import deleteUserService from "@/web/services/backoffice/users/deleteUser"
 import addUserService from "@/web/services/backoffice/users/addUser"
+import sendMailPasswordService from "@/web/services/mail/sendMailPassword"
+import resetPasswordService from "@/web/services/user/resetPassword"
 
 const AppContext = createContext()
 
@@ -39,6 +41,8 @@ export const AppContextProvider = (props) => {
     setSession(false)
   }, [])
   const contactUs = contactUsService({ api })
+  const sendMailPassword = sendMailPasswordService({ api })
+  const resetPassword = resetPasswordService({ api })
 
   useEffect(() => {
     const jwt = localStorage.getItem(config.session.localStorageKey)
@@ -82,6 +86,8 @@ export const AppContextProvider = (props) => {
           signIn,
           signOut,
           contactUs,
+          sendMailPassword,
+          resetPassword,
           updateCategory,
           deleteCategory,
           addCategory,

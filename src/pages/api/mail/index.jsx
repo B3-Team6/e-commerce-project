@@ -19,26 +19,22 @@ const handler = mw({
     }) => {
       const user = await UserModel.query().findOne({ email })
 
-      if (user) {
-        res.send({ result: true })
+      if (!user) {
+        res.status(404).send({ error: "User undefined" })
 
         return
       }
-
-      await UserModel.query().insertAndFetch({
-        email,
-      })
 
       const sgMail = require("@sendgrid/mail")
       sgMail.setApiKey(config.security.sendgrid)
 
       const msg = {
         to: email,
-        from: "test@example.com",
-        templateId: "",
-        // dynamic_template_date: (
-        //   url : `${config.baseURL}/reset-passord`,
-        // )
+        from: "airneis.e.commerce@gmail.com",
+        templateId: "d-a93f200ea9de4730b9119978415ff009",
+        dynamic_template_data: {
+          url: `${config.baseURL}/forgot-password/reset?id=${user.id}`,
+        },
       }
 
       try {

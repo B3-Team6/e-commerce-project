@@ -4,6 +4,7 @@ import FormField from "@/web/components/FormField.jsx"
 import SubmitButton from "@/web/components/SubmitButton.jsx"
 import useAppContext from "@/web/hooks/useAppContext.jsx"
 import routes from "@/web/routes"
+import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router.js"
 import { useCallback, useState } from "react"
@@ -41,6 +42,12 @@ const SignInPage = () => {
 
   return (
     <>
+      <Head>
+        <title>Airneis - Sign In</title>
+        <meta name="description" content="Contact us page" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Form
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -61,7 +68,7 @@ const SignInPage = () => {
         />
         <SubmitButton>Sign In</SubmitButton>
       </Form>
-      <Link rel="stylesheet" href={routes.forgotPassord()}>
+      <Link rel="stylesheet" href={routes.forgotPassword()}>
         Mot de passe ?
       </Link>
     </>

@@ -15,7 +15,7 @@ const validationSchema = createValidator({
 
 const ForgotPasswordPage = () => {
   const {
-    actions: { contactUs },
+    actions: { sendMailPassword },
   } = useAppContext()
   const [error, setError] = useState(null)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -24,7 +24,7 @@ const ForgotPasswordPage = () => {
     async (values, { resetForm }) => {
       setError(null)
 
-      const [err] = await contactUs(values)
+      const [err] = await sendMailPassword(values)
 
       if (err) {
         setError(err)
@@ -33,7 +33,7 @@ const ForgotPasswordPage = () => {
         resetForm()
       }
     },
-    [contactUs]
+    [sendMailPassword]
   )
 
   return (

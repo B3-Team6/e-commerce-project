@@ -1,4 +1,4 @@
-import { createValidator, emailValidator } from "@/validators.js"
+import { createValidator, passwordValidator } from "@/validators.js"
 import Head from "next/head"
 import Form from "@/web/components/Form.jsx"
 import FormField from "@/web/components/FormField.jsx"
@@ -8,23 +8,28 @@ import { useCallback, useState } from "react"
 import { useRouter } from "next/router"
 
 const initialValues = {
-  email: "",
+  password: "",
+  comfirmpassword: "",
 }
 const validationSchema = createValidator({
-  email: emailValidator.required(),
+  password: passwordValidator.required(),
+  comfirmpassword: passwordValidator.required(),
 })
 
-const ForgotPasswordResetpage = () => {
+const ForgotPasswordResetPage = () => {
   const router = useRouter()
   const {
-    actions: { signIn },
+    actions: { resetPassword },
   } = useAppContext()
   const [error, setError] = useState(null)
+  const { query } = router
+  const userId = query.id || null
+
   const handleSubmit = useCallback(
     async (values) => {
       setError(null)
 
-      const [err] = await signIn(values)
+      const [err] = await resetPassword(userId, values.password)
 
       if (err) {
         setError(err)
@@ -32,22 +37,22 @@ const ForgotPasswordResetpage = () => {
         return
       }
 
-      router.push("/")
+      router.push("/sign-in")
     },
-    [signIn, router]
+    [resetPassword, router, userId]
   )
 
   return (
     <>
       <Head>
-        <title>Airneis - Forgot Password</title>
+        <title>Airneis - Reset Password</title>
         <meta name="description" content="Contact us page" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="mx-16 flex min-h-screen flex-col lg:mx-96">
         <div className="my-20 flex justify-center text-xl font-bold lg:text-4xl">
-          Forgot Password
+          Reset Your Password
         </div>
         <div>
           <Form
@@ -62,6 +67,12 @@ const ForgotPasswordResetpage = () => {
               label="Reset Password"
               type="password"
             />
+            <FormField
+              name="comfirmpassword"
+              placeholder="Enter your new password"
+              label="Reset Password"
+              type="password"
+            />
 
             <SubmitButton className="mt-10">Submit</SubmitButton>
           </Form>
@@ -71,5 +82,5 @@ const ForgotPasswordResetpage = () => {
   )
 }
 
-ForgotPasswordResetpage.isPublicPage = true
-export default ForgotPasswordResetpage
+ForgotPasswordResetPage.isPublicPage = true
+export default ForgotPasswordResetPage

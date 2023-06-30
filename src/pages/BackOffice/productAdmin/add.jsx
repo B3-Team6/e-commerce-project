@@ -75,15 +75,15 @@ const ProductPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const materialResponse = await axios.get(
+      const materialAll = await axios.get(
         "http://localhost:3000/api/backoffice/material"
       )
-      setMaterials(materialResponse.data.result)
+      setMaterials(materialAll.data.result)
 
-      const categoryResponse = await axios.get(
+      const categoryAll = await axios.get(
         "http://localhost:3000/api/backoffice/category"
       )
-      setCategories(categoryResponse.data.result)
+      setCategories(categoryAll.data.result)
     }
 
     fetchData()
