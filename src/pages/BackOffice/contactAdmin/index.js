@@ -5,7 +5,7 @@ import axios from "axios"
 import useAppContext from "@/web/hooks/useAppContext"
 import { useCallback, useEffect, useState } from "react"
 
-const contactAdmin = () => {
+const ContactAdmin = () => {
   const {
     actions: { deleteContact },
   } = useAppContext()
@@ -110,10 +110,10 @@ const contactAdmin = () => {
   )
 }
 
-contactAdmin.getLayout = function getLayout(page) {
+ContactAdmin.getLayout = function getLayout(page) {
   return <LayoutAdmin>{page}</LayoutAdmin>
 }
 
-contactAdmin.isPublicPage = true
+ContactAdmin.isPublicPage = true
 
-export { contactAdmin as default }
+export { ContactAdmin as default }
