@@ -63,7 +63,7 @@ const Product = (props) => {
           alt="canape"
           width={550}
           height={550}
-          src="/images/canape.jpg"
+          src={products.image}
           className="w-full rounded-3xl p-4"
         />
         <div className="flex p-4">
@@ -118,7 +118,7 @@ const Product = (props) => {
                     alt={product.name}
                     width={400}
                     height={400}
-                    src="/images/canape.jpg"
+                    src={product.image}
                     className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
                   />
                 </div>

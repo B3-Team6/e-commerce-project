@@ -84,7 +84,7 @@ const Home = (props) => {
                     alt={product.name}
                     width={400}
                     height={400}
-                    src="/images/canape.jpg"
+                    src={product.image}
                     className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
                   />
                 </div>

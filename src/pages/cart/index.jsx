@@ -50,7 +50,7 @@ const CartPage = () => {
                         alt={item.name}
                         width={400}
                         height={400}
-                        src="/images/canape.jpg"
+                        src={item.image}
                         className="mr-4 h-32 w-32 rounded-lg object-contain"
                       />
                       <div className="flex items-center space-x-2">

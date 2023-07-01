@@ -7,6 +7,7 @@ dotenv.config({ path: resolve(".env.local") })
 const config = {
   port: 3000,
   db: knexfile,
+  baseURL: "http://localhost:3000",
   security: {
     jwt: {
       secret: process.env.SECURITY__JWT__SECRET,
@@ -19,6 +20,7 @@ const config = {
       digest: "sha512",
       pepper: process.env.SECURITY__PASSWORD__PEPPER,
     },
+    sendgrid: process.env.SENDGRID_API_KEY,
   },
 }
 

@@ -18,9 +18,14 @@ export const passwordValidator = yup
   .min(8)
   .matches(
     /^(?=.*[\p{Ll}])(?=.*[\p{Lu}])(?=.*[0-9])(?=.*[^0-9\p{Lu}\p{Ll}]).*$/gu,
-    "Password must contain at least 1 upper & 1 lower case letters, 1 digit, 1 spe. character"
+    "Password must contain at least 1 upper & 1 lower case letters, 1 digit, 1 special character"
   )
   .label("Password")
+
+export const confirmPasswordValidator = yup
+  .string()
+  .oneOf([yup.ref("password"), null], "Passwords must match")
+  .label("Confirm Password")
 
 export const limitValidator = yup.number().integer().min(1).max(100).default(5)
 
