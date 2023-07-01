@@ -1,248 +1,32 @@
-import Head from "next/head"
 import Carousel from "@/web/components/Carousel"
+import routes from "@/web/routes"
+import axios from "axios"
+import Head from "next/head"
 import Image from "next/image"
-
+import Link from "next/link"
 import { useTranslation } from "react-i18next"
 
-const categories = [
-  {
-    id: 1,
-    name: "Canape",
-    img: (
-      <Image
-        alt="canape"
-        width={400}
-        height={400}
-        src="/images/canape.jpg"
-        className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 2,
-    name: "Lit",
-    img: (
-      <Image
-        alt="lit"
-        width={400}
-        height={400}
-        src="/images/lit.jpg"
-        className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 3,
-    name: "Table",
-    img: (
-      <Image
-        alt="table"
-        width={400}
-        height={400}
-        src="/images/table.jpg"
-        className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 4,
-    name: "Bureau",
-    img: (
-      <Image
-        alt="bureau"
-        width={400}
-        height={400}
-        src="/images/bureau.jpg"
-        className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 5,
-    name: "Chaise",
-    img: (
-      <Image
-        alt="chaise"
-        width={400}
-        height={400}
-        src="/images/chaise.jpg"
-        className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 6,
-    name: "Armoire",
-    img: (
-      <Image
-        alt="armoire"
-        width={400}
-        height={400}
-        src="/images/armoire.jpg"
-        className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
-      />
-    ),
-  },
-]
+export const getServerSideProps = async () => {
+  const productAllResponse = await axios.get(
+    `http://localhost:3000/api/backoffice/product/`
+  )
 
-const products = [
-  {
-    id: 1,
-    name: "Canape",
-    img: (
-      <Image
-        alt="canape"
-        width={300}
-        height={300}
-        src="/images/canape.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 2,
-    name: "Lit",
-    img: (
-      <Image
-        alt="lit"
-        width={300}
-        height={300}
-        src="/images/lit.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 3,
-    name: "Table",
-    img: (
-      <Image
-        alt="table"
-        width={300}
-        height={300}
-        src="/images/table.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 4,
-    name: "Bureau",
-    img: (
-      <Image
-        alt="bureau"
-        width={300}
-        height={300}
-        src="/images/bureau.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 5,
-    name: "Chaise",
-    img: (
-      <Image
-        alt="chaise"
-        width={300}
-        height={300}
-        src="/images/chaise.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 6,
-    name: "Armoire",
-    img: (
-      <Image
-        alt="armoire"
-        width={300}
-        height={300}
-        src="/images/armoire.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 1,
-    name: "Canape",
-    img: (
-      <Image
-        alt="canape"
-        width={300}
-        height={300}
-        src="/images/canape.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 2,
-    name: "Lit",
-    img: (
-      <Image
-        alt="lit"
-        width={300}
-        height={300}
-        src="/images/lit.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 3,
-    name: "Table",
-    img: (
-      <Image
-        alt="table"
-        width={300}
-        height={300}
-        src="/images/table.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 4,
-    name: "Bureau",
-    img: (
-      <Image
-        alt="bureau"
-        width={300}
-        height={300}
-        src="/images/bureau.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 5,
-    name: "Chaise",
-    img: (
-      <Image
-        alt="chaise"
-        width={300}
-        height={300}
-        src="/images/chaise.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-  {
-    id: 6,
-    name: "Armoire",
-    img: (
-      <Image
-        alt="armoire"
-        width={300}
-        height={300}
-        src="/images/armoire.jpg"
-        className="rounded-lg duration-500 hover:opacity-50"
-      />
-    ),
-  },
-]
+  const categoryAllResponse = await axios.get(
+    `http://localhost:3000/api/backoffice/category/`
+  )
+
+  const { data: productData } = productAllResponse
+  const { data: categoryData } = categoryAllResponse
+
+  return {
+    props: {
+      products: productData.result,
+      categories: categoryData.result,
+    },
+  }
+}
+const Home = (props) => {
+  const { products, categories } = props
 
 const Home = () => {
   const { t, i18n } = useTranslation()
@@ -255,6 +39,7 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Carousel />
 
       <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-black md:text-lg lg:text-2xl">
@@ -263,16 +48,24 @@ const Home = () => {
 
       <div className="grid  flex-col  items-center gap-3  p-2  md:grid-cols-2 lg:grid-cols-3 ">
         {categories.map((categorie) => (
-          <>
+          <div key={categorie.id}>
             <div className="flex justify-center">
               <div className="group flex w-5/6 items-center  justify-center ">
                 <div className=" absolute z-10 hidden text-2xl font-black text-black group-hover:flex">
                   {categorie.name}
                 </div>
-                {categorie.img}
+                <Link href={`/category/${categorie.id}`}>
+                  <Image
+                    alt={categorie.name}
+                    width={400}
+                    height={400}
+                    src={categorie.image}
+                    className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
+                  />
+                </Link>
               </div>
             </div>
-          </>
+          </div>
         ))}
       </div>
 
@@ -282,20 +75,29 @@ const Home = () => {
 
       <div className="grid grid-cols-1 items-center gap-3 p-2 md:grid-cols-3 lg:grid-cols-4 ">
         {products.map((product) => (
-          <>
-            <div className="flex justify-center">
-              <div className="group flex w-3/5 items-center  justify-center ">
-                <div className=" absolute z-10 hidden text-xl font-black text-black group-hover:flex">
-                  {product.name}
+          <div key={product.id}>
+            <Link href={routes.products(product.id)}>
+              <div className="flex justify-center">
+                <div className="group flex w-3/5 items-center  justify-center ">
+                  <div className=" absolute z-10 hidden text-xl font-black text-black group-hover:flex">
+                    {product.name}
+                  </div>
+                  <Image
+                    alt={product.name}
+                    width={400}
+                    height={400}
+                    src={product.image}
+                    className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
+                  />
                 </div>
-                {product.img}
               </div>
-            </div>
-          </>
+            </Link>
+          </div>
         ))}
       </div>
     </div>
   )
 }
+
 Home.isPublicPage = true
 export default Home

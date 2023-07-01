@@ -220,3 +220,131 @@ Edouard=> Responsive finie, vérification avec louis à faire pour vérifier que
 - Négatif: Gros manque de cohésion de groupe
 - Questions:
 - Idées d'améliorations: Etre plus à l'écoute les uns des autres
+
+# 10/04/2023 - 07/05/2023
+
+### Contributeurs:
+
+- TAM William
+- LAGRANGE Louis
+- SABIN Marvin
+- CHOPLAIN Edouard
+
+### Sprint overview
+
+Ticket | Auteur | Description | Score
+
+ECA-106 | TAM William | Footer is stuck under the navbar | 1
+ECA-107 | SABIN Marvin | Navbar closing issue | 1
+
+### Changelogs:
+
+William(TamWilliam) => Back de la page Contact est presque terminé, le front a été modifié
+William(TamWilliam) #112edc3 => Les pages ToS et LegalNotice sont terminés et accessible par la navbar et le footer
+William(TamWilliam) #29d9e6f => Fix du bug du footer qui n'était pas bien placé, ainsi que les liens après le merge de l'api sur le main
+
+Marvin(TayZain) #c20a33f => Intégration du BACK END, Les Session et Routes de la pge Sign Up, Sign In et Sign Out
+
+Marvin(TayZain) #d887b0d, #b65643b => Back (CRUD,MODDEL,Routes,etc..) de Product,Order (je dois finir quelque truc sinon c'est fait)
+
+Marvin(TayZain) #da3d01d => Changement sur la NavBar
+
+Marvin(TayZain) # => Mise en place de la partie back de la page Cart
+
+Louis :
+
+- Merge HomePage in main
+- Fix bug NavBar
+- Do responsive of HomePage, ProductPage, CategoryPage
+- Create tickets of the Back Office
+- Category page, back in progress
+
+Edouard:
+
+- front of the search page done, back in progress (almost done)
+
+### Avis:
+
+#### TAM William
+
+- Positif:
+- Négatif: Je n'ai malheuresement pas pu terminer ma page contact à temps, alors qu'il est a 95% finit
+- Questions:
+- Idées d'améliorations:
+
+#### LAGRANGE Louis
+
+- Positif: Le back office se construit petit à petit
+- Négatif: Le projet prend de plus en plus de retard
+- Questions:
+- Idées d'améliorations:
+
+#### SABIN Marvin
+
+- Positif: Amélioration sur l'organisation du projet et du projet en lui-meme.
+- Négatif: On a toujours beaucoups de choses à faire mais on s'organise pour le faire proprement et à temps
+- Questions:
+- Idées d'améliorations:
+
+##### CHOPLAIN Edouard
+
+- Positif: Malgré une manière de faire le back différente de celle que j'ai vu, j'ai bien avancé
+- Négatif: On a encore du retard, et on ne se tiens pas assez au courant de l'évolution des autres
+- Questions:
+- Idées d'améliorations:, il faudrait qu'on se tienne plus au courant les uns des autres, on perd du temps sur des choses bete
+
+# 08/05/2023 - 04/06/2023
+
+### Contributeurs:
+
+- TAM William
+- CHOPLain Edouard
+- SABIN Marvin
+
+### Sprint overview
+
+Ticket | Auteur | Description | Score
+
+ECA-45-CONTACT | TAM William | Page pour contacter les admins | 2
+ECA-125 |CHOPLAIN Edouard |add pictures
+ECA-86 | SABIN Marvin | As an ADMIN I want to be able to CREATE PRODUCTS | 2
+ECA-87 | SABIN Marvin | As an ADMIN I want to be able to READ PRODUCTS | 1
+ECA-88 | SABIN Marvin | As an ADMIN I want to be able to UPDATE PRODUCTS | 3
+ECA-89 | SABIN Marvin | As an ADMIN I want to be able to DELETE PRODUCTS | 3
+ECA-114 | SABIN Marvin | As ADMIN, i want to generate random data (SEED) User, material and Product | 2
+ECA-123 | SABIN Marvin | BackOffice-Product | 3
+
+### Changelogs:
+
+William(TamWilliam) => Changement dans le MCD; ajout de la table Contact
+William(TamWilliam) => Module de langage i18next commencé mais pour le moment, c'est de la traduction manuelle et non automatique
+William(TamWilliam) #ad3254c => Back de la page Contact finit et fonctionnel
+Edouard => Création bucket et ajout image dans CRUD category
+
+Marvin(TayZain)6748c3f => Back et Front du Back Office de Product, CRUD Material V0, CRUD Product V1, Seed V0 (Product,Material)
+Marvin(TayZain)9995d9a => Seed UserV0,Product (Peut etre pas retenu)
+Marvin(TayZain)=> Début du Module a11y pour l'accessibilité
+Marvin(TayZain)=> Début de la documentation technique de mes pages
+
+### Avis:
+
+#### TAM William
+
+- Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations:
+
+##### CHOPLAIN Edouard
+
+- Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations:
+
+##### SABIN Marvin
+
+- Positif: Difficultés pour le back office Product mais ça avance.
+- Négatif:
+- Questions:
+- Idées d'améliorations:
