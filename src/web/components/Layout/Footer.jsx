@@ -6,19 +6,21 @@ import {
   faInstagramSquare,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons"
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t, i18n } = useTranslation();
   return (
     <footer className="hidden lg:relative lg:bottom-0 lg:flex lg:h-20 lg:w-full lg:items-center lg:justify-between lg:border-t-4 lg:border-gray-400 lg:p-6 lg:font-bold">
       <div className="flex flex-row gap-6">
         <Link href={routes.tos()} className="hover:underline">
-          Terms of Use
+          {t('termsOfUse')}
         </Link>
         <Link href={routes.legalNotice()} className="hover:underline">
-          Legal Notice
+          {t('legalNotice')}
         </Link>
         <Link href={routes.contact()} className="hover:underline">
-          Contact
+          {t('contactUs')}
         </Link>
       </div>
       <div className="flex flex-row-reverse gap-6">

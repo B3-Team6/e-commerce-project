@@ -1,54 +1,64 @@
-import { createValidator, emailValidator } from "@/validators.js"
+import {
+  confirmPasswordValidator,
+  createValidator,
+  passwordValidator,
+} from "@/validators.js"
 import Head from "next/head"
 import Form from "@/web/components/Form.jsx"
 import FormField from "@/web/components/FormField.jsx"
 import SubmitButton from "@/web/components/SubmitButton.jsx"
 import useAppContext from "@/web/hooks/useAppContext.jsx"
 import { useCallback, useState } from "react"
+import { useRouter } from "next/router"
 import { useTranslation } from "react-i18next"
 
 const initialValues = {
-  email: "",
+  password: "",
+  comfirmpassword: "",
 }
 const validationSchema = createValidator({
-  email: emailValidator.required(),
+  password: passwordValidator.required(),
+  comfirmpassword: confirmPasswordValidator.required(),
 })
 
-const ForgotPasswordPage = () => {
+const ForgotPasswordResetPage = () => {
   const { t } = useTranslation()
+  const router = useRouter()
   const {
-    actions: { sendMailPassword },
+    actions: { resetPassword },
   } = useAppContext()
   const [error, setError] = useState(null)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const { query } = router
+  const userId = query.id || null
 
   const handleSubmit = useCallback(
-    async (values, { resetForm }) => {
+    async (values) => {
       setError(null)
 
-      const [err] = await sendMailPassword(values)
+      const [err] = await resetPassword(userId, values.password)
 
       if (err) {
         setError(err)
-      } else {
-        setIsSubmitted(true)
-        resetForm()
+
+        return
       }
+
+      router.push("/sign-in")
     },
-    [sendMailPassword]
+    [resetPassword, router, userId]
   )
 
   return (
     <>
       <Head>
-        <title>{t("forgotPasswordTitle")}</title>
+        <title>{t('forgotPasswordTitle')}</title>
         <meta name="description" content="Contact us page" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="mx-16 flex min-h-screen flex-col lg:mx-96">
         <div className="my-20 flex justify-center text-xl font-bold lg:text-4xl">
-          {t("forgotPassword")}
+          {t('resetPassword')}
         </div>
         <div>
           <Form
@@ -58,18 +68,19 @@ const ForgotPasswordPage = () => {
             error={error}
           >
             <FormField
-              name="email"
-              placeholder={t("emailPlaceholder")}
-              label={t("emailLabel")}
-              type="email"
+              name="password"
+              placeholder="Enter your new password"
+              label="Reset Password"
+              type="password"
+            />
+            <FormField
+              name="comfirmpassword"
+              placeholder="Enter your new password"
+              label="Confirm Reset Password"
+              type="password"
             />
 
             <SubmitButton className="mt-10"></SubmitButton>
-            {isSubmitted && (
-              <div className="text-center text-green-600">
-                {t("submitSuccessEmail")}
-              </div>
-            )}
           </Form>
         </div>
       </div>
@@ -77,5 +88,5 @@ const ForgotPasswordPage = () => {
   )
 }
 
-ForgotPasswordPage.isPublicPage = true
-export default ForgotPasswordPage
+ForgotPasswordResetPage.isPublicPage = true
+export default ForgotPasswordResetPage

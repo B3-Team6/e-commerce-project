@@ -6,9 +6,11 @@ import { XMarkIcon } from "@heroicons/react/24/solid"
 import { ShoppingCartIcon } from "@heroicons/react/24/solid"
 import { Bars3Icon } from "@heroicons/react/24/solid"
 import Link from "next/link"
+import { useTranslation } from "react-i18next"
 import { CartContext } from "@/web/hooks/CartContext"
 
 const NavBar = () => {
+  const { t, i18n } = useTranslation()
   const [isOpen, setOpen] = useState(false)
 
   useEffect(() => {
@@ -60,6 +62,14 @@ const NavBar = () => {
         </Link>
         <nav>
           <section className="flex flex-row gap-3">
+            <select className="bg-[#F6E6D1] mr-6"
+              value={i18n.language}
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+            >
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+            </select>
+
             <button className="cursor-pointer hover:text-gray-500">
               <MagnifyingGlassIcon className="h-8 lg:mr-6 lg:w-10" />
             </button>
@@ -106,66 +116,66 @@ const NavBar = () => {
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">My Settings</a>
+                      <a href="#">{t('mySettings')}</a>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">My Orders</a>
+                      <a href="#">{t('myOrders')}</a>
                     </li>
 
                     <li className="my-8 border-b border-gray-400  uppercase">
                       <Link href={routes.legalNotice()} onClick={handleClose}>
-                        Legal Notice
+                        {t('legalNotice')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
                       <Link href={routes.tos()} onClick={handleClose}>
-                        Terms of Use
+                        {t('termsOfUse')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
                       <Link href={routes.contact()} onClick={handleClose}>
-                        Contact
+                        {t('contactUs')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">About AIRNEIS</a>
+                      <a href="#">{t('aboutUs')}</a>
                     </li>
                     <button
                       className="my-8 border-b border-gray-400 uppercase"
                       onClick={HandleSignOut}
                     >
-                      Sign out
+                      {t('signOut')}
                     </button>
                   </>
                 ) : (
                   <>
                     <li className="my-8 border-b border-gray-400 uppercase">
                       <Link href={routes.signIn()} onClick={handleClose}>
-                        Sign In
+                        {t('signIn')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400 uppercase">
                       <Link href={routes.signUp()} onClick={handleClose}>
-                        Sign Up
+                        {t('signUp')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
                       <Link href={routes.legalNotice()} onClick={handleClose}>
-                        Legal Notice
+                        {t('legalNotice')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
                       <Link href={routes.tos()} onClick={handleClose}>
-                        Terms of Use
+                        {t('termsOfUse')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
                       <Link href={routes.contact()} onClick={handleClose}>
-                        Contact
+                        {t('contactUs')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">About AIRNEIS</a>
+                      <a href="#">{t('aboutUs')}</a>
                     </li>
                   </>
                 )}
