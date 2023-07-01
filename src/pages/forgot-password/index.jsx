@@ -41,14 +41,14 @@ const ForgotPasswordPage = () => {
   return (
     <>
       <Head>
-        <title>{t('forgotPasswordTitle')}</title>
+        <title>{t("forgotPasswordTitle")}</title>
         <meta name="description" content="Contact us page" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="mx-16 flex min-h-screen flex-col lg:mx-96">
         <div className="my-20 flex justify-center text-xl font-bold lg:text-4xl">
-          {t('forgotPassword')}
+          {t("forgotPassword")}
         </div>
         <div>
           <Form
@@ -67,7 +67,7 @@ const ForgotPasswordPage = () => {
             <SubmitButton className="mt-10"></SubmitButton>
             {isSubmitted && (
               <div className="text-center text-green-600">
-                {t('submitSuccessEmail')}
+                {t("submitSuccessEmail")}
               </div>
             )}
           </Form>

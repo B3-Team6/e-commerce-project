@@ -116,7 +116,7 @@ const NavBar = () => {
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">{t('mySettings')}</a
+                      <a href="#">{t('mySettings')}</a>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
                       <a href="#">{t('myOrders')}</a>
