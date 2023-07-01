@@ -44,11 +44,11 @@ const Product = (props) => {
 
   const getStockStatus = (quantity) => {
     if (quantity > 20) {
-      return "In stock"
+      return t('inStock')
     } else if (quantity > 0) {
-      return "Stock is low"
+      return t('lowStock')
     } else {
-      return "Out of stock"
+      return t('outOfStock')
     }
   }
 
