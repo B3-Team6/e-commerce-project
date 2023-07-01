@@ -5,7 +5,7 @@ const updateOrder =
     try {
       const { data } = await api.patch(routes.api.order.orders(editedId), {
         userId: editeduserId,
-        Status: editedStatus,
+        status: editedStatus,
         date: editedDate,
       })
 
