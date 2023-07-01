@@ -27,9 +27,7 @@ export const getServerSideProps = async () => {
 }
 const Home = (props) => {
   const { products, categories } = props
-
-const Home = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
 
   return (
     <div>

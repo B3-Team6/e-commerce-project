@@ -59,8 +59,8 @@ const ForgotPasswordPage = () => {
           >
             <FormField
               name="email"
-              placeholder="Enter your e-mail"
-              label="E-mail"
+              placeholder={t("emailPlaceholder")}
+              label={t("emailLabel")}
               type="email"
             />
 
