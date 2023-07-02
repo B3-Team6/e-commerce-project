@@ -11,7 +11,6 @@ module.exports.up = async (knex) => {
     table.text("description").notNullable()
     table.float("price").notNullable()
     table.integer("quantity").notNullable()
-    table.text("image").notNullable()
     table
       .integer("material_id")
       .notNullable()
