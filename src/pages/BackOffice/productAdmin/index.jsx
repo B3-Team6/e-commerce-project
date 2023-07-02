@@ -51,25 +51,30 @@ const ProductAdmin = () => {
         setEditedMaterial(product.material.id)
         setEditedQuantity(product.quantity)
         setEditedPrice(product.price)
+        setEditedImage(product.image)
       }
     },
     [products]
   )
 
   const handleEditedImageChange = (event) => {
-    const eventFile = event.target.files[0]
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      const fileContent = e.target.result
-      const buffer = Buffer.from(fileContent.split(",")[1], "base64")
+    const eventFiles = event.target.files
 
-      setEditedImage({
-        name: eventFile.name,
-        content: buffer,
-        type: eventFile.type,
-      })
+    if (eventFiles && eventFiles.length > 0) {
+      const eventFile = eventFiles[0]
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        const fileContent = e.target.result
+        const buffer = Buffer.from(fileContent.split(",")[1], "base64")
+
+        setEditedImage({
+          name: eventFile.name,
+          content: buffer,
+          type: eventFile.type,
+        })
+      }
+      reader.readAsDataURL(eventFile)
     }
-    reader.readAsDataURL(eventFile)
   }
 
   const handleSaveEdit = useCallback(async () => {
@@ -85,7 +90,10 @@ const ProductAdmin = () => {
     )
 
     if (err) {
-      return err
+      // eslint-disable-next-line no-console
+      console.error("Error during product update :", err)
+
+      return
     }
 
     fetchData()
@@ -107,9 +115,6 @@ const ProductAdmin = () => {
       const [err] = await deleteProduct(id)
 
       if (err) {
-        // eslint-disable-next-line no-console
-        console.error("ERROR:,", err)
-
         return err
       }
 
@@ -277,7 +282,7 @@ const ProductAdmin = () => {
                 {product.id === editedId ? (
                   <>
                     <div className="flex flex-row">
-                      <button onClick={() => handleSaveEdit(product.id)}>
+                      <button onClick={() => handleSaveEdit(product)}>
                         <CheckIcon className="h-8 text-green-500" />
                       </button>
                       <button onClick={() => setEditedId(null)}>
