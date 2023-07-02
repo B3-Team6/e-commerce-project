@@ -87,7 +87,7 @@ const UserAdmin = () => {
         <title>Back Office - Users</title>
         <meta name="description" content="Backoffice user page" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/Airneis.jpg" />
       </Head>
 
       <p className="my-8 flex justify-center font-serif text-2xl underline">
