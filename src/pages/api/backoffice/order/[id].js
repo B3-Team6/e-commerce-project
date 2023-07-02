@@ -1,7 +1,7 @@
-import CategoryModel from "@/api/db/models/CategoryModel"
 import validate from "@/api/middlewares/validate"
 import mw from "@/api/mw"
 import { idValidator } from "@/validators"
+import OrderModel from "@/api/db/models/OrderModel"
 
 const handler = mw({
   GET: [
@@ -12,39 +12,36 @@ const handler = mw({
       },
       res,
     }) => {
-      const category = await CategoryModel.query().findOne({ id: id })
+      const order = await OrderModel.query().findOne({ id })
 
-      if (!category) {
-        res.status(401).send({ error: "This category doesn't exist" })
-
-        return
+      if (!order) {
+        return res.status(401).send({ error: "La commande n'existe pas !" })
       }
 
-      res.send({ result: category })
+      res.send({ result: order })
     },
   ],
+
   PATCH: [
     validate({ query: { id: idValidator } }),
     async ({
       locals: {
         query: { id },
-        body: { name, description, image, slug },
+        body: { userId, status },
       },
       res,
     }) => {
-      const categoryUpdate = await CategoryModel.query()
+      const order = await OrderModel.query()
         .update({
-          ...(name ? { name } : {}),
-          ...(description ? { description } : {}),
-          ...(image ? { image } : {}),
-          ...(slug ? { slug } : {}),
+          ...(userId ? { userId } : {}),
+          ...(status ? { status } : {}),
         })
         .where({
           id: id,
         })
         .returning("*")
 
-      res.send({ result: categoryUpdate })
+      res.send({ result: order })
     },
   ],
   DELETE: [
@@ -55,14 +52,12 @@ const handler = mw({
       },
       res,
     }) => {
-      const categoryUpdate = await CategoryModel.query()
+      const order = await OrderModel.query()
         .delete()
-        .where({
-          id: id,
-        })
+        .where({ id })
         .returning("*")
 
-      res.send({ result: categoryUpdate })
+      res.send({ result: order })
     },
   ],
 })

@@ -19,6 +19,11 @@ import deleteContactService from "@/web/services/backoffice/contact/deleteContac
 import updateProductService from "@/web/services/backoffice/products/updateProduct"
 import deleteProductService from "@/web/services/backoffice/products/deleteProduct"
 import addProductService from "@/web/services/backoffice/products/addProduct"
+
+import updateOrderService from "@/web/services/backoffice/orders/updateOrder"
+import deleteOrderService from "@/web/services/backoffice/orders/deleteOrder"
+import addOrderService from "@/web/services/backoffice/orders/addOrder"
+
 import updateUserService from "@/web/services/backoffice/users/updateUser"
 import deleteUserService from "@/web/services/backoffice/users/deleteUser"
 import addUserService from "@/web/services/backoffice/users/addUser"
@@ -81,6 +86,10 @@ export const AppContextProvider = (props) => {
   const deleteUser = deleteUserService({ api })
   const addUser = addUserService({ api })
 
+  const updateOrder = updateOrderService({ api })
+  const deleteOrder = deleteOrderService({ api })
+  const addOrder = addOrderService({ api })
+
   const deleteContact = deleteContactService({ api })
 
   if (!isPublicPage && session === null) {
@@ -107,6 +116,9 @@ export const AppContextProvider = (props) => {
           updateProduct,
           deleteProduct,
           addProduct,
+          updateOrder,
+          deleteOrder,
+          addOrder,
           updateUser,
           deleteUser,
           addUser,

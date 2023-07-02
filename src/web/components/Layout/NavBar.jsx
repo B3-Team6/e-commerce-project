@@ -62,8 +62,7 @@ const NavBar = () => {
         </Link>
         <nav>
           <section className="flex flex-row gap-3">
-            <select
-              className="mr-6 bg-[#F6E6D1]"
+            <select className="bg-[#F6E6D1] mr-6"
               value={i18n.language}
               onChange={(e) => i18n.changeLanguage(e.target.value)}
             >
@@ -120,66 +119,66 @@ const NavBar = () => {
                     )}
 
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">{t("mySettings")}</a>
+                      <a href="#">{t('mySettings')}</a>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">{t("myOrders")}</a>
+                      <a href="#">{t('myOrders')}</a>
                     </li>
 
                     <li className="my-8 border-b border-gray-400  uppercase">
                       <Link href={routes.legalNotice()} onClick={handleClose}>
-                        {t("legalNotice")}
+                        {t('legalNotice')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
                       <Link href={routes.tos()} onClick={handleClose}>
-                        {t("termsOfUse")}
+                        {t('termsOfUse')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
                       <Link href={routes.contact()} onClick={handleClose}>
-                        {t("contactUs")}
+                        {t('contactUs')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">{t("aboutUs")}</a>
+                      <a href="#">{t('aboutUs')}</a>
                     </li>
                     <button
                       className="my-8 border-b border-gray-400 uppercase"
                       onClick={HandleSignOut}
                     >
-                      {t("signOut")}
+                      {t('signOut')}
                     </button>
                   </>
                 ) : (
                   <>
                     <li className="my-8 border-b border-gray-400 uppercase">
                       <Link href={routes.signIn()} onClick={handleClose}>
-                        {t("signIn")}
+                        {t('signIn')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400 uppercase">
                       <Link href={routes.signUp()} onClick={handleClose}>
-                        {t("signUp")}
+                        {t('signUp')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
                       <Link href={routes.legalNotice()} onClick={handleClose}>
-                        {t("legalNotice")}
+                        {t('legalNotice')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
                       <Link href={routes.tos()} onClick={handleClose}>
-                        {t("termsOfUse")}
+                        {t('termsOfUse')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400   uppercase">
                       <Link href={routes.contact()} onClick={handleClose}>
-                        {t("contactUs")}
+                        {t('contactUs')}
                       </Link>
                     </li>
                     <li className="my-8 border-b border-gray-400  uppercase">
-                      <a href="#">{t("aboutUs")}</a>
+                      <a href="#">{t('aboutUs')}</a>
                     </li>
                   </>
                 )}

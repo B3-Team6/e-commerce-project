@@ -8,6 +8,7 @@ import { useCallback, useState } from "react"
 import Image from "next/image"
 import routes from "@/web/routes"
 import Link from "next/link"
+import { useTranslation } from "react-i18next"
 
 const initialValues = {
   email: "",
@@ -19,6 +20,7 @@ const validationSchema = createValidator({
 })
 
 const SignInPage = () => {
+  const { t } = useTranslation()
   const router = useRouter()
   const {
     actions: { signIn },
@@ -66,7 +68,7 @@ const SignInPage = () => {
 
         <div className="flex-col  lg:col-span-1">
           <div className="mt-20 flex justify-center text-3xl font-bold">
-            Sign-in
+            {t('signIn')}
           </div>
           <div className="mx-auto mb-16 mt-8 max-w-md border-black">
             <Form
@@ -77,24 +79,24 @@ const SignInPage = () => {
             >
               <FormField
                 name="email"
-                placeholder="Enter your e-mail"
-                label="E-mail"
+                placeholder={t('emailPlaceholder')}
+                label={t('emailLabel')}
                 type="email"
               />
               <FormField
                 name="password"
-                placeholder="Enter your password"
-                label="Password"
+                placeholder={t('passwordPlaceholder')}
+                label={t('passwordPlaceholder')}
                 type="password"
               />
-              <SubmitButton className="mt-10">Sign Up</SubmitButton>
+              <SubmitButton className="mt-10">{t('signUp')}</SubmitButton>
             </Form>
             <div className="mt-4 text-center">
               <Link
                 href={routes.forgotPassword()}
                 className="text-sm  underline"
               >
-                Forgot Password ?
+                {t('forgotPasswordLink')}
               </Link>
             </div>
           </div>
