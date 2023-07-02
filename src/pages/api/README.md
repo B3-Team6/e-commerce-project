@@ -58,22 +58,12 @@
 
 ## Order
 
-## Retrieve Order
-
 - `GET /api/backoffice/order/orderId` - Retrieves a specific order by its ID.
 
 Example:
 GET /api/backoffice/order/1
 
-## Update Order
-
 - `PATCH /api/backoffice/order/orderId` - Updates an order with the specified ID.
-
-  Request Body:
-
-  - `userId` (optional): ID of the user associated with the order.
-  - `status` (optional): Updated status of the order.
-  - `date` (optional): Updated date of the order.
 
 Example:
 PATCH /api/backoffice/order/1
@@ -83,22 +73,12 @@ Body: {
 "date": "2023-06-30"
 }
 
-## Delete Order
-
 - `DELETE /api/backoffice/order/orderId` - Deletes an order with the specified ID.
 
 Example:
 DELETE /api/backoffice/order/1
 
-## Create Order
-
 - `POST /api/backoffice/order` - Creates a new order.
-
-  Request Body:
-
-  - `userId` (required): ID of the user associated with the order.
-  - `status` (required): Status of the order.
-  - `date` (required): Date of the order.
 
 Example:
 POST /api/backoffice/order
@@ -108,15 +88,9 @@ Body: {
 "date": "2023-06-30"
 }
 
-## Get All Orders
-
 - `GET /api/backoffice/order` - Retrieves all orders.
 
 ### order-products.js
-
-## Description
-
-The `order-products.js` file contains the implementation of the order-products API endpoint. This endpoint handles the CRUD operations for managing products within an order. It interacts with the `OrdersProductsModel`, `ProductModel`, and `OrderModel` to perform database operations. The endpoint supports retrieving, creating, updating, and deleting order products based on the provided order ID and product ID.
 
 ## Usage
 
@@ -125,238 +99,120 @@ The `order-products.js` file contains the implementation of the order-products A
 - `PATCH`: Updates an existing order product. It validates the order ID, product ID, quantity, and price parameters. If the order and product exist, the quantity of the order product is updated in the `OrdersProductsModel` table.
 - `DELETE`: Removes a product from an order. It validates the order ID and product ID parameters. If the order product exists, it is deleted from the `OrdersProductsModel` table.
 
-## Note
-
-The order-products endpoint ensures data integrity by validating the order and product existence before performing any database operations. It returns appropriate error messages if the required records are not found. The API endpoint follows a RESTful design for managing order products.
-
 ### User
 
-## Description:
-
-The `[id].js` file contains the implementation of the user API handler. This handler is responsible for handling API requests related to users. It provides endpoints for retrieving, updating, and deleting user data.
-
-## Dependencies:
-
-- `UserModel` from the user database models
-- `validate` middleware for request validation
-- `mw` middleware for request handling
-- `idValidator`, `displayNameValidator`, `emailValidator`, and `boolValidator` for validating the request parameters and body
+##[id].js
 
 ## Usage:
 
-The `[id]` provides the following endpoints:
-
-## GET Endpoint
-
-- Route: `/api/backoffice/user/userId`
-- Method: GET
-- Description: Retrieves a user by their ID.
-- Parameters:
-  - `id`: The ID of the user.
+- GET `/api/backoffice/user/userId` Retrieves a user by their ID.
+-
 - Returns:
+
   - Success: Returns the user object.
   - Error: Returns an error message if the user doesn't exist.
 
-## PATCH Endpoint
+- PATCH `/api/backoffice/user/userId` Updates a user
 
-- Route: `/api/backoffice/user/userId`
-- Method: PATCH
-- Description: Updates a user by their ID.
-- Parameters:
-  - `id`: The ID of the user.
-- Request Body:
-  - `displayName`: The display name of the user.
-  - `email`: The email address of the user.
-  - `isAdmin`: Indicates whether the user is an admin.
+{
+"displayName": "Marie",
+"email": "Marie@gmail.com",
+"isAdmin": true
+}
+
 - Returns:
+
   - Success: Returns the updated user object.
   - Error: Returns an error message if an error occurs during the update process.
 
-## DELETE Endpoint
+- DELETE `/api/backoffice/user/userId` Deletes a user by their ID.
 
-- Route: `/api/backoffice/user/userId`
-- Method: DELETE
-- Description: Deletes a user by their ID.
-- Parameters:
-  - `id`: The ID of the user.
 - Returns:
   - Success: Returns the deleted user object.
   - Error: Returns an error message if an error occurs during the deletion process.
 
 ## index.js
 
-**Description:**
-The `index.js` file contains the implementation of the user API handler. This handler is responsible for handling API requests related to users. It provides endpoints for retrieving and creating users.
+- GET `/api/backoffice/user` Retrieves all users.
 
-**Dependencies:**
-
-- `hashPassword` function from the database module
-- `UserModel` from the user database models
-- `validate` middleware for request validation
-- `mw` middleware for request handling
-- `displayNameValidator`, `emailValidator`, and `passwordValidator` for validating the request body
-
-**Usage:**
-The `index` provides the following endpoints:
-
-### GET Endpoint
-
-- Route: `/api/backoffice/user`
-- Method: GET
-- Description: Retrieves all users.
 - Returns:
+
   - Success: Returns an array of user objects.
   - Error: Returns an error message if there are no users.
 
-### POST Endpoint
+- POST `/api/backoffice/user` Creates a new user.
 
-- Route: `/api/backoffice/user`
-- Method: POST
-- Description: Creates a new user.
-- Request Body:
-  - `displayName`: The display name of the user.
-  - `email`: The email address of the user.
-  - `password`: The password of the user.
 - Returns:
+
   - Success: Returns `true` if the user is created successfully.
   - Error: Returns an error message if the user already exists or if there is an error during the creation process.
 
+  Exemple:
+  {
+  "displayName": "Marie",
+  "email": "Marie@gmail.com",
+  "password": "mariePassword",
+  "isAdmin": true
+  }
+
 ### Mail : forgot password
 
-### index.js
-
-## Description:
-
-The `index.js` file contains the implementation of the user API handler for the forgot password functionality. This handler is responsible for handling API requests related to resetting user passwords. It provides an endpoint for sending a password reset email to a user.
-
-## Dependencies:
-
-- `config` from the API configuration file
-- `UserModel` from the user database models
-- `validate` middleware for request validation
-- `mw` middleware for request handling
-- `emailValidator` for validating the email field
-
-## Usage:
-
-The `handler` provides the following endpoint:
-
-## POST Endpoint
-
-- Route: `/forgot-password`
+- POST `/forgot-password` Sends a password reset email to the user with the specified email address.
 - Method: POST
 - Description: Sends a password reset email to the user with the specified email address.
-- Request Body:
-  - `email`: The email address of the user.
+  .
 - Returns:
   - Success: Returns `{ result: true }` if the email is sent successfully.
   - Error: Returns an error message if the user is not found or if there is an error during the email sending process.
 
 ### Reset password
 
-### [id].js
-
-## Description:
-
-The `[id].js` file contains the implementation of the user API handler for updating user passwords. This handler is responsible for handling API requests related to updating the password of a user with a specific ID. It provides an endpoint for updating the user's password.
-
-**Dependencies:**
-
-- `hashPassword` from the password hashing utility
-- `UserModel` from the user database models
-- `validate` middleware for request validation
-- `mw` middleware for request handling
-- `idValidator` for validating the ID parameter
-- `passwordValidator` for validating the password field
-
-## Usage:
-
-The `handler` provides the following endpoint:
-
-### PATCH Endpoint
-
-- Route: `reset-password/userMail`
+- PATCH `reset-password/userMail`Updates the password of the user with the specified ID.
 - Method: PATCH
-- Description: Updates the password of the user with the specified ID.
-- Parameters:
-  - `id`: The ID of the user.
-- Request Body:
-  - `password`: The new password for the user.
+
 - Returns:
   - Success: Returns `{ result: true }` if the password is updated successfully.
   - Error: Returns an error message if the user is not found or if there is an error during the password update process.
 
+Exemple:
+{
+"email": "patrice@gmail.com"
+}
+
 ### sign-in.js
 
-## Description:
+- GET `/api/backoffice/user` Retrieves a paginated list of users.
 
-The `sign-in.js` file contains the implementation of the user API handler. This handler is responsible for handling API requests related to users. It provides endpoints for retrieving a list of users and authenticating a user with email and password.
-
-## Dependencies:
-
-- `config` from the API configuration file
-- `UserModel` from the user database models
-- `slowDown` middleware for rate limiting requests
-- `validate` middleware for request validation
-- `mw` middleware for request handling
-- `emailValidator`, `stringValidator`, `limitValidator`, `pageValidator` from the validators
-- `jsonwebtoken` for generating JSON Web Tokens (JWT)
-
-## Usage:
-
-The `handler` provides the following endpoints:
-
-## GET Endpoint
-
-- Route: `/api/backoffice/user`
-- Method: GET
-- Description: Retrieves a paginated list of users.
-- Query Parameters:
-  - `page`: The page number of the results (optional, default: 1).
-  - `limit`: The number of results per page (optional, default: 10).
 - Returns:
+
   - Success: Returns the paginated list of users.
   - Error: Returns an error message if there is an error during the retrieval process.
 
-## POST Endpoint
-
-- Route: `/api/sign-in/sign-in`
+- POST `/api/sign-in/sign-in` Authenticates a user with email and password and returns a JWT token.
 - Method: POST
-- Description: Authenticates a user with email and password and returns a JWT token.
-- Request Body:
-  - `email`: The user's email.
-  - `password`: The user's password.
+
 - Returns:
   - Success: Returns the JWT token for the authenticated user.
   - Error: Returns an error message if the credentials are invalid or if there is an error during the authentication process.
 
+Exemple:
+{
+"email": "Justin@gmail.com",
+"password": "Timber2345."
+}
+
 ### sign-up.js
 
-## Description:
-
-The `sign-up.js` file contains the implementation of the sign-up API handler. This handler is responsible for handling API requests related to user sign-up. It provides an endpoint for creating a new user with a display name, email, and password.
-
-## Dependencies:
-
-- `hashPassword` from the user database module
-- `UserModel` from the user database models
-- `validate` middleware for request validation
-- `mw` middleware for request handling
-- `displayNameValidator`, `emailValidator`, `passwordValidator` from the validators
-
-## Usage:
-
-The `handler` provides the following endpoint:
-
-## POST Endpoint
-
-- Route: `/api/sign-up/sign-up`
+- POST `/api/sign-up/sign-up`Creates a new user with a display name, email, and password.
 - Method: POST
-- Description: Creates a new user with a display name, email, and password.
-- Request Body:
-  - `displayName`: The display name of the user.
-  - `email`: The email of the user.
-  - `password`: The password of the user.
+
 - Returns:
   - Success: Returns `true` if the user is successfully created.
   - Error: Returns an error message if the email is already taken or if there is an error during the user creation process.
+
+Exemple:
+{
+"displayName": "John Yhal",
+"email": "johnyhal@gmail.com",
+"password": "Allumez123456."
+}
