@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next"
 
 const Category = () => {
   const { t } = useTranslation()
+
   return (
     <>
       <Head>

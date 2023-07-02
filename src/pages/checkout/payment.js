@@ -28,7 +28,7 @@ const Payment = (props) => {
   const { onSubmit } = props
 
   return (
-    <div className="mb-8 flex items-center justify-center">
+    <div className="mb-8 flex min-h-screen items-center justify-center">
       <div className="text-center">
         <h1 className="my-12  text-xl font-bold  lg:text-5xl">Payment</h1>
         <Formik

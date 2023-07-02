@@ -3,25 +3,10 @@ import UserModel from "@/api/db/models/UserModel.js"
 import slowDown from "@/api/middlewares/slowDown.js"
 import validate from "@/api/middlewares/validate.js"
 import mw from "@/api/mw.js"
-import {
-  emailValidator,
-  stringValidator,
-  limitValidator,
-  pageValidator,
-} from "@/validators.js"
+import { emailValidator, stringValidator } from "@/validators.js"
 import jsonwebtoken from "jsonwebtoken"
 
 const handler = mw({
-  GET: [
-    async ({
-      res,
-      query: { page = pageValidator, limit = limitValidator },
-    }) => {
-      const users = await UserModel.query().paginate(limit, page)
-
-      res.send({ result: users })
-    },
-  ],
   POST: [
     slowDown(500),
     validate({

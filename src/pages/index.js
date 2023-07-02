@@ -71,22 +71,24 @@ const Home = (props) => {
         <p>{t("discoverProduct")}</p>
       </div>
 
-      <div className="grid grid-cols-1 items-center gap-3 p-2 md:grid-cols-3 lg:grid-cols-4 ">
+      <div className="grid grid-cols-1 items-center gap-3 p-2 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
           <div key={product.id}>
             <Link href={routes.products(product.id)}>
               <div className="flex justify-center">
-                <div className="group flex w-3/5 items-center  justify-center ">
-                  <div className=" absolute z-10 hidden text-xl font-black text-black group-hover:flex">
+                <div className="group flex w-3/5 items-center justify-center">
+                  <div className="absolute z-10 hidden text-xl font-black text-black group-hover:flex">
                     {product.name}
                   </div>
-                  <Image
-                    alt={product.name}
-                    width={400}
-                    height={400}
-                    src={product.image}
-                    className="rounded-lg duration-500 hover:rotate-1 hover:opacity-50"
-                  />
+                  <div className="h-60 w-auto">
+                    <Image
+                      alt={product.name}
+                      width={400}
+                      height={400}
+                      src={product.image}
+                      className="h-full w-full rounded-lg object-cover duration-500 hover:rotate-1 hover:opacity-50"
+                    />
+                  </div>
                 </div>
               </div>
             </Link>
