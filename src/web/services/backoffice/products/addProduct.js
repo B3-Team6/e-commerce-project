@@ -1,3 +1,4 @@
+import { AwsService } from "@/api/services/aws.service"
 import routes from "@/web/routes"
 
 const addProduct =
@@ -12,13 +13,19 @@ const addProduct =
     image,
   }) => {
     try {
+      const aws = new AwsService()
+      const { url } = await aws.uploadFile({
+        content: image?.content,
+        name: image?.name,
+        type: image?.type,
+      })
       const { data } = await api.post(routes.api.product.product(), {
         name,
         description,
         price,
         quantity,
         materials,
-        image,
+        image: url,
         categories,
         slug: name.toLowerCase().replace(/ /g, "-"),
       })

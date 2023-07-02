@@ -10,7 +10,7 @@ const handler = mw({
       const contact = await ContactModel.query().orderBy("id")
 
       if (!contact) {
-        res.status(401).send({ error: "Il n'y a pas de categories" })
+        res.status(401).send({ error: "There is no contact" })
 
         return
       }

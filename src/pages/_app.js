@@ -1,4 +1,5 @@
 import "@/styles/style.css"
+import "@/i18n"
 import Layout from "@/web/components/Layout/Layout"
 import { CartProvider } from "@/web/hooks/CartContext"
 
