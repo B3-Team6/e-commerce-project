@@ -91,7 +91,7 @@ const ProductAdmin = () => {
 
     if (err) {
       // eslint-disable-next-line no-console
-      console.error("Erreur lors de la mise à jour du produit :", err)
+      console.error("Error during product update :", err)
 
       return
     }
