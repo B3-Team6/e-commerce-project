@@ -52,7 +52,7 @@ const ForgotPasswordResetPage = () => {
         <title>Airneis - Reset Password</title>
         <meta name="description" content="Contact us page" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/Airneis.jpg" />
       </Head>
       <div className="mx-16 flex min-h-screen flex-col lg:mx-96">
         <div className="my-20 flex justify-center text-xl font-bold lg:text-4xl">
