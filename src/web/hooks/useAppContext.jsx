@@ -48,11 +48,11 @@ export const AppContextProvider = (props) => {
     removeCookie(config.session.localStorageKey)
     setSession(false)
     setJWT(null)
-    localStorage.removeItem("jwt") // Supprimer le jeton JWT du localStorage
+    localStorage.removeItem("jwt")
   }, [removeCookie])
 
   useEffect(() => {
-    const storedJWT = localStorage.getItem("jwt") // Récupérer le jeton JWT du localStorage
+    const storedJWT = localStorage.getItem("jwt")
 
     if (storedJWT) {
       const session = parseSession(storedJWT)
@@ -63,10 +63,8 @@ export const AppContextProvider = (props) => {
 
   useEffect(() => {
     if (jwt) {
-      // Sauvegarder le jeton JWT dans les cookies à chaque mise à jour
-      setCookie(config.session.localStorageKey, jwt, { path: "/" })
-      // Sauvegarder le jeton JWT dans le localStorage
-      localStorage.setItem("jwt", jwt)
+      setCookie(config.session.localStorageKey, jwt, { path: "/" }) /
+        localStorage.setItem("jwt", jwt)
     }
   }, [cookies, jwt, setCookie])
 
@@ -135,7 +133,7 @@ export const AppContextProvider = (props) => {
         removeJWT: () => {
           removeCookie(config.session.localStorageKey)
           setJWT(null)
-          localStorage.removeItem("jwt") // Supprimer le jeton JWT du localStorage
+          localStorage.removeItem("jwt")
         },
       }}
       {...otherProps}
