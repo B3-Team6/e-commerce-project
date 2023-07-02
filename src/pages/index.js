@@ -38,36 +38,10 @@ const Home = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="my-8 flex  justify-center gap-10 bg-gradient-to-r from-yellow-300 via-green-300 to-blue-300 p-3">
-        <Link
-          href={routes.backoffice.backoffice()}
-          className="text-xl font-bold duration-500 hover:bg-pink-500 hover:underline "
-        >
-          <p>Back Office</p>
-        </Link>
-        <Link
-          href={routes.checkout.checkout()}
-          className="text-xl font-bold duration-500 hover:bg-pink-500 hover:underline"
-        >
-          <p>Checkout</p>
-        </Link>
-      </div>
-
       <Carousel />
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold md:text-lg lg:text-2xl">
-=======
-      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold  md:text-lg lg:text-2xl">
->>>>>>> main
-        <p>
-          Découvrez nos catégories de meubles ainsi que nos meilleures ventes
-        </p>
-=======
       <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-black md:text-lg lg:text-2xl">
         <p>{t("discoverCategory")}</p>
->>>>>>> main
       </div>
 
       <div className="grid  flex-col  items-center gap-3  p-2  md:grid-cols-2 lg:grid-cols-3 ">
@@ -93,17 +67,8 @@ const Home = (props) => {
         ))}
       </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold md:text-lg lg:text-2xl">
-=======
-      <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold  md:text-lg lg:text-2xl">
->>>>>>> main
-        <p>Les Highlanders du moment</p>
-=======
       <div className="bg-orange-100 p-2 text-center  font-serif text-sm font-bold text-black md:text-lg lg:text-2xl">
         <p>{t("discoverProduct")}</p>
->>>>>>> main
       </div>
 
       <div className="grid grid-cols-1 items-center gap-3 p-2 md:grid-cols-3 lg:grid-cols-4 ">

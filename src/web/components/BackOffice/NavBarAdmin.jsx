@@ -1,12 +1,10 @@
 import routes from "@/web/routes"
 import {
   HomeIcon,
-  ChartBarIcon,
   UserIcon,
   ShoppingBagIcon,
   ShoppingCartIcon,
   TagIcon,
-  PhotoIcon,
   EnvelopeIcon,
 } from "@heroicons/react/24/solid"
 import Link from "next/link"
@@ -26,13 +24,7 @@ const NavBarAdmin = () => {
             <HomeIcon className="h-8 " />
             Home
           </Link>
-          <Link
-            href={`#`}
-            className="flex flex-col duration-300 hover:cursor-pointer hover:text-slate-300"
-          >
-            <ChartBarIcon className="h-8 " />
-            Dashboard
-          </Link>
+
           <Link
             href={routes.backoffice.user()}
             className="flex flex-col duration-300 hover:cursor-pointer hover:text-slate-300"
@@ -62,13 +54,6 @@ const NavBarAdmin = () => {
             Orders
           </Link>
 
-          <Link
-            href={"#"}
-            className="flex flex-col duration-300 hover:cursor-pointer hover:text-slate-300"
-          >
-            <PhotoIcon className="h-8 " />
-            Images
-          </Link>
           <Link
             href={routes.backoffice.contact()}
             className="flex flex-col duration-300 hover:cursor-pointer hover:text-slate-300"
