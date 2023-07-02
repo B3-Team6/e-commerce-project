@@ -67,11 +67,14 @@ GET /api/backoffice/order/1
 
 Example:
 PATCH /api/backoffice/order/1
-Body: {
-"userId": 2,
-"status": "pending",
-"date": "2023-06-30"
+
+```json
+{
+  "userId": 2,
+  "status": "pending",
+  "date": "2023-06-30"
 }
+```
 
 - `DELETE /api/backoffice/order/orderId` - Deletes an order with the specified ID.
 
@@ -82,11 +85,14 @@ DELETE /api/backoffice/order/1
 
 Example:
 POST /api/backoffice/order
+
+```json
 Body: {
 "userId": 2,
 "status": "pending",
 "date": "2023-06-30"
 }
+```
 
 - `GET /api/backoffice/order` - Retrieves all orders.
 
@@ -115,11 +121,14 @@ Body: {
 - PATCH `/api/backoffice/user/userId` Updates a user
 
 Exemple:
+
+```json
 {
-"displayName": "Marie",
-"email": "Marie@gmail.com",
-"isAdmin": true
+  "displayName": "Marie",
+  "email": "Marie@gmail.com",
+  "isAdmin": true
 }
+```
 
 - Returns:
 
@@ -149,17 +158,19 @@ Exemple:
   - Error: Returns an error message if the user already exists or if there is an error during the creation process.
 
   Exemple:
+
+  ```json
   {
-  "displayName": "Marie",
-  "email": "Marie@gmail.com",
-  "password": "mariePassword",
-  "isAdmin": true
+    "displayName": "Marie",
+    "email": "Marie@gmail.com",
+    "password": "mariePassword",
+    "isAdmin": true
   }
+  ```
 
 ### Mail : forgot password
 
 - POST `/forgot-password` Sends a password reset email to the user with the specified email address.
-- Method: POST
 - Description: Sends a password reset email to the user with the specified email address.
   .
 - Returns:
@@ -169,16 +180,18 @@ Exemple:
 ### Reset password
 
 - PATCH `reset-password/userMail`Updates the password of the user with the specified ID.
-- Method: PATCH
 
 - Returns:
   - Success: Returns `{ result: true }` if the password is updated successfully.
   - Error: Returns an error message if the user is not found or if there is an error during the password update process.
 
 Exemple:
+
+```json
 {
-"email": "patrice@gmail.com"
+  "email": "patrice@gmail.com"
 }
+```
 
 ### sign-in.js
 
@@ -190,30 +203,117 @@ Exemple:
   - Error: Returns an error message if there is an error during the retrieval process.
 
 - POST `/api/sign-in/sign-in` Authenticates a user with email and password and returns a JWT token.
-- Method: POST
 
 - Returns:
   - Success: Returns the JWT token for the authenticated user.
   - Error: Returns an error message if the credentials are invalid or if there is an error during the authentication process.
 
 Exemple:
+
+```json
 {
-"email": "Justin@gmail.com",
-"password": "Timber2345."
+  "email": "Justin@gmail.com",
+  "password": "Timber2345."
 }
+```
 
 ### sign-up.js
 
 - POST `/api/sign-up/sign-up`Creates a new user with a display name, email, and password.
-- Method: POST
 
 - Returns:
   - Success: Returns `true` if the user is successfully created.
   - Error: Returns an error message if the email is already taken or if there is an error during the user creation process.
 
 Exemple:
+
+```json
 {
-"displayName": "John Yhal",
-"email": "johnyhal@gmail.com",
-"password": "Allumez123456."
+  "displayName": "John Yhal",
+  "email": "johnyhal@gmail.com",
+  "password": "Allumez123456."
 }
+```
+
+### Product
+
+## [id].js
+
+GET `/api/backoffice/product/productId`: Retrieves a product based on its ID.
+Exemple:
+
+If no product is found, returns a response with a 404 status and an error message.
+Otherwise, returns a response with the retrieved product.
+
+PATCH `/api/backoffice/product/userProduct` Updates a product based on its ID.
+
+Exemple:
+PATCH /api/backoffice/product/2
+
+```json
+{
+  "name": "Updated Product",
+  "description": "This is the updated product",
+  "price": 39.99,
+  "quantity": 5,
+  "image": "updated.jpg"
+}
+```
+
+If the update is successful, returns a response with the updated product.
+If there is an error during the update, returns a response with a 500 status and an error message.
+
+DELETE `/api/backoffice/product/userId` Deletes a product based on its ID.
+Exemple:
+DELETE /api/backoffice/product/2
+
+If the deletion is successful, returns a response with the deleted product.
+If there is an error during the deletion, returns a response with a 500 status and an error message.
+
+## index.js
+
+GET `/api/backoffice/product` Retrieves all products.
+
+If no products are found, returns a response with a 401 status and an error message.
+Otherwise, returns a response with the retrieved products.
+
+POST `/api/backoffice/product` Creates a new product.
+
+If a product with the same slug exists, returns a response with a 401 status and an error message.
+Otherwise, creates a new product using ProductModel.query().insert({...}).
+Returns a response with the newly created product.
+
+Exemple:
+POST /api/backoffice/product
+
+```json
+{
+  "name": "table",
+  "description": "This is a new table",
+  "price": 49.99,
+  "quantity": 20,
+  "slug": "table",
+  "image": "table.jpg",
+  "categories": 3,
+  "materials": 12
+}
+```
+
+### Material
+
+GET `/api/backoffice/material` Retrieves all materials.
+If no materials are found, returns a response with a 401 status and an error message.
+Otherwise, returns a response with the retrieved materials.
+
+POST `/api/backoffice/material`: Creates a new material.
+Returns a response with the newly created material.
+
+Exemple:
+POST /api/backoffice/material
+
+```json
+{
+  "name": "New Material",
+  "slug": "new-material"
+}
+```

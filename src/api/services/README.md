@@ -2,13 +2,6 @@
 
 ## Aws
 
-## connexion keys
-
-NEXT_PUBLIC_REGION=eu-west-3
-NEXT_PUBLIC_ACCESS_KEY_ID=AKIAUTTAKBTZYEYHCMEU
-NEXT_PUBLIC_SECRET_ACCESS_KEY=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
-NEXT_PUBLIC_BUCKET_NAME=bucketairneis
-
 **Description:**
 The `AwsService.js` file contains the implementation of the `AwsService` class. This class provides methods for interacting with the AWS S3 service. It allows uploading files to S3 and retrieving file streams from S3.
 
