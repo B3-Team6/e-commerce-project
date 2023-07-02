@@ -3,7 +3,7 @@ import Head from "next/head"
 import { TrashIcon } from "@heroicons/react/24/solid"
 import axios from "axios"
 import useAppContext from "@/web/hooks/useAppContext"
-import { useCallback, useEffect, useState } from "react"
+import { useState } from "react"
 
 const ContactAdmin = () => {
   const {
