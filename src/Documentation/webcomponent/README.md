@@ -1,9 +1,10 @@
-# Our components organization
+# The `components` file
 
-In this project, we have 3 types of components:
+In this project, there is differents components
 
-- `/app` ones: components that are used in the whole app, such as category or product;
-- `/layout` ones: components that are used in the layout, such as nav or footer;
-- `/utils` ones: little components used for small parts, such as a form field, or a navlink.
+- `BackOffice` components : Its the layout for the back office
+- `Layout` components : Its the layout for website
+- `Product`components : We have our Carousel
 
-Finally, we have a `validation` folder that contains all the yup validation used in the app.
+And we have other component like the `SubmitButton` for example.
+We use this component each time we have a submit button in a form.
