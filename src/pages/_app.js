@@ -1,5 +1,7 @@
-import Layout from "@/web/components/Layout/Layout"
 import "@/styles/style.css"
+import Layout from "@/web/components/Layout/Layout"
+import { CartProvider } from "@/web/hooks/CartContext"
+
 import { AppContextProvider } from "@/web/hooks/useAppContext"
 
 export default function App({ Component, pageProps }) {
@@ -15,9 +17,11 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <AppContextProvider isPublicPage={Component.isPublicPage}>
-        {renderLayout(<Component {...pageProps} />)}
-      </AppContextProvider>
+      <CartProvider>
+        <AppContextProvider isPublicPage={Component.isPublicPage}>
+          {renderLayout(<Component {...pageProps} />)}
+        </AppContextProvider>
+      </CartProvider>
     </>
   )
 }

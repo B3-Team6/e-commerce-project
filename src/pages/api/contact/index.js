@@ -5,6 +5,19 @@ import mw from "@/api/mw.js"
 import { emailValidator, messageValidator } from "@/validators.js"
 
 const handler = mw({
+  GET: [
+    async ({ res }) => {
+      const contact = await ContactModel.query().orderBy("id")
+
+      if (!contact) {
+        res.status(401).send({ error: "There is no contact" })
+
+        return
+      }
+
+      res.send({ result: contact })
+    },
+  ],
   POST: [
     slowDown(500),
     validate({

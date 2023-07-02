@@ -11,6 +11,7 @@ import axios from "axios"
 import useAppContext from "@/web/hooks/useAppContext"
 import routes from "@/web/routes"
 import Link from "next/link"
+import clsx from "clsx"
 
 const CategoryAdmin = () => {
   const {
@@ -21,11 +22,13 @@ const CategoryAdmin = () => {
   const [editedId, setEditedId] = useState(null)
   const [editedName, setEditedName] = useState("")
   const [editedDescription, setEditedDescription] = useState("")
-  const [editedImage, setEditedImage] = useState("")
+  const [editedImage, setEditedImage] = useState(null)
 
   const fecthData = async () => {
-    const { data } = await axios.get("http://localhost:3000/api/category")
-    setCategory(data.result)
+    const {
+      data: { result },
+    } = await axios.get("http://localhost:3000/api/backoffice/category")
+    setCategory(result)
   }
 
   useEffect(() => {
@@ -39,10 +42,23 @@ const CategoryAdmin = () => {
       setEditedId(id)
       setEditedName(element.name)
       setEditedDescription(element.description)
-      setEditedImage(element.image)
     }
   }
+  const handleEditedImageChange = (event) => {
+    const eventFile = event.target.files[0]
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      const fileContent = e.target.result
+      const buffer = Buffer.from(fileContent.split(",")[1], "base64")
 
+      setEditedImage({
+        name: eventFile.name,
+        content: buffer,
+        type: eventFile.type,
+      })
+    }
+    reader.readAsDataURL(eventFile)
+  }
   const handleSaveEdit = useCallback(async () => {
     const [err] = await updateCategory(
       editedId,
@@ -66,8 +82,6 @@ const CategoryAdmin = () => {
       if (err) {
         return err
       }
-
-      await axios.delete(`http://localhost:3000/api/category/${id}`)
 
       fecthData()
     },
@@ -125,11 +139,15 @@ const CategoryAdmin = () => {
               </td>
               <td className=" text-sm">
                 {categorie.id === editedId ? (
-                  <input
-                    className="w-full border-2 border-slate-300"
-                    value={editedImage}
-                    onChange={(e) => setEditedImage(e.target.value)}
-                  />
+                  <>
+                    <input
+                      type={"file"}
+                      className={clsx(
+                        "rounded-lg border-2 px-4 py-2 outline-none"
+                      )}
+                      onChange={(e) => handleEditedImageChange(e)}
+                    />
+                  </>
                 ) : (
                   categorie.image
                 )}
