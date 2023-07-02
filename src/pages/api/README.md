@@ -85,8 +85,6 @@ Body: {
 
 ## Delete Order
 
-There is an error when deleting the first element due to its dependency on user and product.
-
 - `DELETE /api/backoffice/order/orderId` - Deletes an order with the specified ID.
 
 Example:
@@ -130,84 +128,6 @@ The `order-products.js` file contains the implementation of the order-products A
 ## Note
 
 The order-products endpoint ensures data integrity by validating the order and product existence before performing any database operations. It returns appropriate error messages if the required records are not found. The API endpoint follows a RESTful design for managing order products.
-
-### Contact
-
-### [id].js
-
-## Description:
-
-The `[id].js` file contains the implementation of the contact API handler. This handler is responsible for handling API requests related to contacts. It provides endpoints for retrieving and deleting contact messages.
-
-## Dependencies:
-
-- `ContactModel` from the contact database models
-- `validate` middleware for request validation
-- `mw` middleware for request handling
-- `idValidator` for validating the ID parameter
-
-**Usage:**
-The `handler` provides the following endpoints:
-
-## GET Endpoint
-
-- Route: `/api/contact`
-- Method: GET
-- Description: Retrieves a contact message by its ID.
-- Parameters:
-  - `id`: The ID of the contact message.
-- Returns:
-  - Success: Returns the contact message object.
-  - Error: Returns an error message if the contact message doesn't exist.
-
-## DELETE Endpoint
-
-- Route: `/api/contact`
-- Method: DELETE
-- Description: Deletes a contact message by its ID.
-- Parameters:
-  - `id`: The ID of the contact message.
-- Returns:
-  - Success: Returns the deleted contact message object.
-
-### index.js
-
-## Description:
-
-The `handler.js` file contains the implementation of the contact API handler. This handler is responsible for handling API requests related to contacts. It provides endpoints for retrieving and creating contact messages.
-
-## Dependencies:
-
-- `ContactModel` from the contact database models
-- `validate` middleware for request validation
-- `slowDown` middleware for rate limiting
-- `mw` middleware for request handling
-- `emailValidator` and `messageValidator` for validating the request body
-
-## Usage:
-
-The `handler` provides the following endpoints:
-
-## GET Endpoint
-
-- Route: `/api/contact`
-- Method: GET
-- Description: Retrieves all contact messages.
-- Returns:
-  - Success: Returns an array of contact message objects.
-  - Error: Returns an error message if there are no contact messages.
-
-## POST Endpoint
-
-- Route: `/api/contact`
-- Method: POST
-- Description: Creates a new contact message.
-- Request Body:
-  - `email`: The email address of the contact.
-  - `message`: The message content.
-- Returns:
-  - Success: Returns `true` if the contact message is created successfully.
-  - Error: Returns an error message if there is an error during the creation process or if the request is rate-limited.
 
 ### User
 
@@ -365,8 +285,6 @@ The `handler` provides the following endpoint:
 - Returns:
   - Success: Returns `{ result: true }` if the password is updated successfully.
   - Error: Returns an error message if the user is not found or if there is an error during the password update process.
-
-### Sign-in
 
 ### sign-in.js
 
