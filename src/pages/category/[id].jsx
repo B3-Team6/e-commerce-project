@@ -76,9 +76,9 @@ const Category = (props) => {
                   />
                 </div>
                 <div className="flex w-5/6 items-center justify-between ">
-                  <a>{product.name}</a>
+                  <span>{product.name}</span>
                   &nbsp;
-                  <a>{product.price}€</a>
+                  <span>{product.price}€</span>
                 </div>
               </div>
             </Link>

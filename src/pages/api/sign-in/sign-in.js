@@ -49,6 +49,7 @@ const handler = mw({
           payload: {
             user: {
               id: user.id,
+              isAdmin: user.isAdmin,
             },
           },
         },

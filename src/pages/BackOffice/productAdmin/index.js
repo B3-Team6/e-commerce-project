@@ -26,11 +26,13 @@ const ProductAdmin = () => {
   const [editedMaterial, setEditedMaterial] = useState("")
   const [editedQuantity, setEditedQuantity] = useState("")
   const [editedPrice, setEditedPrice] = useState("")
-  const [editedImage, setEditedImage] = useState("")
+  const [editedImage, setEditedImage] = useState(null)
 
   const fetchData = async () => {
-    const { data } = await axios.get("/api/backoffice/product")
-    setProducts(data.result)
+    const {
+      data: { result },
+    } = await axios.get("http://localhost:3000/api/backoffice/product")
+    setProducts(result)
   }
 
   useEffect(() => {
@@ -49,7 +51,6 @@ const ProductAdmin = () => {
         setEditedMaterial(product.material.id)
         setEditedQuantity(product.quantity)
         setEditedPrice(product.price)
-        setEditedImage(product.image)
       }
     },
     [products]
@@ -57,21 +58,18 @@ const ProductAdmin = () => {
 
   const handleEditedImageChange = (event) => {
     const eventFile = event.target.files[0]
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      const fileContent = e.target.result
+      const buffer = Buffer.from(fileContent.split(",")[1], "base64")
 
-    if (editedImage) {
-      const reader = new FileReader()
-      reader.onload = (e) => {
-        const fileContent = e.target.result
-        const buffer = Buffer.from(fileContent.split(",")[1], "base64")
-
-        setEditedImage({
-          name: eventFile.name,
-          content: buffer,
-          type: eventFile.type,
-        })
-      }
-      reader.readAsDataURL(eventFile)
+      setEditedImage({
+        name: eventFile.name,
+        content: buffer,
+        type: eventFile.type,
+      })
     }
+    reader.readAsDataURL(eventFile)
   }
 
   const handleSaveEdit = useCallback(async () => {
@@ -262,13 +260,15 @@ const ProductAdmin = () => {
               </td>
               <td className=" text-sm">
                 {product.id === editedId ? (
-                  <input
-                    type={"file"}
-                    className={clsx(
-                      "rounded-lg border-2 px-4 py-2 outline-none"
-                    )}
-                    onChange={(e) => handleEditedImageChange(e)}
-                  />
+                  <>
+                    <input
+                      type={"file"}
+                      className={clsx(
+                        "rounded-lg border-2 px-4 py-2 outline-none"
+                      )}
+                      onChange={(e) => handleEditedImageChange(e)}
+                    />
+                  </>
                 ) : (
                   product.image
                 )}
