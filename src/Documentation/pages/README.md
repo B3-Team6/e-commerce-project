@@ -1,12 +1,7 @@
-# How pages work
+# The `pages` folder
 
-**This markdown explain the front-end aspect of the project.**
-**Please refer to`/src/api/README.md` to read the API routes documentation explaining the routes defined in `src/pages/api`.**
+The "pages" folder is used to organize files representing different pages or views of the web application. It plays a vital role in managing routes and providing structure to the application's user interface. Each file in the "pages" folder corresponds to a specific page and contains the necessary code or markup for that page. Proper organization of files in this folder enhances code readability and simplifies navigation within the application.
 
-The pathway corresponds to the routes' path in the project's architecture. In `_app.jsx`, a layout is defined that facilitates easy navigation through the pages. The elements within square brackets, such as `[pageId]`, are dynamic and adapt to the number specified in the URL.
+To navigate between each page, we use the routes from the `routes.js` file.
 
-Data retrieval for display purposes is handled through a combination of `getServerSideProps` and injected React props. `getServerSideProps` is a Next.js function that fetches data on each request. React props, on the other hand, are arguments passed into a React component, providing the necessary data for rendering. Together, they ensure the appropriate data is available for each page render.
-
-This system ensures efficient and dynamic data handling, supporting seamless navigation and user experience across the entire project.
-
-You'll find all the components in `/src/components`.
+All pages have the layout (navbar & footer) thanks to the `_app.js` file.
