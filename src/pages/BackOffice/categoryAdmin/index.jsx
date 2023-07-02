@@ -83,8 +83,6 @@ const CategoryAdmin = () => {
         return err
       }
 
-      await axios.delete(`http://localhost:3000/api/backoffice/category/${id}`)
-
       fecthData()
     },
     [deleteCategory]

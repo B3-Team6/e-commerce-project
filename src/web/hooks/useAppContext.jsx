@@ -1,9 +1,3 @@
-import config from "@/web/config.js"
-import createAPIClient from "@/web/createAPIClient.js"
-import parseSession from "@/web/parseSession.js"
-import signInService from "@/web/services/signIn.js"
-import signUpService from "@/web/services/signUp.js"
-import contactUsService from "@/web/services/contactUs.js"
 import {
   createContext,
   useCallback,
@@ -11,18 +5,30 @@ import {
   useState,
   useContext,
 } from "react"
+import { useCookies } from "react-cookie"
+import config from "@/web/config.js"
+import createAPIClient from "@/web/createAPIClient.js"
+import parseSession from "@/web/parseSession.js"
+import signInService from "@/web/services/user/signIn"
+import signUpService from "@/web/services/user/signUp"
+import contactUsService from "@/web/services/contactUs.js"
 import updateCategoryService from "@/web/services/backoffice/categories/updateCategory"
-import deleteCategorySevrvice from "@/web/services/backoffice/categories/deleteCategory"
+import deleteCategoryService from "@/web/services/backoffice/categories/deleteCategory"
 import addCategoryService from "@/web/services/backoffice/categories/addCategory"
 import deleteContactService from "@/web/services/backoffice/contact/deleteContact"
-
 import updateProductService from "@/web/services/backoffice/products/updateProduct"
 import deleteProductService from "@/web/services/backoffice/products/deleteProduct"
 import addProductService from "@/web/services/backoffice/products/addProduct"
 
+import updateOrderService from "@/web/services/backoffice/orders/updateOrder"
+import deleteOrderService from "@/web/services/backoffice/orders/deleteOrder"
+import addOrderService from "@/web/services/backoffice/orders/addOrder"
+
 import updateUserService from "@/web/services/backoffice/users/updateUser"
 import deleteUserService from "@/web/services/backoffice/users/deleteUser"
 import addUserService from "@/web/services/backoffice/users/addUser"
+import sendMailPasswordService from "@/web/services/mail/sendMailPassword"
+import resetPasswordService from "@/web/services/user/resetPassword"
 
 const AppContext = createContext()
 
@@ -30,40 +36,58 @@ export const AppContextProvider = (props) => {
   const { isPublicPage, ...otherProps } = props
   const [session, setSession] = useState(null)
   const [jwt, setJWT] = useState(null)
+  const [cookies, setCookie, removeCookie] = useCookies([
+    config.session.localStorageKey,
+  ])
+
   const api = createAPIClient({ jwt })
 
   const signUp = signUpService({ api })
   const signIn = signInService({ api, setSession, setJWT })
   const signOut = useCallback(() => {
-    localStorage.removeItem(config.session.localStorageKey)
+    removeCookie(config.session.localStorageKey)
     setSession(false)
-  }, [])
-  const contactUs = contactUsService({ api })
+    setJWT(null)
+    localStorage.removeItem("jwt")
+  }, [removeCookie])
 
   useEffect(() => {
-    const jwt = localStorage.getItem(config.session.localStorageKey)
+    const storedJWT = localStorage.getItem("jwt")
 
-    if (!jwt) {
-      return
+    if (storedJWT) {
+      const session = parseSession(storedJWT)
+      setSession(session)
+      setJWT(storedJWT)
     }
-
-    const session = parseSession(jwt)
-    setSession(session)
-    setJWT({ jwt })
   }, [])
+
+  useEffect(() => {
+    if (jwt) {
+      setCookie(config.session.localStorageKey, jwt, { path: "/" }) /
+        localStorage.setItem("jwt", jwt)
+    }
+  }, [cookies, jwt, setCookie])
+
+  const contactUs = contactUsService({ api })
+  const sendMailPassword = sendMailPasswordService({ api })
+  const resetPassword = resetPasswordService({ api })
 
   const updateProduct = updateProductService({ api })
   const deleteProduct = deleteProductService({ api })
   const addProduct = addProductService({ api })
 
   const updateCategory = updateCategoryService({ api })
-  const deleteCategory = deleteCategorySevrvice({ api })
+  const deleteCategory = deleteCategoryService({ api })
   const addCategory = addCategoryService({ api })
 
   const updateUser = updateUserService({ api })
   const deleteUser = deleteUserService({ api })
   const addUser = addUserService({ api })
-  
+
+  const updateOrder = updateOrderService({ api })
+  const deleteOrder = deleteOrderService({ api })
+  const addOrder = addOrderService({ api })
+
   const deleteContact = deleteContactService({ api })
 
   if (!isPublicPage && session === null) {
@@ -82,12 +106,17 @@ export const AppContextProvider = (props) => {
           signIn,
           signOut,
           contactUs,
+          sendMailPassword,
+          resetPassword,
           updateCategory,
           deleteCategory,
           addCategory,
           updateProduct,
           deleteProduct,
           addProduct,
+          updateOrder,
+          deleteOrder,
+          addOrder,
           updateUser,
           deleteUser,
           addUser,
@@ -95,6 +124,16 @@ export const AppContextProvider = (props) => {
         },
         state: {
           session,
+        },
+        setJWT: (jwt) => {
+          setJWT(jwt)
+          setCookie(config.session.localStorageKey, jwt, { path: "/" })
+          localStorage.setItem("jwt", jwt)
+        },
+        removeJWT: () => {
+          removeCookie(config.session.localStorageKey)
+          setJWT(null)
+          localStorage.removeItem("jwt")
         },
       }}
       {...otherProps}
