@@ -13,10 +13,9 @@ exports.seed = async function (knex) {
       slug: "canape",
     },
     {
-      name: "Test",
-      description:
-        "Les canapés sont des sièges confortables pour les salons, disponibles dans différentes tailles et matériaux, souvent accompagnés de fauteuils assortis.",
-      price: 20,
+      name: "Test2",
+      description: "Test2.",
+      price: 10,
       quantity: 40,
       image: "https://bucketairneis.s3.eu-west-3.amazonaws.com/Airneis.png",
       material_id: 1,

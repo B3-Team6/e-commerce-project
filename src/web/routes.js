@@ -22,6 +22,10 @@ const routes = {
       categories: (categoryId) => `/backoffice/category/${categoryId}`,
       category: () => "/backoffice/category",
     },
+    order: {
+      orders: (orderId) => `/backoffice/order/${orderId}`,
+      order: () => "/backoffice/order",
+    },
     product: {
       products: (productId) => `/backoffice/product/${productId}`,
       product: () => "/backoffice/product",
@@ -35,7 +39,6 @@ const routes = {
       user: () => "/backoffice/user",
     },
     cart: () => "/cart/cart",
-    order: () => "/order/order",
   },
   backoffice: {
     backoffice: () => "/BackOffice",
