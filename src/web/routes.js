@@ -5,6 +5,7 @@ const routes = {
   legalNotice: () => "/legal-notice",
   tos: () => "/tos",
   contact: () => "/contact",
+  about: () => "/about",
 
   checkout: {
     checkout: () => "/checkout",

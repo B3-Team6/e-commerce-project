@@ -63,6 +63,8 @@ i18next.use(initReactI18next).init({
         similarProduct: "Similar products",
         // sign in/up page
         forgotPasswordLink: "Forgot password ?",
+        signInTitle: "AIRNEIS - Sign In",
+        signUpTitle: "AIRNEIS - Sign Up",
       },
     },
     fr: {
@@ -124,6 +126,8 @@ i18next.use(initReactI18next).init({
         similarProduct: "Produits similaires",
         // sign in/up page
         forgotPasswordLink: "Mot de passe oublié ?",
+        signInTitle: "AIRNEIS - Se connecter",
+        signUpTitle: "AIRNEIS - S'inscrire",
       },
     },
   },
