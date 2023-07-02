@@ -354,6 +354,7 @@ Marvin(TayZain)=> Début de la documentation technique de mes pages
 ### Contributeurs:
 
 - TAM William
+- LAGRANGE Louis
 
 ### Sprint overview
 
@@ -363,6 +364,10 @@ ECA-81 | TAM William | As an ADMIN I want to be able to CREATE USER | 2
 ECA-83 | TAM William | As an ADMIN I want to be able to READ USERS | 1
 ECA-84 | TAM William | As an ADMIN I want to be able to UPDATE USERS | 3
 ECA-85 | TAM William | As an ADMIN I want to be able to DELETE USERS | 1
+ECA-109| LAGRANGE Louis | As an ADMIN I want to be able to READ users' message and mail | 1
+ECA-110| LAGRANGE Louis | As an ADMIN I want to be able to DELETE users' message and mail | 2
+ECA-133| LAGRANGE Louis | AS an USER I want to CHECKOUT |
+ECA-143 | LAGRANGE Louis | Create the new seeds |
 
 ### Changelogs:
 
@@ -371,6 +376,13 @@ William(TamWilliam) #1f87b56 => Backoffice CRUD user
 ### Avis:
 
 #### TAM William
+
+- Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations:
+
+#### LAGRANGE Louis
 
 - Positif:
 - Négatif:
