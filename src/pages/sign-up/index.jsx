@@ -79,7 +79,7 @@ const SignUpPage = () => {
 
           <div className="flex-col  lg:col-span-1">
             <div className="mt-20 flex justify-center text-3xl font-bold">
-              Sign-Up
+              {t("signUp")}
             </div>
             <div className="mx-auto mb-16 mt-8 max-w-md  border-black">
               <Form

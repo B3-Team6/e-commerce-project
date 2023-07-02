@@ -55,7 +55,7 @@ const CartPage = () => {
                         className="flex flex-col items-center justify-between border-b pb-2 md:flex-row"
                       >
                         <div className="flex items-center space-x-2">
-                          <div className="h-32 w-32">
+                          <div className="h-auto w-auto">
                             <Image
                               alt={item.name}
                               width={400}
