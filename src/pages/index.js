@@ -80,7 +80,7 @@ const Home = (props) => {
                   <div className="absolute z-10 hidden text-xl font-black text-black group-hover:flex">
                     {product.name}
                   </div>
-                  <div className="h-40 w-40">
+                  <div className="h-60 w-auto">
                     <Image
                       alt={product.name}
                       width={400}
