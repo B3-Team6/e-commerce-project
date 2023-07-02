@@ -87,10 +87,10 @@ Example:
 POST /api/backoffice/order
 
 ```json
-Body: {
-"userId": 2,
-"status": "pending",
-"date": "2023-06-30"
+{
+  "userId": 2,
+  "status": "pending",
+  "date": "2023-06-30"
 }
 ```
 
@@ -195,13 +195,6 @@ Exemple:
 
 ### sign-in.js
 
-- GET `/api/backoffice/user` Retrieves a paginated list of users.
-
-- Returns:
-
-  - Success: Returns the paginated list of users.
-  - Error: Returns an error message if there is an error during the retrieval process.
-
 - POST `/api/sign-in/sign-in` Authenticates a user with email and password and returns a JWT token.
 
 - Returns:
@@ -240,7 +233,6 @@ Exemple:
 ## [id].js
 
 GET `/api/backoffice/product/productId`: Retrieves a product based on its ID.
-Exemple:
 
 If no product is found, returns a response with a 404 status and an error message.
 Otherwise, returns a response with the retrieved product.
