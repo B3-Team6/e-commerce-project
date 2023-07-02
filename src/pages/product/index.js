@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next"
 
 const Product = () => {
   const { t } = useTranslation()
+
   return (
     <>
       <Head>

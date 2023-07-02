@@ -47,7 +47,6 @@ const routes = {
       users: (userId) => `/backoffice/user/${userId}`,
       user: () => "/backoffice/user",
     },
-    cart: () => "/cart/cart",
   },
   backoffice: {
     backoffice: () => "/BackOffice",
