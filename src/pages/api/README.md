@@ -114,6 +114,7 @@ Body: {
 
 - PATCH `/api/backoffice/user/userId` Updates a user
 
+Exemple:
 {
 "displayName": "Marie",
 "email": "Marie@gmail.com",
