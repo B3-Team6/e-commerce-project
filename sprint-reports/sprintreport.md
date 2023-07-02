@@ -354,6 +354,7 @@ Marvin(TayZain)=> Début de la documentation technique de mes pages
 ### Contributeurs:
 
 - TAM William
+  -CHOPLAIN Edouard
 
 ### Sprint overview
 
@@ -364,6 +365,10 @@ ECA-83 | TAM William | As an ADMIN I want to be able to READ USERS | 1
 ECA-84 | TAM William | As an ADMIN I want to be able to UPDATE USERS | 3
 ECA-85 | TAM William | As an ADMIN I want to be able to DELETE USERS | 1
 ECA-126| TAM William | As a VISITOR, I want to SELECT THE LANGUAGE to translate the website | 2
+ECA-115| CHOPLAIN Edouard | As a admin I want to bel able to Add pictures| 3
+ECA-116| CHOPLAIN Edouard | As a admin I want to bel able to update pictures| 3
+ECA-117| CHOPLAIN Edouard | As a admin I want to bel able to delete pictures| 3
+ECA-139|CHOPLAIN Edouard | As an admin I want to see all the orders| 3
 
 ### Changelogs:
 
@@ -373,6 +378,15 @@ William(TamWilliam) #ea85081 => Module de langage i18n (i18next) implémenté ma
 ### Avis:
 
 #### TAM William
+
+- Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations:
+
+### Avis:
+
+#### CHOPLAIN Edouard
 
 - Positif:
 - Négatif:
