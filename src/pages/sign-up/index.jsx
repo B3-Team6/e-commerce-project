@@ -11,6 +11,7 @@ import useAppContext from "@/web/hooks/useAppContext.jsx"
 import { useRouter } from "next/router.js"
 import { useCallback, useState } from "react"
 import Image from "next/image"
+import { useTranslation } from "react-i18next"
 
 const initialValues = {
   displayName: "",
@@ -24,6 +25,7 @@ const validationSchema = createValidator({
 })
 
 const SignUpPage = () => {
+  const { t } = useTranslation()
   const router = useRouter()
   const {
     actions: { signUp },
@@ -80,22 +82,22 @@ const SignUpPage = () => {
             >
               <FormField
                 name="displayName"
-                placeholder="Enter your name"
-                label="Name"
+                placeholder={t('displayNamePlaceholder')}
+                label={t('displayNameLabel')}
               />
               <FormField
                 name="email"
-                placeholder="Enter your e-mail"
-                label="E-mail"
+                placeholder={t('emailPlaceholder')}
+                label={t('emailLabel')}
                 type="email"
               />
               <FormField
                 name="password"
-                placeholder="Enter your password"
-                label="Password"
+                placeholder={t('passwordPlaceholder')}
+                label={t('passwordLabel')}
                 type="password"
               />
-              <SubmitButton className="mt-10">Sign Up</SubmitButton>
+              <SubmitButton className="mt-10"></SubmitButton>
             </Form>
           </div>
         </div>
