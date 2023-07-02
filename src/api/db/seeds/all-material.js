@@ -6,34 +6,28 @@ exports.seed = async function (knex) {
       slug: "bois",
     },
     {
-      name: "Chêne",
-      slug: "chene",
-    },
-    {
-      name: "Hêtre",
-      slug: "hetre",
-    },
-    {
-      name: "Pin",
-      slug: "pin",
-    },
-
-    {
-      name: "Metal",
+      name: "Métal",
       slug: "metal",
     },
-
+    {
+      name: "Cuir",
+      slug: "cuir",
+    },
+    {
+      name: "Verre",
+      slug: "verre",
+    },
+    {
+      name: "Plastique",
+      slug: "plastique",
+    },
     {
       name: "Acier",
       slug: "acier",
     },
     {
-      name: "Fer forgé",
-      slug: "fer-forge",
-    },
-    {
-      name: "Aluminium",
-      slug: "aluminium",
+      name: "Tissue",
+      slug: "tissue",
     },
   ])
 }
