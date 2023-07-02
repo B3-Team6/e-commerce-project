@@ -1,4 +1,4 @@
-# The `components` file
+# The `components` folder
 
 In this project, there is differents components
 
