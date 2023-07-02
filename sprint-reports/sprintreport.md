@@ -354,6 +354,8 @@ Marvin(TayZain)=> Début de la documentation technique de mes pages
 ### Contributeurs:
 
 - TAM William
+- CHOPLAIN Edouard
+- SABIN Marvin
 - LAGRANGE Louis
 
 ### Sprint overview
@@ -364,6 +366,24 @@ ECA-81 | TAM William | As an ADMIN I want to be able to CREATE USER | 2
 ECA-83 | TAM William | As an ADMIN I want to be able to READ USERS | 1
 ECA-84 | TAM William | As an ADMIN I want to be able to UPDATE USERS | 3
 ECA-85 | TAM William | As an ADMIN I want to be able to DELETE USERS | 1
+ECA-126| TAM William | As a VISITOR, I want to SELECT THE LANGUAGE to translate the website | 2
+
+ECA-115| CHOPLAIN Edouard | As a admin I want to bel able to Add pictures| 3
+ECA-116| CHOPLAIN Edouard | As a admin I want to bel able to update pictures| 3
+ECA-117| CHOPLAIN Edouard | As a admin I want to bel able to delete pictures| 3
+ECA-139| CHOPLAIN Edouard | As an admin I want to see all the orders | 3
+
+ECA-86 | SABIN Marvin | As an ADMIN I want to be able to CREATE PRODUCT | 3
+ECA-87 | SABIN Marvin | As an ADMIN I want to be able to READ PRODUCT| 2
+ECA-88 | SABIN Marvin | As an ADMIN I want to be able to UPDATE PRODUCT | 3
+ECA-88 | SABIN Marvin | As an ADMIN I want to be able to DELETE PRODUCT| 1
+ECA-123| SABIN Marvin | BackOffice-Product| 3
+ECA-129| SABIN Marvin | As a USER I want to set a new password if I forgot my password| 3
+ECA-134| SABIN Marvin | As an USER I want to access CATEGORY from accueil| 2
+ECA-138| SABIN Marvin | Cookies System | 2
+ECA-140| SABIN Marvin | Fix Bug BackOffice Product | 2
+ECA-141| SABIN Marvin | As a user, I want to see an About AIRNEIS page| 1
+
 ECA-109| LAGRANGE Louis | As an ADMIN I want to be able to READ users' message and mail | 1
 ECA-110| LAGRANGE Louis | As an ADMIN I want to be able to DELETE users' message and mail | 2
 ECA-133| LAGRANGE Louis | AS an USER I want to CHECKOUT |
@@ -372,12 +392,40 @@ ECA-143 | LAGRANGE Louis | Create the new seeds |
 ### Changelogs:
 
 William(TamWilliam) #1f87b56 => Backoffice CRUD user
+William(TamWilliam) #ea85081 => Module de langage i18n (i18next) implémenté manuellement sur les pages
+Marvin(TayZain) => Backoffice CRUD product
+Marvin(TayZain) #5656c51 => Mot de passe oublié avec Mail V1
+Marvin(TayZain) #2f3edfb =>
+
+- Affichage des catégories dans l'Accueil (Back)
+- Affichage des produits dans une catégorie spécifique (Back)
+- Affichage d'un produit dans un produit spécifique (Back)
+- Affichage dans la Product Page, des produits de la même catégorie (Back)
+
+Marvin(TayZain) #6e395ec => Système de gestion des cookies sur le site
+Marvin(TayZain) #09885e0 => Back Office produit fixé (la modification de l'image ne fonctionnait pas)
+Marvin(TayZain) #aaffcc1 => About AIRNEIS page
+Marvin(TayZain)=> Documentation technique
 
 ### Avis:
 
 #### TAM William
 
 - Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations:
+
+#### CHOPLAIN Edouard
+
+- Positif:
+- Négatif:
+- Questions:
+- Idées d'améliorations:
+
+#### SABIN Marvin
+
+- Positif: Ce projet m'a beaucoup appris que ce soit la méthode Agile ,les technologies qu'on a utilisée par exemple
 - Négatif:
 - Questions:
 - Idées d'améliorations:
