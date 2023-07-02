@@ -15,7 +15,7 @@ const handler = mw({
       const contact = await ContactModel.query().findOne({ id: id })
 
       if (!contact) {
-        res.status(401).send({ error: "La message n'existe pas !" })
+        res.status(401).send({ error: "This message doesn't exist" })
 
         return
       }
@@ -23,7 +23,6 @@ const handler = mw({
       res.send({ result: contact })
     },
   ],
-
   DELETE: [
     validate({ query: { id: idValidator } }),
     async ({

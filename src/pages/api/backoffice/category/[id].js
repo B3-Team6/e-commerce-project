@@ -15,7 +15,7 @@ const handler = mw({
       const category = await CategoryModel.query().findOne({ id: id })
 
       if (!category) {
-        res.status(401).send({ error: "La categorie n'existe pas !" })
+        res.status(401).send({ error: "This category doesn't exist" })
 
         return
       }

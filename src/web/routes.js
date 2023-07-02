@@ -5,11 +5,22 @@ const routes = {
   legalNotice: () => "/legal-notice",
   tos: () => "/tos",
   contact: () => "/contact",
+
+  checkout: {
+    checkout: () => "/checkout",
+    payment: () => "/checkout/payment",
+    summary: () => "/checkout/summary",
+  },
+
   cart: () => "/cart",
+  forgotPassword: () => "/forgot-password",
   products: (productId) => `/product/${productId}`,
+
   api: {
     signUp: () => "/sign-up/sign-up",
     signIn: () => "/sign-in/sign-in",
+    sendMailPassword: () => `/mail/`,
+    resetPassword: (userId) => `/reset/${userId}`,
     contactUs: () => "/contact/",
     contact: {
       contacts: (contactId) => `/contact/${contactId}`,
@@ -18,6 +29,10 @@ const routes = {
     category: {
       categories: (categoryId) => `/backoffice/category/${categoryId}`,
       category: () => "/backoffice/category",
+    },
+    order: {
+      orders: (orderId) => `/backoffice/order/${orderId}`,
+      order: () => "/backoffice/order",
     },
     product: {
       products: (productId) => `/backoffice/product/${productId}`,
@@ -32,7 +47,6 @@ const routes = {
       user: () => "/backoffice/user",
     },
     cart: () => "/cart/cart",
-    order: () => "/order/order",
   },
   backoffice: {
     backoffice: () => "/BackOffice",

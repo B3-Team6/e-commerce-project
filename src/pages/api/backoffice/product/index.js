@@ -1,7 +1,7 @@
 import ProductModel from "@/api/db/models/ProductModel"
 import validate from "@/api/middlewares/validate.js"
 import mw from "@/api/mw.js"
-import { stringValidator, intValidator } from "@/validators.js"
+import { stringValidator, intValidator, imageValidator } from "@/validators.js"
 
 const handler = mw({
   GET: [
@@ -28,7 +28,7 @@ const handler = mw({
         price: intValidator.required(),
         quantity: intValidator.required(),
         slug: stringValidator.required(),
-        image: intValidator.required(),
+        image: imageValidator.required(),
       },
     }),
     async ({

@@ -4,27 +4,22 @@ import { forwardRef } from "react"
 
 // eslint-disable-next-line react/display-name
 const FormField = forwardRef((props, ref) => {
-  const { className, label, name, type, handleChange, ...otherProps } = props
+  const {
+    className,
+    label,
+    name,
+    type,
+    handleChange,
+    children,
+    ...otherProps
+  } = props
   const [field, meta] = useField({ name })
   const hasError = meta.error && meta.touched
 
   return (
     <label className={clsx("flex flex-col gap-2", className)}>
       {label ?? <span>{label}</span>}
-      {props.type === "textarea" ? (
-        <textarea
-          className={clsx(
-            "h-48 resize-none rounded-lg border-2 px-4 py-2 outline-none",
-            {
-              "focus:border-blue-600": !hasError,
-              "focus:border-red-600": hasError,
-            }
-          )}
-          {...field}
-          {...otherProps}
-          ref={ref}
-        />
-      ) : props.type === "enum" ? (
+      {type === "select" ? (
         <select
           className={clsx("rounded-lg border-2 px-4 py-2 outline-none", {
             "focus:border-blue-600": !hasError,
@@ -41,13 +36,21 @@ const FormField = forwardRef((props, ref) => {
             }
           }}
         >
-          <option value="">Select a status</option>
-          {props.enumvalues.map((value) => (
-            <option value={value} key={value}>
-              {value}
-            </option>
-          ))}
+          {children}
         </select>
+      ) : type === "textarea" ? (
+        <textarea
+          className={clsx(
+            "h-48 resize-none rounded-lg border-2 px-4 py-2 outline-none",
+            {
+              "focus:border-blue-600": !hasError,
+              "focus:border-red-600": hasError,
+            }
+          )}
+          {...field}
+          {...otherProps}
+          ref={ref}
+        />
       ) : (
         <input
           type={type || "text"}
