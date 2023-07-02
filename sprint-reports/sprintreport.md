@@ -363,10 +363,12 @@ ECA-81 | TAM William | As an ADMIN I want to be able to CREATE USER | 2
 ECA-83 | TAM William | As an ADMIN I want to be able to READ USERS | 1
 ECA-84 | TAM William | As an ADMIN I want to be able to UPDATE USERS | 3
 ECA-85 | TAM William | As an ADMIN I want to be able to DELETE USERS | 1
+ECA-126| TAM William | As a VISITOR, I want to SELECT THE LANGUAGE to translate the website | 2
 
 ### Changelogs:
 
 William(TamWilliam) #1f87b56 => Backoffice CRUD user
+William(TamWilliam) #ea85081 => Module de langage i18n (i18next) implémenté manuellement sur les pages
 
 ### Avis:
 
